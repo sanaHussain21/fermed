@@ -1,0 +1,219 @@
+Address Table:
+
+CREATE TABLE `address` (
+   `id_address` int NOT NULL AUTO_INCREMENT,
+   `street_name` varchar(64) NOT NULL,
+   `house_number` varchar(45) NOT NULL,
+   `city` varchar(64) NOT NULL,
+   `postel_code` int NOT NULL,
+   `province` varchar(64) NOT NULL,
+   `id_patient` int NOT NULL,
+   `doctor_idDoctor` int NOT NULL,
+   PRIMARY KEY (`id_address`),
+   KEY `id_patient_idx` (`id_patient`),
+   KEY `doctor_idDoctor_idx` (`doctor_idDoctor`),
+   CONSTRAINT `doctor_idDoctor` FOREIGN KEY (`doctor_idDoctor`) REFERENCES `doctor` (`id_doctor`),
+   CONSTRAINT `id_patient` FOREIGN KEY (`id_patient`) REFERENCES `patient` (`id_patient`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+Appuntamento Table:
+
+CREATE TABLE `appuntamento` (
+   `id_appuntamento` int NOT NULL AUTO_INCREMENT,
+   `time_date` datetime NOT NULL,
+   `payment` double NOT NULL,
+   `patient_id` int NOT NULL,
+   `ID_DOC` int NOT NULL,
+   PRIMARY KEY (`id_appuntamento`),
+   KEY `patient_id_idx` (`patient_id`) /*!80000 INVISIBLE */,
+   KEY `ID_DOCidx` (`ID_DOC`),
+   CONSTRAINT `ID_DOC` FOREIGN KEY (`ID_DOC`) REFERENCES `doctor` (`id_doctor`),
+   CONSTRAINT `patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`id_patient`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+Doctor Table:
+
+CREATE TABLE `doctor` (
+   `id_doctor` int NOT NULL AUTO_INCREMENT,
+   `name` varchar(64) NOT NULL,
+   `surname` varchar(64) NOT NULL,
+   `gender` varchar(20) NOT NULL,
+   `id_type_of_doctor` int NOT NULL,
+   `id_specialization` int NOT NULL,
+   `insurance_id_insurance` int NOT NULL,
+   PRIMARY KEY (`id_doctor`),
+   KEY `id_type_of_doctor_idx` (`id_type_of_doctor`),
+   KEY `id_specialization_idx` (`id_specialization`),
+   KEY `id_insurance_idx` (`insurance_id_insurance`),
+   CONSTRAINT `id_specialization` FOREIGN KEY (`id_specialization`) REFERENCES `specialization` (`id_specialization`),
+   CONSTRAINT `id_type_of_doctor` FOREIGN KEY (`id_type_of_doctor`) REFERENCES `type_of_doctor` (`id_type_of_doctor`),
+   CONSTRAINT `insurance_id_insurance` FOREIGN KEY (`insurance_id_insurance`) REFERENCES `insurance` (`id_insurance`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+Doctor_insurance Table:
+
+CREATE TABLE `doctor_insurance` (
+   `id_doctor_insurance` int NOT NULL AUTO_INCREMENT,
+   `insurance_id__insurance` int NOT NULL,
+   `id_doctor` int NOT NULL,
+   PRIMARY KEY (`id_doctor_insurance`),
+   KEY `insurance_id_insurance_idx` (`insurance_id__insurance`),
+   KEY `id_doctor_idx` (`id_doctor`),
+   CONSTRAINT `id_doctor` FOREIGN KEY (`id_doctor`) REFERENCES `doctor` (`id_doctor`),
+   CONSTRAINT `insurance_id__insurance` FOREIGN KEY (`insurance_id__insurance`) REFERENCES `insurance` (`id_insurance`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+Doctor_specialization Table:
+
+
+CREATE TABLE `doctor_specialization` (
+   `id_doctor_specialization` int NOT NULL AUTO_INCREMENT,
+   `doctor_id` int NOT NULL,
+   `specialization_id_specialization` int NOT NULL,
+   PRIMARY KEY (`id_doctor_specialization`),
+   KEY `id_doctor_idx` (`doctor_id`),
+   KEY `id_specialization_idx` (`specialization_id_specialization`),
+   CONSTRAINT `doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`id_doctor`),
+   CONSTRAINT `specialization_id_specialization` FOREIGN KEY (`specialization_id_specialization`) REFERENCES `specialization` (`id_specialization`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+Insurance Table:
+
+CREATE TABLE `insurance` (
+   `id_insurance` int NOT NULL AUTO_INCREMENT,
+   `name` varchar(64) NOT NULL,
+   `company` varchar(64) NOT NULL,
+   `type_of_insurance` varchar(64) NOT NULL,
+   PRIMARY KEY (`id_insurance`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+Medicine Table:
+
+
+CREATE TABLE `medicine` (
+   `id_medicine` int NOT NULL AUTO_INCREMENT,
+   `bar_code` int NOT NULL,
+   `name` varchar(64) NOT NULL,
+   `company` varchar(64) NOT NULL,
+   `id_type_of_medicine` int NOT NULL,
+   PRIMARY KEY (`id_medicine`),
+   KEY `id_type_of_medicine_idx` (`id_type_of_medicine`),
+   CONSTRAINT `id_type_of_medicine` FOREIGN KEY (`id_type_of_medicine`) REFERENCES `type_of_medicine` (`id_type_of_medicine`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+Opening_hour Table:
+
+CREATE TABLE `opening_hour` (
+   `id_opening_hour` int NOT NULL AUTO_INCREMENT,
+   `address_idAddress` int NOT NULL,
+   PRIMARY KEY (`id_opening_hour`),
+   KEY `address_idAddress_idx` (`address_idAddress`),
+   CONSTRAINT `address_idAddress` FOREIGN KEY (`address_idAddress`) REFERENCES `address` (`id_address`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+Patient Table:
+
+CREATE TABLE `patient` (
+   `id_patient` int NOT NULL AUTO_INCREMENT,
+   `name` varchar(64) NOT NULL,
+   `surname` varchar(64) NOT NULL,
+   `codice_fiscale` varchar(17) NOT NULL,
+   `id_insurance` int NOT NULL,
+   `telephone_number` varchar(15) NOT NULL,
+   PRIMARY KEY (`id_patient`),
+   KEY `id_insurance_idx` (`id_insurance`),
+   CONSTRAINT `id_insurance` FOREIGN KEY (`id_insurance`) REFERENCES `insurance` (`id_insurance`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+Pharmacy Table:
+
+CREATE TABLE `pharmacy` (
+   `id_pharmacy` int NOT NULL AUTO_INCREMENT,
+   `name` varchar(64) NOT NULL,
+   `id_address` int NOT NULL,
+   PRIMARY KEY (`id_pharmacy`),
+   KEY `id_address_idx` (`id_address`),
+   CONSTRAINT `id_address` FOREIGN KEY (`id_address`) REFERENCES `address` (`id_address`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+Review Table:
+
+
+CREATE TABLE `review` (
+   `id_review` int NOT NULL AUTO_INCREMENT,
+   `star` int NOT NULL,
+   `comment` varchar(255) NOT NULL,
+   `patient_id_patient` int NOT NULL,
+   `doctor_id_doctor` int NOT NULL,
+   PRIMARY KEY (`id_review`),
+   KEY `patient_id_patient_idx` (`patient_id_patient`),
+   KEY `doctor_id_doctor_idx` (`doctor_id_doctor`),
+   CONSTRAINT `doctor_id_doctor` FOREIGN KEY (`doctor_id_doctor`) REFERENCES `doctor` (`id_doctor`),
+   CONSTRAINT `patient_id_patient` FOREIGN KEY (`patient_id_patient`) REFERENCES `patient` (`id_patient`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+Specialization Table:
+
+CREATE TABLE `specialization` (
+   `id_specialization` int NOT NULL AUTO_INCREMENT,
+   `name` varchar(64) NOT NULL,
+   `code` int NOT NULL,
+   PRIMARY KEY (`id_specialization`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+Stock Table:
+
+CREATE TABLE `stock` (
+   `id_stock` int NOT NULL AUTO_INCREMENT,
+   `availibility` tinyint NOT NULL,
+   `quantity` int NOT NULL,
+   `medicine_id_medicine` int NOT NULL,
+   `pharmacy_id_pharmacy` int NOT NULL,
+   PRIMARY KEY (`id_stock`),
+   KEY `medicine_id_medicine_idx` (`medicine_id_medicine`),
+   KEY `pharmacy_id_pharmacy_idx` (`pharmacy_id_pharmacy`),
+   CONSTRAINT `medicine_id_medicine` FOREIGN KEY (`medicine_id_medicine`) REFERENCES `medicine` (`id_medicine`),
+   CONSTRAINT `pharmacy_id_pharmacy` FOREIGN KEY (`pharmacy_id_pharmacy`) REFERENCES `pharmacy` (`id_pharmacy`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+Type_of_docotr Table:
+
+
+CREATE TABLE `type_of_doctor` (
+   `id_type_of_doctor` int NOT NULL AUTO_INCREMENT,
+   `nome` varchar(255) NOT NULL,
+   `code` int NOT NULL,
+   `description` varchar(255) NOT NULL,
+   PRIMARY KEY (`id_type_of_doctor`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+Type_of_medicine Table:
+
+
+CREATE TABLE `type_of_medicine` (
+   `id_type_of_medicine` int NOT NULL AUTO_INCREMENT,
+   `name` varchar(64) NOT NULL,
+   `code` int NOT NULL,
+   PRIMARY KEY (`id_type_of_medicine`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

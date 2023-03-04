@@ -1,0 +1,95 @@
+1. -------------SEARCH BY DOCTOR NAME:--------------------
+
+SELECT d.name, d.surname, 
+       d.gender, tp.nome,
+       r.star, r.comment,
+       a.street_name, 
+	a.house_number, 
+	a.city, 
+	a.province, 
+	a.postel_code
+FROM doctor d
+LEFT JOIN type_of_doctor tp
+ON d.id_doctor = tp.id_type_of_doctor
+LEFT JOIN review r
+ON d.id_doctor = r.doctor_id_doctor
+JOIN address a
+ON d.id_doctor = a.doctor_idDoctor
+WHERE a.postel_code = '' 
+
+2.-----------------SEARCH BY MEDICINE NAME:--------------
+
+SELECT m.name, m.company, s.availibility, s.quantity, p.name,  a.street_name, a.house_number, a.city
+FROM medicine m
+JOIN stock s
+ON m.id_medicine = s.medicine_id_medicine
+JOIN pharmacy p
+ON s.pharmacy_id_pharmacy = p.id_pharmacy
+LEFT JOIN address a
+USING(id_address)
+WHERE m.name  = ''
+
+
+
+-------------SEARCH BY DOCOTR SPECIALIZATION--------------
+
+SELECT doctor.name, doctor.surname, specialization.name
+FROM  doctor
+LEFT JOIN doctor_specialization
+ON doctor.id_doctor = doctor_specialization.doctor_id
+LEFT JOIN specialization
+ON specialization.id_specialization = doctor_specialization.specialization_id_specialization
+WHERE specialization.name = ''
+
+
+
+-------SEARCH BY POSTEL CODE-----------
+
+SELECT d.name, d.surname, a.postel_code, a.street_name, a.house_number, a.city
+FROM doctor d
+JOIN address a
+ON d.id_doctor = a.doctor_idDoctor
+WHERE a.postel_code = ''
+
+----------SEARCH BY DOCTOR SPECIALIZATION AND POSTEL CODE---------------
+
+
+SELECT doctor.name, doctor.surname, specialization.name, address.street_name, address.house_number, address.city,
+       address.postel_code
+FROM  doctor
+LEFT JOIN doctor_specialization
+ON doctor.id_doctor = doctor_specialization.doctor_id
+LEFT JOIN specialization
+ON specialization.id_specialization = doctor_specialization.specialization_id_specialization
+JOIN address 
+ON doctor.id_doctor = address.doctor_idDoctor
+WHERE specialization.name = ''
+AND  address.postel_code  = ''
+
+
+
+
+------------GET DOCTOR APPUNTAMENTI WITH PATIENT-------------
+
+SELECT d.name, d.surname, opening_hour.day_of_week, patient.name , patient.surname
+FROM doctor d
+JOIN appuntamento ap
+ON d.id_doctor = ap.ID_DOC
+JOIN opening_hour
+ON d.id_doctor = opening_hour.DOCTOR_ID_DOC
+JOIN patient
+ON ap.id_appuntamento = ap.patient_id
+WHERE d.name = ''
+
+-----------GET PATIENT APPUMENTI "LIST"-------------
+
+SELECT d.name, d.surname, opening_hour.day_of_week, patient.name , patient.surname
+FROM patient
+JOIN appuntamento ap
+ON ap.id_appuntamento = ap.patient_id
+JOIN opening_hour
+ON d.id_doctor = opening_hour.DOCTOR_ID_DOC
+LEFT JOIN doctor d
+ON d.id_doctor = ap.ID_DOC
+WHERE patient.name = ''
+

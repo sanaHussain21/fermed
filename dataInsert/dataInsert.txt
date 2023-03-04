@@ -1,0 +1,102 @@
+1)- INSERTING DATA INTO MEDICINE:
+
+INSERT INTO medicine (name, company, EAN, id_type_of_medicine)
+VALUES (?, ?, ?, ?)
+
+
+
+2)-INSERTING DATA INTO  DOCTOR:
+
+INSERT INTO  doctor(name, surname, gender, id_type_of_doctor, insurance_id_insurance )
+VALUES (?, ?, ?, ?, ?)
+
+
+
+3)-INSERTING DATA INTO  PHARMACY:
+
+INSERT INTO pharmacy(name, id_address)
+VALUES(?, ?)
+
+
+
+4)- INSERTING DATA INTO  ADDRESSS:
+
+INSERT INTO address(street_name, house_number, city, postel_code, province, id_patient, doctor_idDoctor)
+VALUES (?, ? ,?, ? ,? ,? ,?)
+
+
+
+5)-INSERTING DATA INTO  PATIENT VALUES:
+
+INSERT INTO patient(name, surname, codice_fiscale, id_insurance, telephone_number, username, password)
+VALUES (?,?,?,?,?,?,?)
+
+
+
+6)-INSERTING DATA INTO  opening-hour
+
+INSERT INTO opening_hour(address_idAddress, DOCTOR_ID_DOC, day_of_week, open_time, close_time)
+VALUES (?,?,?,?,?)
+
+
+
+7) INSERT DOCTOR_SPECIALIZATION
+
+INSERT INTO doctor_specialization(doctor_id, specialization_id_specialization)
+VALUES (? , ?);
+ 
+
+
+8) INSERT SPECIALIZATION
+
+INSERT INTO specialization (name, code)
+VALUES (? ,?)
+
+
+
+9) INSERT APPUNTAMENTO
+
+INSERT INTO appuntamento(time_date, payment, patient_id, ID_DOC, IsBeingNotified, NotifiedByEmail, NotifiedBySMS)
+VALUES (?,?,?,?,?,?,?)
+
+
+
+10)INSERT DOCTOR_INSURANCE
+
+INSERT INTO doctor_insurance(insurance_id__insurance, id_doctor)
+VALUES (?,?)
+
+
+
+11) INSERT INSURANCE
+
+INSERT INTO insurance(name, company, type_of_insurance)
+VALUES (?,?, ?)
+
+
+
+12)INSERT REVIEW
+
+INSERT INTO review(star, comment, patient_id_patient, doctor_id_doctor)
+VALUES (?,? , ?, ?)
+
+
+
+13)INSERT INTO TYPE_OF_DOCTOR
+
+INSERT INTO type_of_doctor(nome, code, description)
+VALUES (?,? ,?)
+
+
+
+14)INSERT INTO STOCK
+
+INSERT INTO stock(availibility, quantity, medicine_id_medicine, pharmacy_id_pharmacy)
+VALUES (?,? ,?, ?)
+
+
+
+15)INSERT INTO TYPE_OF_MEDICINE
+
+INSERT INTO type_of_medicine(name, code)
+VALUES (?,?)

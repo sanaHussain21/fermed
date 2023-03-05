@@ -1,0 +1,135 @@
+1) UPDATING ADDRESS TABLE:
+UPDATE address
+SET street_name = ?, 
+    house_number = ?,
+    city = ?, 
+    postel_code = ?,
+    province = ?
+WHERE id_address = ?
+
+
+
+
+2) UPDATING APPUNTAMENTO TABLE:
+UPDATE appuntamento
+SET time_date = ?, 
+    payment = ?,
+    IsBeingNotified = ?, 
+    NotifiedByEmail = ?,
+    NotifiedBySMS = ?
+WHERE id_appuntamento = ?
+
+
+
+3) UPDATING DOCTOR TABLE:
+UPDATE doctor
+SET name = ?, 
+    surname = ?,
+    gender = ? 
+WHERE id_doctor = ?
+
+
+
+
+4)UPDATING DOCTOR_INSURANCE TABLE:
+//TO BE CHECKED
+UPDATE doctor_insurance
+SET id_doctor_insurance = ?
+WHERE id_doctor_insurance = ?
+
+
+
+5)UPDATING INSURANCE TABLE:
+UPDATE insurance
+SET name = ?, 
+    company = ?
+WHERE id_insurance = ?
+
+
+
+
+6)UPADTING MEDICINE TABLE:
+UPDATE medicine
+SET name = ?, 
+    company = ?,
+     EAN = ?
+WHERE id_medicine = ?
+
+
+
+7)UPDATING OPENING HOUR TABLE:
+UPDATE opening_hour
+SET day_of_week = ?, 
+    open_time = ?,
+     close_time = ?
+WHERE id_opening_hour = ?
+
+
+
+
+8)UPDATING PATIENT TABLE:
+UPDATE patient
+SET name = ?, 
+    surname = ?,
+     codice_fiscale = ?,
+     telephone_number = ?,
+     username = ?,
+     password = ?
+WHERE id_patient = ?
+
+
+
+9)UPDATING PHARMACY TABLE:
+UPDATE pharmacy
+SET name = ?, 
+    id_address = ?
+WHERE id_pharmacy = ?
+
+
+
+10)UPDATING REVIEW TABLE:
+UPDATE review
+SET star = ?, 
+    comment = ?
+WHERE id_review = ?
+
+
+
+
+11)UPDATING SPECIALIZATION TABLE:
+UPDATE specailization
+SET name  = ?, 
+    code = ?
+WHERE id_specialization = ?
+
+
+
+12)UPDATING STOCK TABLE:
+UPDATE stock
+SET availibility  = ?, 
+    quantity = ?
+WHERE id_stock = ?
+
+
+
+13)UPDATING TYOE OF DOCTOR TABLE:
+UPDATE type_of_doctor
+SET name  = ?, 
+    code = ?,
+     description = ?
+WHERE id_type_of_doctor = ?
+
+
+
+14)UPDATING TYPE OF MEDICINE TABLE.
+UPDATE type_of_medicine
+SET name  = ?, 
+    code = ?
+WHERE id_type_of_medicine = ?
+
+
+
+15)UPDATING DOCTOR SPECIALIZATIONB TABLE:
+UPDATE doctor_specialization
+SET id_doctor_specialization = ?
+WHERE id_doctor_specialization = ?

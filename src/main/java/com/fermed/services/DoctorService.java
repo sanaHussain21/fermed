@@ -1,4 +1,7 @@
 package com.fermed.services;
 
-public class DoctorService {
+import org.springframework.stereotype.Service;
+
+@Service
+public interface DoctorService {
 }

@@ -7,17 +7,15 @@ import org.springframework.stereotype.Service;
 
 @Data
 @Service
-public class DoctorServiceImpl  {
-   /*
+public class DoctorServiceImpl implements DoctorService  {
+
     @Override
     public DoctorDTO createDoctor(DoctorDTO doctorDTO) {
-        return null;
+        return null; //must be checked
     }
 
     @Override
-    public DoctorDTO getDoctorDTO() {
-        return null;
+    public DoctorDTO getDoctorById(Integer id_doctor) {
+        return null; //must be checked
     }
-
-    */
 }

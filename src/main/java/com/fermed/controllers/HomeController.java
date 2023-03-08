@@ -27,8 +27,8 @@ public class HomeController {
 
     //Spring Boot REST API a Doctor
     @GetMapping("/doctor")
-    public ResponseEntity<DoctorDTO> getDoctor(){
-        DoctorDTO doctorDTO = doctorFacade.getDoctorDTO();
+    public ResponseEntity<DoctorDTO> getDoctorById(@PathVariable("") Integer id_doctor){
+        DoctorDTO doctorDTO = doctorFacade.getDoctorById(id_doctor); //talking with facade
         return new ResponseEntity<>(doctorDTO, HttpStatus.OK);
     }
 

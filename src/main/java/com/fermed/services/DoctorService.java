@@ -1,15 +1,13 @@
 package com.fermed.services;
 
-import com.fermed.controllers.DoctorDTO;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
+import com.fermed.controllers.Doctor;
 
 
 public interface DoctorService  {
 
 
-    DoctorDTO createDoctor(DoctorDTO doctorDTO);
-    DoctorDTO getDoctorById(Integer id_doctor);
+    Doctor createDoctor(Doctor doctor);
+    Doctor getDoctorById(Integer id_doctor);
+
 
 }

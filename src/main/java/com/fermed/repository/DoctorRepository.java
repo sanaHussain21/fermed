@@ -1,6 +1,10 @@
 package com.fermed.repository;
 
-//public interface DoctorRepository extends JpaRepository<DoctorModel, Long>{
+import com.fermed.model.Doctor;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-  //  public DoctorModel findByID(Integer id_doctor);
-//}
+
+public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
+
+  public Doctor findById(int id_doctor);
+}

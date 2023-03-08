@@ -1,14 +1,10 @@
 package com.fermed.facades;
 
-import com.fermed.controllers.Doctor;
-import com.fermed.controllers.HomeController;
-import com.fermed.serviceImpl.DoctorServiceImpl;
+import com.fermed.model.Doctor;
 import com.fermed.services.DoctorService;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
-import javax.print.Doc;
 
 @Data
 public class DoctorFacade  implements DoctorService{
@@ -19,10 +15,11 @@ public class DoctorFacade  implements DoctorService{
 
    @Override
    public Doctor createDoctor(Doctor doctor) {
-      if(){
+        if(doctor != null){
 
-      }
-      return null;
+         
+        }
+      return doctor;
    }
 
    @Override

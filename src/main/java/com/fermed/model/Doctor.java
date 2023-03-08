@@ -1,4 +1,4 @@
 package com.fermed.model;
 
-public class DoctorModel {
+public class Doctor {
 }

@@ -1,8 +1,6 @@
 package com.fermed;
 
-import com.fermed.controllers.Doctor;
 import com.fermed.facades.DoctorFacade;
-import com.fermed.services.DoctorService;
 import lombok.Data;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +13,8 @@ public class FermedApplication {
 		SpringApplication.run(FermedApplication.class, args);
 		System.out.println("Hello Papa");
 
-
+		DoctorFacade doctorFacade = new DoctorFacade();
+		System.out.println("Calling doctorFacade from main"+ doctorFacade);
 	}
 
 

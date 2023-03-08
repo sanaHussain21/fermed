@@ -2,6 +2,7 @@ package com.fermed.controllers;
 
 import com.fermed.facades.DoctorFaced;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/") //with (/) we will access the home controller
 public class HomeController {
 
+    @Autowired
     private DoctorFaced doctorFaced;
     //Spring boot REST API
     @GetMapping

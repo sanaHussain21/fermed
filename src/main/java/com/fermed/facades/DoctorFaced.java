@@ -2,13 +2,9 @@ package com.fermed.facades;
 
 import com.fermed.controllers.DoctorDTO;
 
-public class DoctorFaced {
+public interface DoctorFaced {
  //this class must be checked
-    public DoctorDTO createDoctor(DoctorDTO doctor) {
-        return doctor;
-    }
+    public DoctorDTO createDoctor(DoctorDTO doctor);
 
-    public DoctorDTO getDoctor() {
-        return getDoctor();
-    }
+    public DoctorDTO getDoctor();
 }

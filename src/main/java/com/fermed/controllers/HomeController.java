@@ -1,6 +1,7 @@
 package com.fermed.controllers;
 
-import com.fermed.facades.DoctorFaced;
+import com.fermed.facades.DoctorFacade;
+import com.fermed.services.DoctorService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,20 +13,23 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/") //with (/) we will access the home controller
 public class HomeController {
 
-    @Autowired
-    private DoctorFaced doctorFaced;
+
+    private DoctorFacade doctorFacade;
+
+
     //Spring boot REST API
-    @GetMapping
-    public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctor){
-        DoctorDTO savedDoctor = doctorFaced.createDoctor(doctor);
+
+    @PostMapping
+        public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctorDTO){
+        DoctorDTO savedDoctor = doctorFacade.createDoctor(doctorDTO);
         return new ResponseEntity<>(savedDoctor, HttpStatus.CREATED);
     }
 
     //Spring Boot REST API a Doctor
     @GetMapping("/doctor")
-    public ResponseEntity<DoctorDTO> getUDoctor(){
-        DoctorDTO doctor = doctorFaced.getDoctor();
-        return new ResponseEntity<>(doctor, HttpStatus.OK);
+    public ResponseEntity<DoctorDTO> getDoctor(){
+        DoctorDTO doctorDTO = doctorFacade.getDoctorDTO();
+        return new ResponseEntity<>(doctorDTO, HttpStatus.OK);
     }
 
 

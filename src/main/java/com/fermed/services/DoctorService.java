@@ -1,8 +1,13 @@
 package com.fermed.services;
 
+import com.fermed.controllers.DoctorDTO;
 import org.springframework.stereotype.Service;
 
-@Service
-public interface DoctorService {
+
+public interface DoctorService  {
+
+
+    DoctorDTO createDoctor(DoctorDTO doctorDTO);
+    DoctorDTO getDoctorDTO();
 
 }

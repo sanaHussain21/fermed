@@ -11,7 +11,7 @@ import java.util.List;
 public interface DoctorService  {
 
     //creating doctor
-  public   Doctor createDoctor(Doctor doctor);
+   public   Doctor createDoctor(Doctor doctor);
 
 
     //getting user by id

@@ -21,6 +21,9 @@ public class DoctorFacade  implements DoctorService{
    public Doctor createDoctor(Doctor doctor) {
       //to check whether the user is already in the database or not
       //Doctor doctorCheck = this.doctorRepository.findById(doctor)
+      //VADIZATION OF DATA
+      //DTO TO DATA
+
       return doctor;
    }
 

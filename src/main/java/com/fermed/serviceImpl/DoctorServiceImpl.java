@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
 @Service
 public class DoctorServiceImpl  implements DoctorService {
 
@@ -52,6 +51,7 @@ public class DoctorServiceImpl  implements DoctorService {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             //it will read one by one all raws from the doctor's table
+            //we will check this in the broweser to get all doctors data
             while(resultSet.next()){
                 Doctor doctor = new Doctor();
                 doctor.setId_doctor(resultSet.getInt(1));
@@ -60,11 +60,11 @@ public class DoctorServiceImpl  implements DoctorService {
                 doctor.setGender(resultSet.getString(4));
                 doctor.setEmail(resultSet.getString(5));
                 doctor.setPassword(resultSet.getString(6));
+                doctorlist.add(doctor);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return null;
+        return doctorlist;
     }
 }

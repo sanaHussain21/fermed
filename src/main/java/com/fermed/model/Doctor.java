@@ -3,7 +3,10 @@ package com.fermed.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import javax.persistence.Entity;
+
 @Data
+@Entity
 public class Doctor {
     int id_doctor;
     String name;

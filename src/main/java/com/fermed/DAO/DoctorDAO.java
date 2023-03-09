@@ -1,5 +1,6 @@
 package com.fermed.DAO;
 
+import lombok.Data;
 import org.springframework.boot.autoconfigure.cassandra.CassandraProperties;
 
 import java.sql.Connection;
@@ -7,6 +8,7 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+@Data
 public class DoctorDAO {
     //DoctorDAO will take the data from the database
 

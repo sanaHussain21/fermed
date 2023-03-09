@@ -6,6 +6,7 @@ import com.fermed.services.DoctorService;
 import lombok.Data;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Data
 public class DoctorFacade  implements DoctorService{
@@ -18,15 +19,18 @@ public class DoctorFacade  implements DoctorService{
 
    @Override
    public Doctor createDoctor(Doctor doctor) {
-   //to check whether the user is already in the database or not
+      //to check whether the user is already in the database or not
       //Doctor doctorCheck = this.doctorRepository.findById(doctor)
-
-
       return doctor;
    }
 
    @Override
    public Doctor getDoctorById(Integer id_doctor) {
+      return null;
+   }
+
+   @Override
+   public List<Doctor> getDoctorData() {
       return null;
    }
 

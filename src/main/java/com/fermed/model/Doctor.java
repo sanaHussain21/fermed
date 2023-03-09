@@ -8,4 +8,14 @@ public class Doctor {
     String name;
     String surname;
     String gender;
+
+
+    @Override
+    public String toString(){
+        return "Doctor [id_doctor=" + id_doctor +", name=" + name + ", surname=" + surname +", gender=" + gender + "]";
+    }
+
+
+
+
 }

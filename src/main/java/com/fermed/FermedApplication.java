@@ -4,17 +4,18 @@ import com.fermed.facades.DoctorFacade;
 import lombok.Data;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @Data
-@SpringBootApplication
+
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class FermedApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FermedApplication.class, args);
-		System.out.println("Hello Papa");
+		System.out.println("Hello Shahab");
 
-		DoctorFacade doctorFacade = new DoctorFacade();
-		System.out.println("Calling doctorFacade from main"+ doctorFacade);
+
 	}
 
 

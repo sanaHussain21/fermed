@@ -1,6 +1,7 @@
 package com.fermed.serviceImpl;
 
 import com.fermed.DAO.DoctorDAO;
+import com.fermed.DTO.DoctorDTO;
 import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
 import com.fermed.services.DoctorService;
@@ -15,27 +16,45 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.List;
 
 @Data
 @Service
 public class DoctorServiceImpl  implements DoctorService {
 
+    @Autowired
     private DoctorRepository doctorRepository;
-    //saving the created doctor
-    @Override
-    public Doctor createDoctor(Doctor doctor) {
-        return doctorRepository.save(doctor);
-    }
+
 
     @Override
-    public Doctor getDoctorById(Integer id_doctor) {
+    public DoctorDTO createDoctor(DoctorDTO doctor) {
+        Doctor doctor1 = this.dtoToDoctor(doctorDTO);
+        this.doctorRepository.save(doctor);
         return null;
     }
 
-    //list of doctors
+
+
+
+
+
+
+
+
+
+
+    @Override
+    public DoctorDTO getDoctorById(Integer id_doctor) {
+        return null;
+    }
+
+
+
+
+    //list of doctors already implemented
     @Autowired
-    static List<Doctor> doctorlist = new ArrayList<>();
+    static List<DoctorDTO> doctorDTOList = new ArrayList<>();
 
     Connection connection;
     public DoctorServiceImpl() throws SQLException
@@ -45,7 +64,7 @@ public class DoctorServiceImpl  implements DoctorService {
 
     //getting the data
     @Override
-    public List<Doctor> getDoctorData() {
+    public List<DoctorDTO> getAllDoctors() {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM doctor LIMIT 5");
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -53,18 +72,48 @@ public class DoctorServiceImpl  implements DoctorService {
             //it will read one by one all raws from the doctor's table
             //we will check this in the broweser to get all doctors data
             while(resultSet.next()){
-                Doctor doctor = new Doctor();
-                doctor.setId_doctor(resultSet.getInt(1));
-                doctor.setName(resultSet.getString(2));
-                doctor.setSurname(resultSet.getString(3));
-                doctor.setGender(resultSet.getString(4));
-                doctor.setEmail(resultSet.getString(5));
-                doctor.setPassword(resultSet.getString(6));
-                doctorlist.add(doctor);
+                DoctorDTO doctorDTO = new DoctorDTO();
+                doctorDTO.setId_doctor(resultSet.getInt(1));
+                doctorDTO.setName(resultSet.getString(2));
+                doctorDTO.setSurname(resultSet.getString(3));
+                doctorDTO.setGender(resultSet.getString(4));
+                doctorDTO.setEmail(resultSet.getString(5));
+                doctorDTO.setPassword(resultSet.getString(6));
+                doctorDTOList.add(doctorDTO);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return doctorlist;
+        return doctorDTOList;
     }
+
+
+    //converting dto to user
+    private Doctor dtoToDoctor(DoctorDTO doctorDTO)
+    {
+        Doctor doctor = new Doctor();
+        doctor.setId_doctor(doctorDTO.getId_doctor());
+        doctor.setName(doctorDTO.getName());
+        doctor.setSurname(doctorDTO.getSurname());
+        doctor.setGender(doctorDTO.getGender());
+        doctor.setEmail(doctorDTO.getEmail());
+        doctor.setPassword(doctorDTO.getPassword());
+        doctor.setSurname(doctorDTO.getSurname());
+        return  doctor;
+    }
+
+    //converting dto to user
+    public DoctorDTO doctorToDto(Doctor doctor)
+    {
+      DoctorDTO doctorDTO = new DoctorDTO();
+      doctorDTO.setId_doctor(doctor.getId_doctor());
+      doctorDTO.setName(doctor.getName());
+      doctorDTO.setSurname(doctor.getSurname());
+      doctorDTO.setGender(doctor.getGender());
+      doctorDTO.setEmail(doctor.getEmail());
+      doctorDTO.setPassword(doctor.getPassword());
+      doctorDTO.setUsername(doctor.getUsername());
+      return  doctorDTO;
+    }
+
 }

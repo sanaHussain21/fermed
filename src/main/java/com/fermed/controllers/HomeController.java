@@ -1,5 +1,6 @@
 package com.fermed.controllers;
 
+import com.fermed.DTO.DoctorDTO;
 import com.fermed.facades.DoctorFacade;
 import com.fermed.model.Doctor;
 import com.fermed.services.DoctorService;
@@ -25,24 +26,23 @@ public class HomeController {
 
     //Spring boot REST API
 
-    @PostMapping
-        public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor){
-        Doctor savedDoctor = doctorFacade.createDoctor(doctor);
+    @PostMapping("/")
+        public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctor){
+        DoctorDTO savedDoctor = doctorFacade.createDoctor(doctor);
         return new ResponseEntity<>(savedDoctor, HttpStatus.CREATED);
     }
 
     //Spring Boot REST API a Doctor
-    @GetMapping("/doctor")
-    public ResponseEntity<Doctor> getDoctorById(@PathVariable("") Integer id_doctor){
-            Doctor doctor = doctorFacade.getDoctorById(id_doctor); //talking with facade
+    @GetMapping("/doctorById")
+    public ResponseEntity<DoctorDTO> getDoctorById(@PathVariable("") Integer id_doctor){
+        DoctorDTO doctor = doctorFacade.getDoctorById(id_doctor); //talking with facade
             return new ResponseEntity<>(doctor, HttpStatus.OK);
     }
 
         //creating API to return  the doctor list
         @GetMapping("/doctorData")
-        public List<Doctor> getDoctor(){
-
-        return this.doctorService.getDoctorData();
+        public List<DoctorDTO> getAllDoctors(){
+        return this.doctorService.getAllDoctors();
         }
 
     }

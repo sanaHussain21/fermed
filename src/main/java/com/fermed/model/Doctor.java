@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 @Data
 @Entity
 public class Doctor {
+    //doctor entity
     int id_doctor;
     String name;
     String surname;

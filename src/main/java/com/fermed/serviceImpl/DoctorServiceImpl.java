@@ -42,7 +42,8 @@ public class DoctorServiceImpl  implements DoctorService {
     @Override
     public DoctorDTO getDoctorById(Integer id_doctor)
     {
-        return null;
+        Doctor doctor =this.doctorRepository.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException("Doctor", "id_doctor", id_doctor));
+        return this.doctorToDto(doctor);
     }
 
 
@@ -51,13 +52,22 @@ public class DoctorServiceImpl  implements DoctorService {
     {
         //we created this exception because we give a id that is not present in the database, it will throw this exception
         Doctor doctor = this.doctorRepository.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException("Doctor", "id_doctor", id_doctor));
-        return null;
+        doctor.setName(doctorDTO.getName());
+        doctor.setSurname(doctorDTO.getSurname());
+        doctor.setEmail(doctor.getEmail());
+        doctor.setPassword(doctor.getPassword());
+        doctor.setUsername(doctor.getUsername());
+        Doctor updatedDoctor = this.doctorRepository.save(doctor);
+       DoctorDTO doctorDTO1 =  this.doctorToDto(updatedDoctor);
+        return doctorDTO1;
     }
 
 
     @Override
     public DoctorDTO deleteDoctor(Integer id_doctor)
     {
+        //we handle the exception, in case we wanna deleted doctor_id , wehich is not present in the database, at that case it is gonna throw this exception
+        this.doctorRepository.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException("Doctor", "id_doctor", id_doctor));
         return null;
     }
 

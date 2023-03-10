@@ -21,7 +21,7 @@ public class DoctorDAO {
         if (connection != null){
             return connection;
         }else{
-            String driver = "com.mysql.jdbc.Driver";
+            String driver = "com.mysql.cj.jdbc.Driver";
             String url = "jdbc:mysql://localhost:3306/exam?serverTimezone=UTC";
             String username = "root";
             String password = "Sana_2001%%%";

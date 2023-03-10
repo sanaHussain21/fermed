@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/") //with (/) we will access the home controller
+@RequestMapping("/doctor") //with (/) we will access the home controller
 public class HomeController {
 
 
@@ -24,12 +24,17 @@ public class HomeController {
     @Autowired
     private DoctorService doctorService;
 
+
+
     //Spring boot REST API
 
+    //POST CREATING DOCTOR
     @PostMapping("/")
-        public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctor){
-        DoctorDTO savedDoctor = doctorFacade.createDoctor(doctor);
+        public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctorDTO){
+        DoctorDTO savedDoctor = doctorFacade.createDoctor(doctorDTO);
         return new ResponseEntity<>(savedDoctor, HttpStatus.CREATED);
+
+
     }
 
     //Spring Boot REST API a Doctor
@@ -40,8 +45,8 @@ public class HomeController {
     }
 
         //creating API to return  the doctor list
-        @GetMapping("/doctorData")
-        public List<DoctorDTO> getAllDoctors(){
+        @GetMapping("/doctorList")
+        public List<Doctor> getAllDoctors(){
         return this.doctorService.getAllDoctors();
         }
 

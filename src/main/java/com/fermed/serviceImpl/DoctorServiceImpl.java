@@ -6,25 +6,22 @@ import com.fermed.exception.ResourceNotFoundException;
 import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
 import com.fermed.services.DoctorService;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.print.Doc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.List;
 
 @Data
 @Service
 public class DoctorServiceImpl  implements DoctorService {
 
-    @Autowired
+
     private DoctorRepository doctorRepository;
 
 
@@ -64,17 +61,18 @@ public class DoctorServiceImpl  implements DoctorService {
 
 
     @Override
-    public DoctorDTO deleteDoctor(Integer id_doctor)
+    public void deleteDoctor(Integer id_doctor)
     {
-        //we handle the exception, in case we wanna deleted doctor_id , wehich is not present in the database, at that case it is gonna throw this exception
-        this.doctorRepository.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException("Doctor", "id_doctor", id_doctor));
-        return null;
+        //we handle the exception, in case we wanna deleted doctor_id , which is not present in the database, at that case it is gonna throw this exception
+       Doctor doctor =  this.doctorRepository.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException("Doctor", "id_doctor", id_doctor));
+       this.doctorRepository.delete(doctor);
+
     }
 
 
     //list of doctors already implemented
     @Autowired
-    static List<DoctorDTO> doctorDTOList = new ArrayList<>();
+    static List<Doctor> doctorList = new ArrayList<>();
 
     Connection connection;
     public DoctorServiceImpl() throws SQLException
@@ -84,28 +82,28 @@ public class DoctorServiceImpl  implements DoctorService {
 
     //getting the data
     @Override
-    public List<DoctorDTO> getAllDoctors() {
+    public List<Doctor> getAllDoctors() {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM doctor LIMIT 5");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM doctor");
             ResultSet resultSet = preparedStatement.executeQuery();
 
             //it will read one by one all raws from the doctor's table
             //we will check this in the broweser to get all doctors data
             while(resultSet.next()){
-                DoctorDTO doctorDTO = new DoctorDTO();
-                doctorDTO.setId_doctor(resultSet.getInt(1));
-                doctorDTO.setName(resultSet.getString(2));
-                doctorDTO.setSurname(resultSet.getString(3));
-                doctorDTO.setGender(resultSet.getString(4));
-                doctorDTO.setEmail(resultSet.getString(5));
-                doctorDTO.setPassword(resultSet.getString(6));
-                doctorDTOList.add(doctorDTO);
+                Doctor doctor= new Doctor();
+                doctor.setId_doctor(resultSet.getInt(1));
+                doctor.setName(resultSet.getString(2));
+                doctor.setSurname(resultSet.getString(3));
+                doctor.setGender(resultSet.getString(4));
+                doctor.setEmail(resultSet.getString(5));
+                doctor.setPassword(resultSet.getString(6));
+                doctorList.add(doctor);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return doctorDTOList;
-    }
+        return doctorList;
+}
 
 
     //converting dto to user

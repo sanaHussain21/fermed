@@ -19,9 +19,8 @@ public class DoctorFacade  implements DoctorService{
 
 
    @Override
-   public Doctor createDoctor(Doctor doctor) {
-     //VALIDATION OF THE DATA
-      return doctor;
+   public DoctorDTO createDoctor(DoctorDTO doctor) {
+      return null;
    }
 
    @Override
@@ -30,11 +29,19 @@ public class DoctorFacade  implements DoctorService{
    }
 
    @Override
-   public List<Doctor> getDoctorData() {
+   public DoctorDTO updateDoctor(DoctorDTO doctorDTO, Integer id_doctor) {
       return null;
    }
 
+   @Override
+   public void deleteDoctor(Integer id_doctor) {
 
+   }
+
+   @Override
+   public List<Doctor> getAllDoctors() {
+      return null;
+   }
 }
 
 

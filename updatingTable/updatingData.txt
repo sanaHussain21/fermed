@@ -25,7 +25,6 @@ WHERE id_appuntamento = ?
 UPDATE doctor
 SET name = ?, 
     surname = ?,
-    gender = ? 
 WHERE id_doctor = ?
 
 

@@ -20,8 +20,16 @@ public interface DoctorService  {
     //getting user by id
     public DoctorDTO getDoctorById(Integer id_doctor);
 
+    //update doctor
+    public DoctorDTO updateDoctor(DoctorDTO doctorDTO, Integer id_doctor);
 
-    //getting all doctors
+
+    //delete doctor
+    public DoctorDTO deleteDoctor(Integer id_doctor);
+
+    //getting all doctors already done
      public List<DoctorDTO> getAllDoctors();
+
+
 
 }

@@ -2,6 +2,7 @@ package com.fermed.serviceImpl;
 
 import com.fermed.DAO.DoctorDAO;
 import com.fermed.DTO.DoctorDTO;
+import com.fermed.exception.ResourceNotFoundException;
 import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
 import com.fermed.services.DoctorService;
@@ -27,29 +28,38 @@ public class DoctorServiceImpl  implements DoctorService {
     private DoctorRepository doctorRepository;
 
 
+    //creating doctor
     @Override
-    public DoctorDTO createDoctor(DoctorDTO doctor) {
-        Doctor doctor1 = this.dtoToDoctor(doctorDTO);
-        this.doctorRepository.save(doctor);
+    public DoctorDTO createDoctor(DoctorDTO doctorDTO)
+    {
+        Doctor doctor = this.dtoToDoctor(doctorDTO);
+        Doctor savedDoctor = this.doctorRepository.save(doctor);
+        return this.doctorToDto(savedDoctor);
+    }
+
+
+    //getting doctor by id
+    @Override
+    public DoctorDTO getDoctorById(Integer id_doctor)
+    {
         return null;
     }
 
 
-
-
-
-
-
-
-
-
-
     @Override
-    public DoctorDTO getDoctorById(Integer id_doctor) {
+    public DoctorDTO updateDoctor(DoctorDTO doctorDTO, Integer id_doctor)
+    {
+        //we created this exception because we give a id that is not present in the database, it will throw this exception
+        Doctor doctor = this.doctorRepository.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException("Doctor", "id_doctor", id_doctor));
         return null;
     }
 
 
+    @Override
+    public DoctorDTO deleteDoctor(Integer id_doctor)
+    {
+        return null;
+    }
 
 
     //list of doctors already implemented
@@ -89,7 +99,7 @@ public class DoctorServiceImpl  implements DoctorService {
 
 
     //converting dto to user
-    private Doctor dtoToDoctor(DoctorDTO doctorDTO)
+    public Doctor dtoToDoctor(DoctorDTO doctorDTO)
     {
         Doctor doctor = new Doctor();
         doctor.setId_doctor(doctorDTO.getId_doctor());
@@ -102,7 +112,7 @@ public class DoctorServiceImpl  implements DoctorService {
         return  doctor;
     }
 
-    //converting dto to user
+    //converting user to dto
     public DoctorDTO doctorToDto(Doctor doctor)
     {
       DoctorDTO doctorDTO = new DoctorDTO();

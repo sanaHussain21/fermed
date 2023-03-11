@@ -19,7 +19,8 @@ public class DoctorFacade  implements DoctorService{
 
 
    @Override
-   public DoctorDTO createDoctor(DoctorDTO doctor) {
+   public DoctorDTO createDoctor(DoctorDTO doctorDTO) {
+
       return null;
    }
 

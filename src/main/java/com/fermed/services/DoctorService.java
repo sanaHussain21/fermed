@@ -14,14 +14,14 @@ import java.util.List;
 public interface DoctorService  {
 
     //creating doctor
-    DoctorDTO createDoctor(DoctorDTO doctor);
+  public  DoctorDTO createDoctor(DoctorDTO doctor);
 
 
     //getting user by id
-     DoctorDTO getDoctorById(Integer id_doctor);
+    public DoctorDTO getDoctorById(Integer id_doctor);
 
     //update doctor
-     DoctorDTO updateDoctor(DoctorDTO doctorDTO, Integer id_doctor);
+     public DoctorDTO updateDoctor(DoctorDTO doctorDTO, Integer id_doctor);
 
 
     //delete doctor

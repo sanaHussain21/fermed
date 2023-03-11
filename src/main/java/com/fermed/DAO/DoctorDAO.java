@@ -22,7 +22,7 @@ public class DoctorDAO {
             return connection;
         }else{
             String driver = "com.mysql.cj.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3306/exam?serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:3306/fermed?serverTimezone=UTC";
             String username = "root";
             String password = "Sana_2001%%%";
 

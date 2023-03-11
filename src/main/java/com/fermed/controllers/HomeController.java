@@ -31,7 +31,7 @@ public class HomeController {
     //Spring boot REST API
 
     //POST CREATING DOCTOR
-    @PostMapping("/createDoctor")
+    @PostMapping("/")
         public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctorDTO){
         DoctorDTO savedDoctor = this.doctorService.createDoctor(doctorDTO);
         return new ResponseEntity<>(savedDoctor, HttpStatus.CREATED);
@@ -40,10 +40,10 @@ public class HomeController {
     }
 
     //Spring Boot REST API a Doctor
-    @GetMapping("/doctorById")
-    public ResponseEntity<DoctorDTO> getDoctorById(@PathVariable("") Integer id_doctor){
-        DoctorDTO doctor = this.doctorFacade.getDoctorById(id_doctor); //talking with facade
-            return new ResponseEntity<>(doctor, HttpStatus.OK);
+    @GetMapping("/{id_doctor}")
+    public ResponseEntity<DoctorDTO> getDoctorById(@PathVariable("id_doctor") Integer id_doctor){
+       return ResponseEntity.ok(this.doctorService.getDoctorById(id_doctor)); //talking with facade
+
     }
 
         //creating API to return  the doctor list
@@ -64,6 +64,7 @@ public class HomeController {
     @DeleteMapping("/{doctorId}")
         public ResponseEntity<ApiResponse> deleteDoctor(@PathVariable("doctorId") Integer doctorId)
         {
+            this.deleteDoctor(doctorId);
             ResponseEntity<?> deleteDoctor = this.deleteDoctor(doctorId);
             return new ResponseEntity<ApiResponse>(new ApiResponse("Doctor deleted Successfully", true), HttpStatus.OK);
         }

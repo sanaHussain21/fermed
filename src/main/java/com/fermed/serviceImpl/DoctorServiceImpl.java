@@ -7,6 +7,7 @@ import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
 import com.fermed.services.DoctorService;
 import lombok.Data;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,8 @@ public class DoctorServiceImpl  implements DoctorService {
 
     private DoctorRepository doctorRepository;
 
+    @Autowired
+    private ModelMapper modelMapper;
 
     //creating doctor
     @Override
@@ -100,7 +103,7 @@ public class DoctorServiceImpl  implements DoctorService {
                 doctorList.add(doctor);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.toString(); //to check
         }
         return doctorList;
 }
@@ -109,7 +112,9 @@ public class DoctorServiceImpl  implements DoctorService {
     //converting dto to user
     public Doctor dtoToDoctor(DoctorDTO doctorDTO)
     {
-        Doctor doctor = new Doctor();
+        //this model mapper will automatically convert dto to doctor
+        Doctor doctor = this.modelMapper.map(doctorDTO, Doctor.class);
+        /*
         doctor.setId_doctor(doctorDTO.getId_doctor());
         doctor.setName(doctorDTO.getName());
         doctor.setSurname(doctorDTO.getSurname());
@@ -117,13 +122,17 @@ public class DoctorServiceImpl  implements DoctorService {
         doctor.setEmail(doctorDTO.getEmail());
         doctor.setPassword(doctorDTO.getPassword());
         doctor.setSurname(doctorDTO.getSurname());
+         */
         return  doctor;
     }
 
     //converting user to dto
     public DoctorDTO doctorToDto(Doctor doctor)
     {
-      DoctorDTO doctorDTO = new DoctorDTO();
+
+        //with the model mapper we converted doctor into dto
+      DoctorDTO doctorDTO = this.modelMapper.map(doctor, DoctorDTO.class);
+      /*
       doctorDTO.setId_doctor(doctor.getId_doctor());
       doctorDTO.setName(doctor.getName());
       doctorDTO.setSurname(doctor.getSurname());
@@ -131,6 +140,7 @@ public class DoctorServiceImpl  implements DoctorService {
       doctorDTO.setEmail(doctor.getEmail());
       doctorDTO.setPassword(doctor.getPassword());
       doctorDTO.setUsername(doctor.getUsername());
+       */
       return  doctorDTO;
     }
 

@@ -31,7 +31,7 @@ public class HomeController {
     //Spring boot REST API
 
     //POST CREATING DOCTOR
-    @PostMapping("/creatDoctor")
+    @PostMapping("/registration")
         public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctorDTO){
         DoctorDTO savedDoctor = this.doctorService.createDoctor(doctorDTO);
         return new ResponseEntity<>(savedDoctor, HttpStatus.CREATED);

@@ -31,7 +31,7 @@ public class HomeController {
     //Spring boot REST API
 
     //POST CREATING DOCTOR
-    @PostMapping("/registration")
+    @PostMapping("/")
         public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctorDTO){
         DoctorDTO savedDoctor = this.doctorService.createDoctor(doctorDTO);
         return new ResponseEntity<>(savedDoctor, HttpStatus.CREATED);
@@ -40,36 +40,41 @@ public class HomeController {
     }
 
     //Spring Boot REST API a Doctor
-    @GetMapping("/{doctorId}")
-    public ResponseEntity<DoctorDTO> getDoctorById(@PathVariable Integer doctorId){
-       return ResponseEntity.ok(this.doctorService.getDoctorById(doctorId)); //talking with facade
+    @GetMapping("/{id_doctor}")
+    public ResponseEntity<DoctorDTO> getDoctorById(@PathVariable Integer id_doctor){
+       return ResponseEntity.ok(this.doctorService.getDoctorById(id_doctor)); //talking with facade
 
     }
 
-        //creating API to return  the doctor list
-        @GetMapping("/")
-        public ResponseEntity<List<Doctor>> getAllDoctors(){
-        return ResponseEntity.ok(this.doctorService.getAllDoctors());
-        }
+
+
 
         //PUT - update doctor
-        @PutMapping("/{doctorId}")
-        public ResponseEntity<DoctorDTO> updateDoctor(@RequestBody DoctorDTO doctorDTO, @PathVariable Integer doctorId )
-        {
-          DoctorDTO updatedDoctor =  this.doctorService.updateDoctor(doctorDTO, doctorId );
+        @PutMapping("/{id_doctor}")
+        public ResponseEntity<DoctorDTO> updateDoctor(@RequestBody DoctorDTO doctorDTO, @PathVariable Integer id_doctor ) {
+          DoctorDTO updatedDoctor =  this.doctorService.updateDoctor(doctorDTO, id_doctor );
           return ResponseEntity.ok(updatedDoctor);
         }
 
+
+
         //DELETE - DELETE DOCTOR
-    @DeleteMapping("/{doctorId}")
-        public ResponseEntity<ApiResponse> deleteDoctor(@PathVariable Integer doctorId)
-        {
-            this.deleteDoctor(doctorId);
-            ResponseEntity<?> deleteDoctor = this.deleteDoctor(doctorId);
+    @DeleteMapping("/{id_doctor}")
+        public ResponseEntity<ApiResponse> deleteDoctor(@PathVariable Integer id_doctor) {
+            this.deleteDoctor(id_doctor);
+            ResponseEntity<?> deleteDoctor = this.deleteDoctor(id_doctor);
             return new ResponseEntity<ApiResponse>(new ApiResponse("Doctor deleted Successfully", true), HttpStatus.OK);
         }
 
 
+
+
+
+    //creating API to return  the doctor list
+    @GetMapping("/") //work
+    public ResponseEntity<List<Doctor>> getAllDoctors(){
+        return ResponseEntity.ok(this.doctorService.getAllDoctors());
+    }
 
 
 

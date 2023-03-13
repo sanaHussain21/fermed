@@ -1,6 +1,6 @@
 package com.fermed.serviceImpl;
 
-import com.fermed.DAO.DoctorDAO;
+import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DTO.DoctorDTO;
 import com.fermed.exception.ResourceNotFoundException;
 import com.fermed.model.Doctor;
@@ -80,7 +80,7 @@ public class DoctorServiceImpl  implements DoctorService {
     Connection connection;
     public DoctorServiceImpl() throws SQLException
     {
-        connection = DoctorDAO.getConnection();
+        connection = DatabaseDAO.getConnection();
     }
 
     //getting the data

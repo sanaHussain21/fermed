@@ -11,9 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.Doc;
+
 import java.util.List;
-import java.util.Map;
 
 
 @RestController
@@ -32,6 +31,7 @@ public class HomeController {
 
     //POST CREATING DOCTOR
     @PostMapping("/")
+
         public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctorDTO){
         DoctorDTO savedDoctor = this.doctorService.createDoctor(doctorDTO);
         return new ResponseEntity<>(savedDoctor, HttpStatus.CREATED);

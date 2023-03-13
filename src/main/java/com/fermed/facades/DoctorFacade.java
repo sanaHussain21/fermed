@@ -5,6 +5,8 @@ import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
 import com.fermed.services.DoctorService;
 import lombok.Data;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,10 +20,11 @@ public class DoctorFacade  implements DoctorService{
    private DoctorRepository doctorRepository;
 
 
+
    @Override
    public DoctorDTO createDoctor(DoctorDTO doctorDTO) {
-
-     return null;
+      doctorService.createDoctor(doctorDTO);
+      return doctorDTO;
    }
 
    @Override

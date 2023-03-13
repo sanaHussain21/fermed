@@ -33,7 +33,7 @@ public class HomeController {
     //POST CREATING DOCTOR
     @PostMapping("/registration")
         public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctorDTO){
-        DoctorDTO savedDoctor = this.doctorService.createDoctor(doctorDTO);
+        DoctorDTO savedDoctor = this.doctorFacade.createDoctor(doctorDTO);
         return new ResponseEntity<>(savedDoctor, HttpStatus.CREATED);
 
 

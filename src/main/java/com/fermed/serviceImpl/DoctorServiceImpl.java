@@ -54,9 +54,9 @@ public class DoctorServiceImpl  implements DoctorService {
         Doctor doctor = this.doctorRepository.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException("Doctor", "id_doctor", id_doctor));
         doctor.setName(doctorDTO.getName());
         doctor.setSurname(doctorDTO.getSurname());
-        doctor.setEmail(doctor.getEmail());
-        doctor.setPassword(doctor.getPassword());
-        doctor.setUsername(doctor.getUsername());
+        doctor.setEmail(doctorDTO.getEmail());
+        doctor.setPassword(doctorDTO.getPassword());
+        doctor.setUsername(doctorDTO.getUsername());
         Doctor updatedDoctor = this.doctorRepository.save(doctor);
        DoctorDTO doctorDTO1 =  this.doctorToDto(updatedDoctor);
         return doctorDTO1;
@@ -109,7 +109,7 @@ public class DoctorServiceImpl  implements DoctorService {
 }
 
 
-    //converting dto to user
+    //converting dto to doctor
     public Doctor dtoToDoctor(DoctorDTO doctorDTO)
     {
         //this model mapper will automatically convert dto to doctor
@@ -126,7 +126,7 @@ public class DoctorServiceImpl  implements DoctorService {
         return  doctor;
     }
 
-    //converting user to dto
+    //converting doctor to dto
     public DoctorDTO doctorToDto(Doctor doctor)
     {
 

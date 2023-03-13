@@ -1,7 +1,5 @@
 package com.fermed;
 
-import com.fermed.facades.DoctorFacade;
-import com.fermed.model.Doctor;
 import lombok.Data;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

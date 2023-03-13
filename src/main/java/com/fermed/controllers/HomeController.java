@@ -40,9 +40,9 @@ public class HomeController {
     }
 
     //Spring Boot REST API a Doctor
-    @GetMapping("/{id_doctor}")
-    public ResponseEntity<DoctorDTO> getDoctorById(@PathVariable("") Integer id_doctor){
-       return ResponseEntity.ok(this.doctorService.getDoctorById(id_doctor)); //talking with facade
+    @GetMapping("/{doctorId}")
+    public ResponseEntity<DoctorDTO> getDoctorById(@PathVariable Integer doctorId){
+       return ResponseEntity.ok(this.doctorService.getDoctorById(doctorId)); //talking with facade
 
     }
 
@@ -56,13 +56,13 @@ public class HomeController {
         @PutMapping("/{doctorId}")
         public ResponseEntity<DoctorDTO> updateDoctor(@RequestBody DoctorDTO doctorDTO, @PathVariable Integer doctorId )
         {
-          DoctorDTO updatedDoctor =  this.doctorService.updateDoctor(doctorDTO, doctorId);
+          DoctorDTO updatedDoctor =  this.doctorService.updateDoctor(doctorDTO, doctorId );
           return ResponseEntity.ok(updatedDoctor);
         }
 
         //DELETE - DELETE DOCTOR
     @DeleteMapping("/{doctorId}")
-        public ResponseEntity<ApiResponse> deleteDoctor(@PathVariable("doctorId") Integer doctorId)
+        public ResponseEntity<ApiResponse> deleteDoctor(@PathVariable Integer doctorId)
         {
             this.deleteDoctor(doctorId);
             ResponseEntity<?> deleteDoctor = this.deleteDoctor(doctorId);

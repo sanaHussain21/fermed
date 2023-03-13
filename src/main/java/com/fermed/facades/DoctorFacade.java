@@ -23,22 +23,25 @@ public class DoctorFacade  implements DoctorService{
 
    @Override
    public DoctorDTO createDoctor(DoctorDTO doctorDTO) {
-      doctorService.createDoctor(doctorDTO);
-      return doctorDTO;
+
+      return this.doctorService.createDoctor(doctorDTO);
    }
 
    @Override
    public DoctorDTO getDoctorById(Integer id_doctor) {
-      return null;
+      doctorService.getDoctorById(id_doctor);
+      return this.getDoctorById(id_doctor);
    }
 
    @Override
    public DoctorDTO updateDoctor(DoctorDTO doctorDTO, Integer id_doctor) {
-      return null;
+      doctorService.updateDoctor(doctorDTO, id_doctor);
+      return this.updateDoctor(doctorDTO, id_doctor);
    }
 
    @Override
    public void deleteDoctor(Integer id_doctor) {
+   doctorService.deleteDoctor(id_doctor);
 
    }
 

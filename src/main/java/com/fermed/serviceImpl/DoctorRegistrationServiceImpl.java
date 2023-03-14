@@ -1,5 +1,7 @@
 package com.fermed.serviceImpl;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DTO.DoctorDTO;
 import com.fermed.exception.DoctorFoundException;
 import com.fermed.model.Doctor;
@@ -8,6 +10,10 @@ import com.fermed.services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 @Service
 public class DoctorRegistrationServiceImpl implements DoctorService {
 
@@ -15,19 +21,26 @@ public class DoctorRegistrationServiceImpl implements DoctorService {
     private DoctorRepository doctorRepository;
 
 
+    //connecton to the database
+    Connection connection;
+
+    public DoctorRegistrationServiceImpl() throws SQLException {
+        connection = DatabaseDAO.getConnection();
+    }
+
+
     @Override
     public Doctor createDoctor(Doctor doctor) throws Exception {
-        Doctor local = this.doctorRepository.findByUsername(doctor.getUsername());
-            //checking whether the user is already present in the database or not
-            if(local != null){
-                System.out.println("User is already there!!");
-                //throw new UsernameNotFoundException();
-                throw new DoctorFoundException();
-            }
-            else{
-                local = this.doctorRepository.save(doctor);
-            }
-            return local;
-            }
-        }
 
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO doctor(name, surname, gender, email, password, username) VALUES(?,?,?,?,?,?");
+
+            //executing the query
+            preparedStatement.executeQuery();
+            System.out.println("Insert Completed");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return doctorRepository.save(doctor);
+    }
+}

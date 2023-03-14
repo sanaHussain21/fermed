@@ -22,6 +22,7 @@ public class DoctorRegistrationController {
 
     private DoctorFacade doctorFacade;
 
+
     @PostMapping("/")
     //POST CREATING DOCTOR
     public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor) throws Exception {

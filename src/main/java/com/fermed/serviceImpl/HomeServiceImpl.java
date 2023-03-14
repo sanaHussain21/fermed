@@ -47,7 +47,7 @@ public class HomeServiceImpl implements HomeService {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             //it will read one by one all raws from the doctor's table
-            //we will check this in the broweser to get all doctors data
+            //we will check this in the browser to get all doctors data
             while(resultSet.next()){
                 Doctor doctor= new Doctor();
                 doctor.setId_doctor(resultSet.getInt(1));

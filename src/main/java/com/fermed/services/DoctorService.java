@@ -7,7 +7,7 @@ import com.fermed.model.Doctor;
 public interface DoctorService {
 
     //creating doctor
-    public Doctor createDoctor(Doctor doctor) throws Exception;
+     Doctor createDoctor(Doctor doctor) throws Exception;
 
 
 }

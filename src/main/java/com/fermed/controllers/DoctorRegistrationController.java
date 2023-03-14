@@ -1,9 +1,11 @@
 package com.fermed.controllers;
 
 import com.fermed.DTO.DoctorDTO;
+import com.fermed.DTO.DoctorRegistrationDto;
 import com.fermed.facades.DoctorFacade;
 import com.fermed.model.Doctor;
 import com.fermed.services.DoctorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -17,6 +19,8 @@ public class DoctorRegistrationController {
 
     private DoctorService doctorService;
 
+
+    private DoctorFacade doctorFacade;
 
     @PostMapping("/")
     //POST CREATING DOCTOR

@@ -31,6 +31,15 @@ public class DoctorRegistrationServiceImpl implements DoctorService {
         String email = doctor.getEmail();
         String password = doctor.getPassword();
         String username = doctor.getUsername();
-         
+
+        String insertQuery = "INSERT INTO doctor VALUES('"+name+"', '"+surname+"', '"+gender+"', '"+email+"', '"+password+"', '"+username+"')";
+
+        try{
+                PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+                preparedStatement.executeUpdate();
+                System.out.println("DATA INSERTED SUCCESSFULLY!");
+    }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 }

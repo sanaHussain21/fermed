@@ -12,7 +12,7 @@ public class DoctorFacade implements DoctorService {
 
 
     @Override
-    public Doctor createDoctor(Doctor doctor) throws Exception {
-        return this.doctorService.createDoctor(doctor);
+    public void createDoctor(Doctor doctor) throws Exception {
+      return;
     }
 }

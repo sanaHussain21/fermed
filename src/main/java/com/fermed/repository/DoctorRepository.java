@@ -5,9 +5,11 @@ import lombok.Data;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import javax.print.Doc;
+
 
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
 
-  public Doctor findById(int id_doctor);
+  public Doctor findByUsername(String username);
 }

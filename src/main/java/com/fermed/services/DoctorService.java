@@ -1,7 +1,13 @@
 package com.fermed.services;
 
 import com.fermed.DTO.DoctorDTO;
+import com.fermed.exception.DoctorFoundException;
+import com.fermed.model.Doctor;
 
 public interface DoctorService {
-    public void registerDoctor(DoctorDTO doctorDTO);
+
+    //creating doctor
+    public Doctor createDoctor(Doctor doctor) throws Exception;
+
+
 }

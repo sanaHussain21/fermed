@@ -1,7 +1,10 @@
 package com.fermed.model;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 
+@Data
 @Entity
 public class Patient {
     int id_patient;

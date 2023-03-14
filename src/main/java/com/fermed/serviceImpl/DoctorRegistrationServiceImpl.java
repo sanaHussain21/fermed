@@ -28,11 +28,14 @@ public class DoctorRegistrationServiceImpl implements DoctorService {
         String name = doctor.getName();
         String surname = doctor.getSurname();
         String gender = doctor.getGender();
+        int id_type_of_doctor  = doctor.getId_type_of_doctor();
+        int insurance_id_insurance = doctor.getInsurance_id_insurance();
         String email = doctor.getEmail();
         String password = doctor.getPassword();
         String username = doctor.getUsername();
 
-        String insertQuery = "INSERT INTO doctor VALUES('"+name+"', '"+surname+"', '"+gender+"', '"+email+"', '"+password+"', '"+username+"')";
+        String insertQuery = "INSERT INTO doctor(name, surname, gender, id_type_of_doctor, insurance_id_insurance, email, password, username) " +
+                "VALUES('"+name+"','"+surname+"','"+gender+"',"+id_type_of_doctor+","+insurance_id_insurance+",'"+email+"','"+password+"','"+username+"')";
 
         try{
                 PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);

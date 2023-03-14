@@ -23,14 +23,7 @@ public class DoctorRegistrationController {
 
     private DoctorFacade doctorFacade;
 
-/*
-    @PostMapping("/")
-    //POST CREATING DOCTOR
-    public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor) throws Exception {
-        Doctor savedDoctor = this.doctorService.createDoctor(doctor);
-        return new ResponseEntity<>(savedDoctor, HttpStatus.CREATED);
-    }
- */
+
 @PostMapping(value = "/createDoctor")
     public void createDoctor(@RequestBody Doctor doctor) throws Exception {
         doctorService.createDoctor(doctor);

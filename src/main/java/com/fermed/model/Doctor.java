@@ -13,6 +13,8 @@ public class Doctor {
     String name;
     String surname;
     String gender;
+    int id_type_of_doctor;
+    int insurance_id_insurance;
     String email;
     String password;
     String username;
@@ -20,9 +22,10 @@ public class Doctor {
 
 
 
+
 @Override
     public String toString(){
-        return "Doctor [id_doctor=" + id_doctor + ", name=" + name + ", surname=" + surname + ", gender=" + gender + ", email=" + email + ", passowrd=" + password + ", username=" + username +"]";
+        return "Doctor [id_doctor=" + id_doctor + ", name=" + name + ", surname=" + surname + ", gender=" + gender + ", id_type_of_doctor=" + id_type_of_doctor + ", insurance_id_insurance=" + insurance_id_insurance + ", email=" + email + ", passowrd=" + password + ", username=" + username +"]";
     }
 
 

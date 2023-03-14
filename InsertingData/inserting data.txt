@@ -6,7 +6,7 @@ VALUES (?, ?, ?, ?, ?)
 
 2)-INSERTING DATA INTO  DOCTOR:
 
-INSERT INTO  doctor(name, surname, gender, id_type_of_doctor, insurance_id_insurance )
+INSERT INTO  doctor(name, surname, gender, id_type_of_doctor, insurance_id_insurance, email, password, username)
 VALUES (?, ?, ?, ?, ?)
 
 3)-INSERTING DATA INTO  PHARMACY:

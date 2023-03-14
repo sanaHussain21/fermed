@@ -17,30 +17,20 @@ import java.sql.SQLException;
 @Service
 public class DoctorRegistrationServiceImpl implements DoctorService {
 
-
-    private DoctorRepository doctorRepository;
-
-
-    //connecton to the database
     Connection connection;
 
     public DoctorRegistrationServiceImpl() throws SQLException {
-        connection = DatabaseDAO.getConnection();
+       connection =  DatabaseDAO.getConnection();
     }
 
-
     @Override
-    public Doctor createDoctor(Doctor doctor) throws Exception {
-
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO doctor(name, surname, gender, email, password, username) VALUES(?,?,?,?,?,?");
-
-            //executing the query
-            preparedStatement.executeQuery();
-            System.out.println("Insert Completed");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return doctorRepository.save(doctor);
+    public void createDoctor(Doctor doctor) throws Exception {
+        String name = doctor.getName();
+        String surname = doctor.getSurname();
+        String gender = doctor.getGender();
+        String email = doctor.getEmail();
+        String password = doctor.getPassword();
+        String username = doctor.getUsername();
+         
     }
 }

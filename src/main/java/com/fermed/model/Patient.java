@@ -11,33 +11,43 @@ public class Patient {
     int id_patient;
 
 
-   @NotBlank(message = "Name is must!")
+    @NotEmpty
+    @Size(min = 4 ,max = 25, message ="Name must contain minimum 4 characters and maximum 25 characters!!!")
+    @NotBlank(message = "Name field should not be empty!!!")
     String name;
 
-    @NotBlank(message = "Surname is must!")
+    @NotEmpty
+    @Size(min = 4, message ="Surname must contain minimum 4 characters!!!")
+    @NotBlank(message = "Surname field should not be empty!!!")
     String surname;
 
 
-    @NotBlank(message = "Codice fiscale field can't be empty!!!")
+    @NotEmpty
+    @Size(min = 16, max = 16, message ="Codice Fiscale must contain maximum 16 characters!!")
+    @NotBlank(message = "Codice fiscale field should not be empty!!!")
     String codice_fiscale;
 
 
     int id_insurance;
 
-
-    @NotBlank(message = "Telephone number field can't be empty!!!")
+   //fare comtrollo in caso qualcuno inserisce lettere al poato di numei
+    @NotEmpty
+    @NotBlank(message = "Telephone number field should not be empty!!!")
     String telephone_number;
 
 
-    @NotBlank(message = "Username field can't be empty!!!")
+    @NotEmpty
+    @Size(min = 4, message = "Username must contain minimum 4 characters!!")
+    @NotBlank(message = "Username field should not be empty!!!")
     String  username;
 
 
-    @NotBlank(message = "Password field can't be empty!!!")
-    @Pattern(regexp = "[1-9] [A-Z] [a-z] [_*+,]")
+    @NotEmpty
+    @Size(min = 4 , max = 10, message = "Password must contain minimum 4 characters and maximum 10 characters!!!")
+    @NotBlank(message = "Password field should not be empty!!!")
     String password;
 
-    @NotBlank(message = "Email is must!!!")
+    @NotBlank(message = "Email field should not be empty!!!")
     @Email
     String email;
 

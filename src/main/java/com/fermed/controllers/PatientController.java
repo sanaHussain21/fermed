@@ -18,6 +18,12 @@ public class PatientController {
     private PatientService patientService;
 
 
+
+
+
+
+
+
     @PostMapping(value = "/createPatient")
     public void createDoctor(@Valid @RequestBody Patient patient) throws Exception {
         patientService.createPatient(patient);

@@ -18,7 +18,7 @@ public class Patient {
     String surname;
 
 
-    @NotBlank(message = "codice fiscale field can't be empty!!!")
+    @NotBlank(message = "Codice fiscale field can't be empty!!!")
     String codice_fiscale;
 
 
@@ -37,7 +37,7 @@ public class Patient {
     @Pattern(regexp = "[1-9] [A-Z] [a-z] [_*+,]")
     String password;
 
-    @NotBlank(message = "email is must!!!")
+    @NotBlank(message = "Email is must!!!")
     @Email
     String email;
 

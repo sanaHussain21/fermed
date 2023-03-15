@@ -25,7 +25,7 @@ public class DoctorRegistrationController {
 
 
 @PostMapping(value = "/createDoctor")
-    public void createDoctor(@RequestBody Doctor doctor) throws Exception {
+    public void createDoctor(@Valid @RequestBody Doctor doctor) throws Exception {
         doctorService.createDoctor(doctor);
     }
 }

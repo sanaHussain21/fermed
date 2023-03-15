@@ -52,8 +52,8 @@ public class Patient {
     @NotEmpty
     @Size(min = 4, message = "Password must contain minimum 4 characters!!!")
     @Size(max = 15, message = "Password must contain maximum 15 characters!!!")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[-,_]).{4,15}$" )
-    @NotBlank(message = "Password field should not be empty [Password must contain (one digit, one lower case letter, one uppercase and one special character)]")
+    @Pattern(regexp = "^(?=.*[-,_]).{4,15}$")
+    @NotBlank(message = "Password field should not be empty [Password can contain between these allowed special characters(-,_)]")
     String password;
 
     @NotBlank(message = "Email field should not be empty!!!")

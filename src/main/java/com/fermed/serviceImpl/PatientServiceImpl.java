@@ -41,6 +41,6 @@ public class PatientServiceImpl implements PatientService {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
+            //fare controllo se un utente is already in the database or not
     }
 }

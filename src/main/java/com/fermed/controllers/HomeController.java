@@ -18,16 +18,16 @@ public class HomeController {
 
 
 
-    private HomeFacade doctorFacade;
+    private HomeFacade homeFacade;
 
-@Autowired
-private HomeService doctorService;
+    @Autowired
+private HomeService homeService;
 
 
     //creating API to return  the doctor list
     @GetMapping("/")
     public ResponseEntity<List<Doctor>> getAllDoctors(){
-        return ResponseEntity.ok(this.doctorService.getAllDoctors());
+        return ResponseEntity.ok(this.homeService.getAllDoctors());
     }
 
 

@@ -12,13 +12,14 @@ import java.util.List;
 public class HomeFacade implements HomeService {
 
    @Resource
-   private HomeService doctorService;
+   private HomeService homeService;
 
-   private DoctorRepository doctorRepository;
+
 
    @Override
    public List<Doctor> getAllDoctors() {
-      return null;
+      System.out.println("Siamo passati da controllr through facade through a service");
+      return this.homeService.getAllDoctors();
    }
 }
 

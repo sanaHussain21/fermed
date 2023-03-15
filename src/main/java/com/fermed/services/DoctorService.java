@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface DoctorService {
 
     //creating doctor
-    public void  createDoctor(Doctor doctor) throws Exception;
+    void  createDoctor(Doctor doctor) throws Exception;
 
 
 

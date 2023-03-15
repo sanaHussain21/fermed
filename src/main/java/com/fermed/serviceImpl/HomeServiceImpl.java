@@ -59,7 +59,7 @@ public class HomeServiceImpl implements HomeService {
                 doctorList.add(doctor);
             }
         } catch (SQLException e) {
-            e.printStackTrace(); //to check
+            e.printStackTrace();
         }
         return doctorList;
 }

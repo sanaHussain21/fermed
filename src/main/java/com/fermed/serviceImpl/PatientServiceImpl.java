@@ -25,18 +25,19 @@ public class PatientServiceImpl implements PatientService {
             String surname = patient.getSurname();
             String codice_fiscale = patient.getCodice_fiscale();
             int id_insurance = patient.getId_insurance();
+            String telephone_number = patient.getTelephone_number();
             String username = patient.getUsername();
             String password = patient.getPassword();
             String email = patient.getEmail();
 
 
-        String insertQuery = "INSERT INTO patient(name, surname, codice_fiscale , id_insurance , username, password, email)" +
-                "VALUES('"+name+"','"+surname+"',  '"+codice_fiscale+"', '"+id_insurance+"',  '"+username+"','"+password+"','"+email+"')";
+        String insertQuery = "INSERT INTO patient(name, surname, codice_fiscale , id_insurance ,telephone_number , username, password, email)" +
+                "VALUES('"+name+"','"+surname+"',  '"+codice_fiscale+"', '"+id_insurance+"', '"+telephone_number+"', '"+username+"','"+password+"','"+email+"')";
 
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();
-            System.out.println("DATA INSERTED SUCCESSFULLY!");
+            System.out.println("PATIENT DATA INSERTED SUCCESSFULLY!");
         }catch (SQLException e){
             e.printStackTrace();
         }

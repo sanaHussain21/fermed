@@ -1,8 +1,11 @@
 package com.fermed.model;
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.Entity;
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 @Data
@@ -12,12 +15,14 @@ public class Patient {
 
 
     @NotEmpty
-    @Size(min = 4 ,max = 25, message ="Name must contain minimum 4 characters and maximum 25 characters!!!")
+    @Size(min = 4, message ="Name must contain minimum 4 characters!!!")
+    @Size(max = 10, message ="Name must contain maximum 10 characters!!!" )
     @NotBlank(message = "Name field should not be empty!!!")
     String name;
 
     @NotEmpty
     @Size(min = 4, message ="Surname must contain minimum 4 characters!!!")
+    @Size(max = 10, message ="Surname must contain maximum 10 characters!!!" )
     @NotBlank(message = "Surname field should not be empty!!!")
     String surname;
 
@@ -32,19 +37,23 @@ public class Patient {
 
    //fare comtrollo in caso qualcuno inserisce lettere al poato di numei
     @NotEmpty
+    @Pattern(regexp="(^$|[0-9]{10})")
     @NotBlank(message = "Telephone number field should not be empty!!!")
     String telephone_number;
 
 
     @NotEmpty
-    @Size(min = 4, message = "Username must contain minimum 4 characters!!")
+    @Size(min = 4, message = "Username must contain minimum 4 characters!!!")
+    @Size(max = 10, message = "Username must contain maximum 10 characters!!!")
     @NotBlank(message = "Username field should not be empty!!!")
     String  username;
 
 
     @NotEmpty
-    @Size(min = 4 , max = 10, message = "Password must contain minimum 4 characters and maximum 10 characters!!!")
-    @NotBlank(message = "Password field should not be empty!!!")
+    @Size(min = 4, message = "Password must contain minimum 4 characters!!!")
+    @Size(max = 15, message = "Password must contain maximum 15 characters!!!")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[-,_]).{4,15}$" )
+    @NotBlank(message = "Password field should not be empty [Password must contain (one digit, one lower case letter, one uppercase and one special character)]")
     String password;
 
     @NotBlank(message = "Email field should not be empty!!!")

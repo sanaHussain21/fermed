@@ -1,6 +1,7 @@
 package com.fermed.serviceImpl;
 
 import com.fermed.DAO.DatabaseDAO;
+import com.fermed.exception.ResourceNotFoundException;
 import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
 
@@ -9,7 +10,7 @@ import lombok.Data;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.fermed.exception.ResourceNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,37 +65,10 @@ public class HomeServiceImpl implements HomeService {
 }
 
 
-
-
-/*
-    @Override
-    public Doctor getDoctorById(Integer id_doctor) {
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM doctor WHERE id_doctor = '?' ");
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
-                Doctor doctor= new Doctor();
-                doctor.setId_doctor(resultSet.getInt(1));
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            ;
-
-
-    }
-*/
-
-
-
-
-
-
-
-
 //to check
     @Override
-    public Doctor getDoctorById(Integer id_doctor) {
-        Doctor doctor = this.doctorRepository.findById(id_doctor);
+    public Doctor getDoctorById(Integer id_doctor){
+        Doctor doctor = this.doctorRepository.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException("Doctor", "id_doctor", id_doctor));
         return this.getDoctorById(id_doctor);
     }
 

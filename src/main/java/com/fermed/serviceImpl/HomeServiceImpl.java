@@ -45,8 +45,11 @@ public class HomeServiceImpl implements HomeService {
                 doctor.setName(resultSet.getString(2));
                 doctor.setSurname(resultSet.getString(3));
                 doctor.setGender(resultSet.getString(4));
-                doctor.setEmail(resultSet.getString(5));
-                doctor.setPassword(resultSet.getString(6));
+                doctor.setId_type_of_doctor(resultSet.getInt(5));//to check
+                doctor.setInsurance_id_insurance(resultSet.getInt(6));
+                doctor.setEmail(resultSet.getString(7));
+                doctor.setPassword(resultSet.getString(8));
+                doctor.setUsername(resultSet.getString(9));
                 doctorList.add(doctor);
             }
         } catch (SQLException e) {

@@ -3,6 +3,7 @@ package com.fermed.serviceImpl;
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
+import com.fermed.repository.HomeRepository;
 import com.fermed.services.HomeService;
 import lombok.Data;
 import org.modelmapper.ModelMapper;
@@ -21,7 +22,7 @@ import java.util.List;
 public class HomeServiceImpl implements HomeService {
 
 
-    private DoctorRepository doctorRepository;
+    private HomeRepository homeRepository;
 
     @Autowired
     private ModelMapper modelMapper;

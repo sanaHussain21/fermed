@@ -3,7 +3,7 @@ package com.fermed.serviceImpl;
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
-import com.fermed.repository.HomeRepository;
+
 import com.fermed.services.HomeService;
 import lombok.Data;
 import org.modelmapper.ModelMapper;
@@ -22,10 +22,9 @@ import java.util.List;
 public class HomeServiceImpl implements HomeService {
 
 
-    private HomeRepository homeRepository;
+    private DoctorRepository doctorRepository;
 
-    @Autowired
-    private ModelMapper modelMapper;
+
 
 
 
@@ -48,7 +47,6 @@ public class HomeServiceImpl implements HomeService {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             //it will read one by one all raws from the doctor's table
-            //we will check this in the browser to get all doctors data
             while(resultSet.next()){
                 Doctor doctor= new Doctor();
                 doctor.setId_doctor(resultSet.getInt(1));
@@ -64,6 +62,41 @@ public class HomeServiceImpl implements HomeService {
         }
         return doctorList;
 }
+
+
+
+
+/*
+    @Override
+    public Doctor getDoctorById(Integer id_doctor) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM doctor WHERE id_doctor = '?' ");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                Doctor doctor= new Doctor();
+                doctor.setId_doctor(resultSet.getInt(1));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            ;
+
+
+    }
+*/
+
+
+
+
+
+
+
+
+//to check
+    @Override
+    public Doctor getDoctorById(Integer id_doctor) {
+        Doctor doctor = this.doctorRepository.findById(id_doctor);
+        return this.getDoctorById(id_doctor);
+    }
 
 
 

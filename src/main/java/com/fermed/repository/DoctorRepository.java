@@ -12,4 +12,6 @@ import javax.print.Doc;
 public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
 
   public Doctor findByUsername(String username);
+
+  public Doctor findById(Integer id_doctor);
 }

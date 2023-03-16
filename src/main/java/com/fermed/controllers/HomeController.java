@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.print.Doc;
 import java.util.List;
 
 
@@ -30,7 +31,12 @@ private HomeService homeService;
         return ResponseEntity.ok(this.homeService.getAllDoctors());
     }
 
-
+    //getting doctor by it's id
+  @GetMapping("/{id_doctor}")
+    public ResponseEntity<Doctor> getDoctorById(@PathVariable Integer id_doctor)
+    {
+        return ResponseEntity.ok(this.homeService.getDoctorById(id_doctor));
+    }
 
 
     }

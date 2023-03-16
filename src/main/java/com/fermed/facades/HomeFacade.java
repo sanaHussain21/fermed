@@ -21,6 +21,12 @@ public class HomeFacade implements HomeService {
       System.out.println("Siamo passati da controllr through facade through a service");
       return this.homeService.getAllDoctors();
    }
+
+   @Override
+   public Doctor getDoctorById(Integer id_doctor) {
+      System.out.println("Siamo passati da controllr through facade through a service");
+      return this.homeService.getDoctorById(id_doctor);
+   }
 }
 
 

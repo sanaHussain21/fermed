@@ -17,5 +17,9 @@ public interface HomeService {
     List<Doctor> getAllDoctors();
 
 
+    //getting doctor by it's id
+    Doctor getDoctorById(Integer id_doctor);
+
+
 
 }

@@ -1,12 +1,12 @@
 package com.fermed.facades;
 
 import com.fermed.model.Doctor;
-import com.fermed.repository.DoctorRepository;
 import com.fermed.services.HomeService;
 import lombok.Data;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Optional;
 
 @Data
 public class HomeFacade implements HomeService {
@@ -22,11 +22,14 @@ public class HomeFacade implements HomeService {
       return this.homeService.getAllDoctors();
    }
 
+   /*
    @Override
-   public Doctor getDoctorById(Integer id_doctor) {
+   public Optional<Doctor> getDoctorById(Integer id_doctor) {
       System.out.println("Siamo passati da controllr through facade through a service");
       return this.homeService.getDoctorById(id_doctor);
    }
+
+    */
 }
 
 

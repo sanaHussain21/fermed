@@ -1,34 +1,25 @@
 package com.fermed.serviceImpl;
 
 import com.fermed.DAO.DatabaseDAO;
-import com.fermed.exception.ResourceNotFoundException;
 import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
 
 import com.fermed.services.HomeService;
 import lombok.Data;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.fermed.exception.ResourceNotFoundException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @Service
 public class HomeServiceImpl implements HomeService {
-
-
-    private DoctorRepository doctorRepository;
-
-
-
-
-
 
     //list of doctors already implemented
     @Autowired
@@ -65,6 +56,8 @@ public class HomeServiceImpl implements HomeService {
 }
 
 
+
+/*
 //to check
     @Override
     public Doctor getDoctorById(Integer id_doctor){
@@ -73,6 +66,9 @@ public class HomeServiceImpl implements HomeService {
     }
 
 
-
-
+    @Override
+    public Optional<Doctor> getDoctorById(Integer id_doctor) {
+        return doctorRepository.findById(id_doctor);
+    }
+    */
 }

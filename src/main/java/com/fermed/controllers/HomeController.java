@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-import javax.print.Doc;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -31,13 +31,14 @@ private HomeService homeService;
         return ResponseEntity.ok(this.homeService.getAllDoctors());
     }
 
+    /*
     //getting doctor by it's id
-  @GetMapping("/{id_doctor}")
-    public ResponseEntity<Doctor> getDoctorById(@PathVariable Integer id_doctor)
-    {
-        return ResponseEntity.ok(this.homeService.getDoctorById(id_doctor));
-    }
+  @RequestMapping(value = "/{id_doctor}", method =RequestMethod.GET)
+   public Optional<Doctor> getDoctorById(@PathVariable("id_doctor") Integer id_doctor)
+  {
+      return this.homeService.getDoctorById(id_doctor);
+  }
 
-
+*/
     }
 

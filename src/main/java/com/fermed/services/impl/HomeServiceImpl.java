@@ -1,4 +1,4 @@
-package com.fermed.serviceImpl;
+package com.fermed.services.impl;
 
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.model.Doctor;

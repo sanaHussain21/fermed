@@ -8,8 +8,8 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
 
-@Data
-public class HomeFacade implements HomeService {
+
+public interface HomeFacade{
 
    @Resource
    private HomeService homeService;

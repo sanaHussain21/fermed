@@ -1,4 +1,4 @@
-package com.fermed.serviceImpl;
+package com.fermed.services.impl;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.fermed.DAO.DatabaseDAO;
@@ -15,11 +15,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @Service
-public class DoctorRegistrationServiceImpl implements DoctorService {
+public class DoctorServiceImpl implements DoctorService {
 
     Connection connection;
 
-    public DoctorRegistrationServiceImpl() throws SQLException {
+    public DoctorServiceImpl() throws SQLException {
        connection =  DatabaseDAO.getConnection();
     }
 

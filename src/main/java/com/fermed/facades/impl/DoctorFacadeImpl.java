@@ -1,6 +1,7 @@
-package com.fermed.facades;
+package com.fermed.facades.impl;
 
 import com.fermed.DTO.DoctorDTO;
+import com.fermed.facades.DoctorFacade;
 import com.fermed.model.Doctor;
 import com.fermed.services.DoctorService;
 

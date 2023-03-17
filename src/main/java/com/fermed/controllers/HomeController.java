@@ -13,7 +13,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/doctor") //with (/) we will access the home controller
+@RequestMapping("/home") //with (/home) we will access the home controller
 public class HomeController {
 
 

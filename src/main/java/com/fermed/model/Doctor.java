@@ -23,7 +23,7 @@ public class Doctor {
 
     @NotEmpty
     @Size(min = 4, message ="Surname must contain minimum 4 characters!!!")
-    @Size(max = 10, message ="Surname must contain maximum 10 characters!!!" )
+    @Size(max = 15, message ="Surname must contain maximum 15 characters!!!" )
     @NotBlank(message = "Surname field should not be empty!!!")
     String surname;
 
@@ -52,7 +52,7 @@ public class Doctor {
 
     @NotEmpty
     @Size(min = 4, message = "Username must contain minimum 4 characters!!!")
-    @Size(max = 10, message = "Username must contain maximum 10 characters!!!")
+    @Size(max = 15, message = "Username must contain maximum 15 characters!!!")
     @NotBlank(message = "Username field should not be empty!!!")
     String username;
 

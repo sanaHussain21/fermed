@@ -31,6 +31,19 @@ private HomeService homeService;
         return ResponseEntity.ok(this.homeService.getAllDoctors());
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     /*
     //getting doctor by it's id
   @RequestMapping(value = "/{id_doctor}", method =RequestMethod.GET)
@@ -38,7 +51,6 @@ private HomeService homeService;
   {
       return this.homeService.getDoctorById(id_doctor);
   }
-
 */
     }
 

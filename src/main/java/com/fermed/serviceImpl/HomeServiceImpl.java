@@ -21,6 +21,7 @@ import java.util.Optional;
 @Service
 public class HomeServiceImpl implements HomeService {
 
+    private DoctorRepository doctorRepository;
     //list of doctors already implemented
     @Autowired
     static List<Doctor> doctorList = new ArrayList<>();
@@ -58,18 +59,4 @@ public class HomeServiceImpl implements HomeService {
 
 
 
-/*
-//to check
-    @Override
-    public Doctor getDoctorById(Integer id_doctor){
-        Doctor doctor = this.doctorRepository.findById(id_doctor).orElseThrow(()-> new ResourceNotFoundException("Doctor", "id_doctor", id_doctor));
-        return this.getDoctorById(id_doctor);
-    }
-
-
-    @Override
-    public Optional<Doctor> getDoctorById(Integer id_doctor) {
-        return doctorRepository.findById(id_doctor);
-    }
-    */
 }

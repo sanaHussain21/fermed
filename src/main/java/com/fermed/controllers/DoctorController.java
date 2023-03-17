@@ -2,25 +2,26 @@ package com.fermed.controllers;
 
 import com.fermed.DTO.DoctorDTO;
 import com.fermed.facades.DoctorFacade;
-import com.fermed.services.DoctorService;
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
+@Data
 @RestController
 @RequestMapping("/doctor")
 public class DoctorController {
 
-    @Resource
-    private DoctorService doctorService;
 
-    @Resource
+
+   @Resource
     private DoctorFacade doctorFacade;
 
 
 @PostMapping(value = "/createDoctor")
-    public void createDoctor(@Valid @RequestBody DoctorDTO doctor) throws Exception {
-        doctorFacade.createDoctor(doctor);
+    public void createDoctor(@Valid @RequestBody DoctorDTO doctorDTO) throws Exception {
+        doctorFacade.createDoctor(doctorDTO);
     }
 }

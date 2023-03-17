@@ -1,15 +1,13 @@
 package com.fermed.services;
 
-
-import com.fermed.model.Doctor;
+import com.fermed.DTO.DoctorDTO;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
-import java.util.Optional;
+
 
 @Repository
 public interface HomeService {
 
-    List<Doctor> getAllDoctors();
+    List<DoctorDTO> getAllDoctors();
 
 }

@@ -1,7 +1,7 @@
 package com.fermed.services.impl;
 
 import com.fermed.DAO.DatabaseDAO;
-import com.fermed.model.Doctor;
+import com.fermed.DTO.DoctorDTO;
 import com.fermed.repository.DoctorRepository;
 
 import com.fermed.services.HomeService;
@@ -25,7 +25,7 @@ public class HomeServiceImpl implements HomeService {
     private DoctorRepository doctorRepository;
     //list of doctors already implemented
     @Autowired
-    static List<Doctor> doctorList = new ArrayList<>();
+    static List<DoctorDTO> doctorList = new ArrayList<>();
 
     Connection connection;
     public HomeServiceImpl() throws SQLException
@@ -35,22 +35,22 @@ public class HomeServiceImpl implements HomeService {
 
     //getting the data
     @Override
-    public List<Doctor> getAllDoctors() {
+    public List<DoctorDTO> getAllDoctors() {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_doctor, name, surname, gender, email, password, username FROM doctor");
             ResultSet resultSet = preparedStatement.executeQuery();
 
             //it will read one by one all raws from the doctor's table
             while(resultSet.next()){
-                Doctor doctor= new Doctor();
-                doctor.setId_doctor(resultSet.getInt(1));
-                doctor.setName(resultSet.getString(2));
-                doctor.setSurname(resultSet.getString(3));
-                doctor.setGender(resultSet.getString(4));
-                doctor.setEmail(resultSet.getString(5));
-                doctor.setPassword(resultSet.getString(6));
-                doctor.setUsername(resultSet.getString(7));
-                doctorList.add(doctor);
+                DoctorDTO doctorDTO= new DoctorDTO();
+                doctorDTO.setId_doctor(resultSet.getInt(1));
+                doctorDTO.setName(resultSet.getString(2));
+                doctorDTO.setSurname(resultSet.getString(3));
+                doctorDTO.setGender(resultSet.getString(4));
+                doctorDTO.setEmail(resultSet.getString(5));
+                doctorDTO.setPassword(resultSet.getString(6));
+                doctorDTO.setUsername(resultSet.getString(7));
+                doctorList.add(doctorDTO);
             }
         } catch (SQLException e) {
             e.printStackTrace();

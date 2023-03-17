@@ -14,6 +14,7 @@ public class HomeFacadeImpl implements HomeFacade {
 
     @Override
     public List<DoctorDTO> getAllDoctors() {
-        return null;
+        System.out.println("Siamo passati da facade a service :)");
+        return homeService.getAllDoctors();
     }
 }

@@ -1,13 +1,9 @@
 package com.fermed.services.impl;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
+
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DTO.DoctorDTO;
-import com.fermed.exception.DoctorFoundException;
-import com.fermed.model.Doctor;
-import com.fermed.repository.DoctorRepository;
 import com.fermed.services.DoctorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
@@ -24,18 +20,18 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public void createDoctor(Doctor doctor) throws Exception {
-        String name = doctor.getName();
-        String surname = doctor.getSurname();
-        String gender = doctor.getGender();
-        int id_type_of_doctor  = doctor.getId_type_of_doctor();
-        int insurance_id_insurance = doctor.getInsurance_id_insurance();
-        String email = doctor.getEmail();
-        String password = doctor.getPassword();
-        String username = doctor.getUsername();
+    public void createDoctor(DoctorDTO doctorDTO) throws Exception {
+        String name = doctorDTO.getName();
+        String surname = doctorDTO.getSurname();
+        String gender = doctorDTO.getGender();
+        //int id_type_of_doctor  = doctorDTO.getId_type_of_doctor();
+        //int insurance_id_insurance = doctorDTO.getInsurance_id_insurance();
+        String email = doctorDTO.getEmail();
+        String password = doctorDTO.getPassword();
+        String username = doctorDTO.getUsername();
 
-        String insertQuery = "INSERT INTO doctor(name, surname, gender, id_type_of_doctor, insurance_id_insurance, email, password, username) " +
-                "VALUES('"+name+"','"+surname+"','"+gender+"',"+id_type_of_doctor+","+insurance_id_insurance+",'"+email+"','"+password+"','"+username+"')";
+        String insertQuery = "INSERT INTO doctor(name, surname, gender, email, password, username) " +
+                "VALUES('"+name+"','"+surname+"','"+gender+"','"+email+"','"+password+"','"+username+"')";
 
         try{
                 PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);

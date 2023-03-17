@@ -26,26 +26,5 @@ public class HomeController {
         return ResponseEntity.ok(this.homeFacade.getAllDoctors());
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    //getting doctor by it's id
-  @RequestMapping(value = "/{id_doctor}", method =RequestMethod.GET)
-   public Optional<Doctor> getDoctorById(@PathVariable("id_doctor") Integer id_doctor)
-  {
-      return this.homeService.getDoctorById(id_doctor);
-  }
-*/
     }
 

@@ -1,17 +1,15 @@
 package com.fermed.repository;
 
-import com.fermed.model.Doctor;
+import com.fermed.DTO.DoctorDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.core.CrudMethods;
 import org.springframework.stereotype.Repository;
 
 
 
 
 @Repository
-public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
+public interface DoctorRepository extends JpaRepository<DoctorDTO, Integer> {
 
-   Doctor findByUsername(String username);
+
 
 }

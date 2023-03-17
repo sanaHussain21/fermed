@@ -1,18 +1,8 @@
 package com.fermed.facades;
 
-import com.fermed.model.Doctor;
-import com.fermed.services.DoctorService;
+import com.fermed.DTO.DoctorDTO;
 
-import javax.annotation.Resource;
+public interface DoctorFacade {
 
-public class DoctorFacade implements DoctorService {
-
-    @Resource
-    private DoctorService doctorService;
-
-
-    @Override
-    public void createDoctor(Doctor doctor) throws Exception {
-      return;
-    }
+    public void createDoctor(DoctorDTO doctor);
 }

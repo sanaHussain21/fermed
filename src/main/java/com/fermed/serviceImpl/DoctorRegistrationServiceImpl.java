@@ -40,7 +40,7 @@ public class DoctorRegistrationServiceImpl implements DoctorService {
         try{
                 PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
                 preparedStatement.executeUpdate();
-                System.out.println("DATA INSERTED SUCCESSFULLY!");
+                System.out.println("DOCTOR DATA INSERTED SUCCESSFULLY!");
     }catch (SQLException e){
             e.printStackTrace();
         }

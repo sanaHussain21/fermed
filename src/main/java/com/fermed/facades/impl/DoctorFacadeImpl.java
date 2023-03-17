@@ -17,6 +17,6 @@ public class DoctorFacadeImpl implements DoctorFacade {
     public void createDoctor(DoctorDTO doctorDTO){
         System.out.println("SIAMO PASSATI DA FACADE A SERVICE");
         //CONVERSION FROM DTO -> DATA
-     doctorService.createDoctor(doctorDTO);
+
     }
 }

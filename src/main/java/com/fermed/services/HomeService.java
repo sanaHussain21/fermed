@@ -10,12 +10,6 @@ import java.util.Optional;
 @Repository
 public interface HomeService {
 
-
-
     List<Doctor> getAllDoctors();
-
-
-
-
 
 }

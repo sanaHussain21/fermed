@@ -1,7 +1,7 @@
 package com.fermed.controllers;
 
+import com.fermed.DTO.DoctorDTO;
 import com.fermed.facades.HomeFacade;
-import com.fermed.model.Doctor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +22,7 @@ public class HomeController {
 
     //creating API to return  the doctor list
     @GetMapping("/")
-    public ResponseEntity<List<Doctor>> getAllDoctors(){
+    public ResponseEntity<List<DoctorDTO>> getAllDoctors(){
         return ResponseEntity.ok(this.homeFacade.getAllDoctors());
     }
 

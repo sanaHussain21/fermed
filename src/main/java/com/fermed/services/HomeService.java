@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface HomeService {
 
 
-    //getting all doctors already done
+
     List<Doctor> getAllDoctors();
 
 

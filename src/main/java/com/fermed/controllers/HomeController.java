@@ -2,33 +2,28 @@ package com.fermed.controllers;
 
 import com.fermed.facades.HomeFacade;
 import com.fermed.model.Doctor;
-import com.fermed.services.HomeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.annotation.Resource;
 import java.util.List;
-import java.util.Optional;
+
 
 
 @RestController
 @RequestMapping("/home") //with (/home) we will access the home controller
 public class HomeController {
 
-
-
-
+    @Resource
     private HomeFacade homeFacade;
 
-    @Autowired
-private HomeService homeService;
 
 
     //creating API to return  the doctor list
     @GetMapping("/")
     public ResponseEntity<List<Doctor>> getAllDoctors(){
-        return ResponseEntity.ok(this.homeService.getAllDoctors());
+        return ResponseEntity.ok(this.homeFacade.getAllDoctors());
     }
 
 

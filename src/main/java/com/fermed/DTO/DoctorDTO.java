@@ -7,31 +7,41 @@ import javax.validation.constraints.*;
 
 @Data
 public class DoctorDTO {
-    //for trasfering the data
+    //Using doctorDTOfor trasfering the data
 
     private int id_doctor;
 
     @NotEmpty
-    @Size(message = "Name field can't be empty!!!")
+    @Size(min = 4, message ="Name must contain minimum 4 characters!!!")
+    @Size(max = 10, message ="Name must contain maximum 10 characters!!!" )
+    @NotBlank(message = "Name field should not be empty!!!")
     private String name;
 
     @NotEmpty
-    @Size(message = "Surname field can't be empyty!!!")
+    @Size(min = 4, message ="Surname must contain minimum 4 characters!!!")
+    @Size(max = 15, message ="Surname must contain maximum 15 characters!!!" )
+    @NotBlank(message = "Surname field should not be empty!!!")
     private String surname;
 
-    @NotNull
+    @NotEmpty
+    @NotBlank(message = "Gender field should not be empty!!!")
     private String gender;
 
-    @NotEmpty
-    @Email(message = "Email field mustn't be empty!!!")
+
+    @NotBlank(message = "Email field should not be empty!!!")
+    @Email
     private String email;
 
     @NotEmpty
-    @Size(min =4, max = 10, message = "Password must be minimun 4 and maximun 10 charactters long!!!")
-    @Pattern(regexp = "[1-9] [A-Z] [a-z] [_*+,]")
+    @Size(min = 4, message = "Password must contain minimum 4 characters!!!")
+    @Size(max = 15, message = "Password must contain maximum 15 characters!!!")
+    @Pattern(regexp = "^(?=.*[-,_]).{4,15}$")
+    @NotBlank(message = "Password field should not be empty [Password can contain between these allowed special characters(-,_)]")
     private String password;
 
     @NotEmpty
-    @Size(min = 3, message = "The username must contain min 3 characters!!!")
+    @Size(min = 4, message = "Username must contain minimum 4 characters!!!")
+    @Size(max = 15, message = "Username must contain maximum 15 characters!!!")
+    @NotBlank(message = "Username field should not be empty!!!")
     private String username;
 }

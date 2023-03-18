@@ -1,6 +1,7 @@
 package com.fermed.facades.impl;
 
 import com.fermed.DTO.DoctorDTO;
+import com.fermed.DTO.DoctorData;
 import com.fermed.facades.DoctorFacade;
 import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
@@ -31,26 +32,22 @@ public class DoctorFacadeImpl implements DoctorFacade {
 
     @Override
     public DoctorDTO createDoctor(DoctorDTO doctorDTO) throws Exception {
-       Doctor doctor = this.dtoToDoctor(doctorDTO);
-       Doctor savedDoctor = this.doctorRepository.save(doctor);
-        System.out.println("Siamo passati da doctor facade a doctor service :)");
-        return  this.doctorService.createDoctor(doctorDTO);
-
-
         //CONVERSION FROM DTO -> DATA
+      DoctorData doctorData = this.dtoToDoctorData(doctorDTO);
+      //DoctorData savedDoctorData = this.doctorRepository.save(doctorData);
+      return doctorService.dtoToDoctorData(doctorData); //MUST BE CHECKED
 
     }
 
     //conversion from DTO TO DATA
-    public Doctor dtoToDoctor(DoctorDTO doctorDTO)
-    {
-        Doctor doctor = this.modelMapper.map(doctorDTO, Doctor.class);
-        return doctor;
+    public DoctorData dtoToDoctorData(DoctorDTO doctorDTO) {
+        DoctorData doctorData = this.modelMapper.map(doctorDTO, DoctorData.class);
+        return doctorData;
     }
 
-    //conversion form doctor to dto
-    public DoctorDTO doctorToDto(Doctor doctor){
-        DoctorDTO doctorDTO  = new DoctorDTO();
+    //conversion from doctor data to dto
+    public DoctorDTO doctorDataToDto(DoctorData doctorData){
+        DoctorDTO doctorDTO  = this.modelMapper.map(doctorData, DoctorDTO.class);
         return doctorDTO;
     }
 

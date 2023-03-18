@@ -1,5 +1,8 @@
 package com.fermed.DTO;
 
+import lombok.Data;
+
+@Data
 public class DoctorData {
     private int id_doctor;
     private String name;

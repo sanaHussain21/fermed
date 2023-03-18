@@ -25,6 +25,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
     private ModelMapper modelMapper;
 
 
+
     private DoctorRepository doctorRepository;
 
 
@@ -32,15 +33,13 @@ public class DoctorFacadeImpl implements DoctorFacade {
     public DoctorDTO createDoctor(DoctorDTO doctorDTO) throws Exception {
        Doctor doctor = this.dtoToDoctor(doctorDTO);
        Doctor savedDoctor = this.doctorRepository.save(doctor);
-         this.doctorToDto(savedDoctor);
-         System.out.println("Siamo passati da doctor facade a doctor service :)");
-        return doctorService.createDoctor(doctorDTO);
+        System.out.println("Siamo passati da doctor facade a doctor service :)");
+        return  this.doctorService.createDoctor(doctorDTO);
+
+
         //CONVERSION FROM DTO -> DATA
 
     }
-
-
-
 
     //conversion from DTO TO DATA
     public Doctor dtoToDoctor(DoctorDTO doctorDTO)

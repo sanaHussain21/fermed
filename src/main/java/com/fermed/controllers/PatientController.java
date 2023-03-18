@@ -1,26 +1,30 @@
 package com.fermed.controllers;
 
+import com.fermed.DTO.PatientDTO;
 import com.fermed.model.Patient;
 import com.fermed.services.PatientService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
+@Data
 @RestController
-@RequestMapping("/patient")
+@RequestMapping("/patient")  //with (/patient) we will access the patient controller
 public class PatientController {
 
-    @Autowired
+    @Resource
     private PatientService patientService;
 
 
     @PostMapping(value = "/createPatient")
-    public void createDoctor(@Valid @RequestBody Patient patient) throws Exception {
-        patientService.createPatient(patient);
+    public void createDoctor(@Valid @RequestBody PatientDTO patientDTO) throws Exception {
+        patientService.createPatient(patientDTO);
     }
 
 

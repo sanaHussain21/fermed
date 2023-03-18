@@ -22,5 +22,6 @@ public class DoctorController {
     //creating API to create the doctor
     @PostMapping(value = "/createDoctor")
     public void createDoctor(@Valid @RequestBody DoctorDTO doctorDTO) throws Exception {
-       doctorFacade.createDoctor(doctorDTO); }
+       doctorFacade.createDoctor(doctorDTO);
+    }
 }

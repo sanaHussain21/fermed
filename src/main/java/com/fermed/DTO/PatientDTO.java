@@ -1,7 +1,10 @@
 package com.fermed.DTO;
 
+import lombok.Data;
+
 import javax.validation.constraints.*;
 
+@Data
 public class PatientDTO {
 
     int id_patient;

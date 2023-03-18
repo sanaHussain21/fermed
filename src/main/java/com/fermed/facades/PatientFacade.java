@@ -1,10 +1,14 @@
 package com.fermed.facades;
 
-import com.fermed.services.DoctorService;
 
-import javax.annotation.Resource;
+import com.fermed.DTO.PatientDTO;
+import org.springframework.stereotype.Component;
 
-public class PatientFacade {
-    @Resource
-    private DoctorService doctorService;
+@Component
+public interface PatientFacade {
+
+        //creating patient
+     void createPatient(PatientDTO patientDTO);
+
+
 }

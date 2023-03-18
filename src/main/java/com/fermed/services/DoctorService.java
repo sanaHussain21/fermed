@@ -7,7 +7,7 @@ import com.fermed.DTO.DoctorDTO;
 public interface DoctorService {
 
     //creating doctor
-    void  createDoctor(DoctorDTO doctorDTO) throws Exception;
+    DoctorDTO  createDoctor(DoctorDTO doctorDTO) throws Exception;
 
 
 

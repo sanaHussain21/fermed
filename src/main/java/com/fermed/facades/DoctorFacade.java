@@ -6,5 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 public interface DoctorFacade {
 
-     void createDoctor(DoctorDTO doctorDTO);
+     //creating the doctor
+     DoctorDTO createDoctor(DoctorDTO doctorDTO) throws Exception;
 }

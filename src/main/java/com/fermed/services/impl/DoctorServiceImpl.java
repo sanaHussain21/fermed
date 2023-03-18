@@ -20,7 +20,7 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public void createDoctor(DoctorDTO doctorDTO) throws Exception {
+    public DoctorDTO createDoctor(DoctorDTO doctorDTO) throws Exception {
         String name = doctorDTO.getName();
         String surname = doctorDTO.getSurname();
         String gender = doctorDTO.getGender();
@@ -40,5 +40,7 @@ public class DoctorServiceImpl implements DoctorService {
     }catch (SQLException e){
             e.printStackTrace();
         }
+        return doctorDTO;
     }
+
 }

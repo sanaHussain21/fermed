@@ -7,7 +7,7 @@ import com.fermed.model.Doctor;
 import com.fermed.services.DoctorService;
 import org.springframework.stereotype.Service;
 
-import javax.print.Doc;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -23,15 +23,17 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public void createDoctor(DoctorData doctorData) throws Exception {
-        //CONVERSION FROM DTO -> DATA
-        Doctor doctor = new Doctor();
-        doctor.setName(doctorData.getName());
-        doctor.setSurname(doctorData.getSurname());
-        doctor.setGender(doctorData.getGender());
-        doctor.setEmail(doctorData.getEmail());
-        doctor.setUsername(doctorData.getUsername());
-        doctor.setPassword(doctorData.getPassword());
-        
+        //CONVERSION FROM DATA -> MODEL
+        //TO BE CHECKED
+         Doctor doctor = new Doctor();
+         doctor.setName(doctorData.getName());
+         doctor.setSurname(doctorData.getSurname());
+         doctor.setGender(doctorData.getGender());
+         doctor.setEmail(doctorData.getEmail());
+         doctor.setUsername(doctorData.getUsername());
+         doctor.setPassword(doctorData.getPassword());
+
+
         String insertQuery = "INSERT INTO doctor(name, surname, gender, email, password, username) " +
                 "VALUES('"+name+"','"+surname+"','"+gender+"','"+email+"','"+password+"','"+username+"')";
 

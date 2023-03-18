@@ -2,10 +2,12 @@ package com.fermed.services.impl;
 
 
 import com.fermed.DAO.DatabaseDAO;
-import com.fermed.DTO.DoctorDTO;
+import com.fermed.DTO.DoctorData;
+import com.fermed.model.Doctor;
 import com.fermed.services.DoctorService;
 import org.springframework.stereotype.Service;
 
+import javax.print.Doc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -20,16 +22,16 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public DoctorDTO createDoctor(DoctorDTO doctorDTO) throws Exception {
-        String name = doctorDTO.getName();
-        String surname = doctorDTO.getSurname();
-        String gender = doctorDTO.getGender();
-        //int id_type_of_doctor  = doctorDTO.getId_type_of_doctor();
-        //int insurance_id_insurance = doctorDTO.getInsurance_id_insurance();
-        String email = doctorDTO.getEmail();
-        String password = doctorDTO.getPassword();
-        String username = doctorDTO.getUsername();
-
+    public void createDoctor(DoctorData doctorData) throws Exception {
+        //CONVERSION FROM DTO -> DATA
+        Doctor doctor = new Doctor();
+        doctor.setName(doctorData.getName());
+        doctor.setSurname(doctorData.getSurname());
+        doctor.setGender(doctorData.getGender());
+        doctor.setEmail(doctorData.getEmail());
+        doctor.setUsername(doctorData.getUsername());
+        doctor.setPassword(doctorData.getPassword());
+        
         String insertQuery = "INSERT INTO doctor(name, surname, gender, email, password, username) " +
                 "VALUES('"+name+"','"+surname+"','"+gender+"','"+email+"','"+password+"','"+username+"')";
 
@@ -40,7 +42,7 @@ public class DoctorServiceImpl implements DoctorService {
     }catch (SQLException e){
             e.printStackTrace();
         }
-        return doctorDTO;
+
     }
 
 }

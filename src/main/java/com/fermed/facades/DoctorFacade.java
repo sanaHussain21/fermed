@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public interface DoctorFacade {
 
      //creating the doctor
-     DoctorDTO createDoctor(DoctorDTO doctorDTO) throws Exception;
+     void createDoctor(DoctorDTO doctorDTO) throws Exception;
 
 
 }

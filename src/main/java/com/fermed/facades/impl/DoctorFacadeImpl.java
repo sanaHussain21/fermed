@@ -30,6 +30,8 @@ public class DoctorFacadeImpl implements DoctorFacade {
         doctorData.setName(doctorDTO.getName());
         doctorData.setSurname(doctorDTO.getSurname());
         doctorData.setGender(doctorDTO.getGender());
+        doctorData.setId_type_of_doctor(doctorDTO.getId_type_of_doctor());
+        doctorData.setInsurance_id_insurance(doctorDTO.getInsurance_id_insurance());
         doctorData.setEmail(doctorDTO.getEmail());
         doctorData.setUsername(doctorDTO.getUsername());
         doctorData.setPassword(doctorDTO.getPassword());

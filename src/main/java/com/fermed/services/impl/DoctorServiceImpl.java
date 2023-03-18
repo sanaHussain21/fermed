@@ -29,18 +29,20 @@ public class DoctorServiceImpl implements DoctorService {
          doctor.setName(doctorData.getName());
          doctor.setSurname(doctorData.getSurname());
          doctor.setGender(doctorData.getGender());
+         doctor.setId_type_of_doctor(doctorData.getId_type_of_doctor());
+         doctor.setInsurance_id_insurance(doctorData.getInsurance_id_insurance());
          doctor.setEmail(doctorData.getEmail());
          doctor.setUsername(doctorData.getUsername());
          doctor.setPassword(doctorData.getPassword());
 
 
-        String insertQuery = "INSERT INTO doctor(name, surname, gender, email, password, username) " +
-                "VALUES('"+name+"','"+surname+"','"+gender+"','"+email+"','"+password+"','"+username+"')";
+        String insertQuery = "INSERT INTO doctor(name, surname, gender,id_type_of_doctor, insurance_id_insurance, email, password, username) " +
+                "VALUES('"+doctor.getName()+"', '"+doctor.getSurname()+"', '"+doctor.getGender()+"', "+doctor.getId_type_of_doctor()+", "+doctor.getInsurance_id_insurance()+",  '"+doctor.getEmail()+"','"+doctor.getUsername()+"','"+doctor.getPassword()+"')";
 
         try{
                 PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
                 preparedStatement.executeUpdate();
-                System.out.println("DOCTOR DATA INSERTED SUCCESSFULLY!");
+                System.out.println("DOCTOR DATA INSERTED SUCCESSFULLY! :)");
     }catch (SQLException e){
             e.printStackTrace();
         }

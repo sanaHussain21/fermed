@@ -27,6 +27,8 @@ public class DoctorDTO {
     @NotBlank(message = "Gender field should not be empty!!!")
     private String gender;
 
+    int id_type_of_doctor;
+    int insurance_id_insurance;
 
     @NotBlank(message = "Email field should not be empty!!!")
     @Email

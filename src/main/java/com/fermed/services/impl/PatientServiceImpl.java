@@ -1,6 +1,7 @@
 package com.fermed.services.impl;
 
 import com.fermed.DAO.DatabaseDAO;
+import com.fermed.DTO.PatientData;
 import com.fermed.model.Patient;
 import com.fermed.services.PatientService;
 import org.springframework.stereotype.Service;
@@ -20,27 +21,30 @@ public class PatientServiceImpl implements PatientService {
 
 
     @Override
-    public void createPatient(Patient patient) throws Exception {
-            String name = patient.getName();
-            String surname = patient.getSurname();
-            String codice_fiscale = patient.getCodice_fiscale();
-            int id_insurance = patient.getId_insurance();
-            String telephone_number = patient.getTelephone_number();
-            String username = patient.getUsername();
-            String password = patient.getPassword();
-            String email = patient.getEmail();
+    public void createPatient(PatientData patientData) {
+        //converion from data -> model
+            Patient patient = new Patient();
+        patient.setName(patientData.getName());
+        patient.setSurname(patientData.getSurname());
+        patient.setCodice_fiscale(patientData.getCodice_fiscale());
+        patient.setId_insurance(patientData.getId_insurance());
+        patient.setTelephone_number(patientData.getTelephone_number());
+        patient.setUsername(patientData.getUsername());
+        patient.setPassword(patientData.getPassword());
+        patient.setUsername(patientData.getUsername());
+
 
 
         String insertQuery = "INSERT INTO patient(name, surname, codice_fiscale , id_insurance ,telephone_number , username, password, email)" +
-                "VALUES('"+name+"','"+surname+"',  '"+codice_fiscale+"', '"+id_insurance+"', '"+telephone_number+"', '"+username+"','"+password+"','"+email+"')";
+                "VALUES('"+patient.getName()+"','"+patient.getSurname()+"',  '"+patient.getCodice_fiscale()+"', '"+patient.getId_insurance()+"', '"+patient.getTelephone_number()+"', '"+patient.getUsername()+"','"+patient.getPassword()+"','"+patient.getEmail()+"')";
 
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();
-            System.out.println("PATIENT DATA INSERTED SUCCESSFULLY!");
+            System.out.println("PATIENT DATA INSERTED SUCCESSFULLY! :)");
         }catch (SQLException e){
             e.printStackTrace();
         }
-            //fare controllo se un utente is already in the database or not
+
     }
 }

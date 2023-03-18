@@ -24,7 +24,7 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public void createDoctor(DoctorData doctorData) throws Exception {
         //CONVERSION FROM DATA -> MODEL
-        //TO BE CHECKED
+
          Doctor doctor = new Doctor();
          doctor.setName(doctorData.getName());
          doctor.setSurname(doctorData.getSurname());

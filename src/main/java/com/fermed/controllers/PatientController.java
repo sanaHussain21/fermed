@@ -1,6 +1,7 @@
 package com.fermed.controllers;
 
 import com.fermed.DTO.PatientDTO;
+import com.fermed.facades.PatientFacade;
 import com.fermed.model.Patient;
 import com.fermed.services.PatientService;
 import lombok.Data;
@@ -19,12 +20,12 @@ import javax.validation.Valid;
 public class PatientController {
 
     @Resource
-    private PatientService patientService;
+    private PatientFacade patientFacade;
 
 
     @PostMapping(value = "/createPatient")
     public void createDoctor(@Valid @RequestBody PatientDTO patientDTO) throws Exception {
-        patientService.createPatient(patientDTO);
+        patientFacade.createPatient(patientDTO);
     }
 
 

@@ -25,4 +25,16 @@ public class DoctorController {
     public void createDoctor(@Valid @RequestBody DoctorDTO doctorDTO) throws Exception {
        doctorFacade.createDoctor(doctorDTO);
     }
+
+
+    //creating API  TO GET DOCTOR BY EMAIL AND PASSWORD
+
+
+
+
+
+
+
+
+
 }

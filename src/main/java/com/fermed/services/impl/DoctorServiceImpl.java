@@ -40,18 +40,10 @@ public class DoctorServiceImpl implements DoctorService {
          doctor.setUsername(doctorData.getUsername());
          doctor.setPassword(doctorData.getPassword());
          doctorDAO.createDoctor(doctor);
-/*
-        String insertQuery = "INSERT INTO doctor(name, surname, gender,id_type_of_doctor, insurance_id_insurance, email, password, username) " +
-                "VALUES('"+doctor.getName()+"', '"+doctor.getSurname()+"', '"+doctor.getGender()+"', "+doctor.getId_type_of_doctor()+", "+doctor.getInsurance_id_insurance()+",  '"+doctor.getEmail()+"','"+doctor.getUsername()+"','"+doctor.getPassword()+"')";
 
-        try{
-                PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
-                preparedStatement.executeUpdate();
-                System.out.println("DOCTOR DATA INSERTED SUCCESSFULLY! :)");
-    }catch (SQLException e){
-            e.printStackTrace();
-        }
-*/
+
     }
+
+
 
 }

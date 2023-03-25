@@ -11,4 +11,7 @@ public interface DoctorFacade {
      void createDoctor(DoctorDTO doctorDTO) throws Exception;
 
 
+     //getting doctor email and password
+
+
 }

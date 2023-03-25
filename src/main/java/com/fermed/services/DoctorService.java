@@ -8,5 +8,9 @@ public interface DoctorService {
     //creating doctor
     void createDoctor(DoctorData doctorData) throws Exception;
 
+    //getting the email and password
+
+
+
 
 }

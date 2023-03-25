@@ -33,7 +33,7 @@ public class Patient {
     String codice_fiscale;
 
 
-    int id_insurance;
+    int id_insurance = 1;
 
    //fare comtrollo in caso qualcuno inserisce lettere al poato di numei
     @NotEmpty

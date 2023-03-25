@@ -8,6 +8,7 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.sql.SQLException;
 
 
 @Component
@@ -19,7 +20,7 @@ public class PatientFacadeImpl implements PatientFacade {
 
 
     @Override
-    public void createPatient(PatientDTO patientDTO) {
+    public void createPatient(PatientDTO patientDTO) throws SQLException {
         //CONVERSION FROM DTO -> DATA
         PatientData patientData = new PatientData();
         patientData.setName(patientDTO.getName());

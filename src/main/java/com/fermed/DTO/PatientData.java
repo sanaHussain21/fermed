@@ -9,7 +9,7 @@ public class PatientData {
     private  String name;
     private String surname;
     private String codice_fiscale;
-    private int id_insurance;
+    private int id_insurance = 1;
     private String telephone_number;
     private String  username;
     private  String password;

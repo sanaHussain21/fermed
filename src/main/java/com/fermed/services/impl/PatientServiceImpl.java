@@ -1,17 +1,21 @@
 package com.fermed.services.impl;
 
 import com.fermed.DAO.DatabaseDAO;
+import com.fermed.DAO.PatientDAO;
 import com.fermed.DTO.PatientData;
 import com.fermed.model.Patient;
 import com.fermed.services.PatientService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @Service
 public class PatientServiceImpl implements PatientService {
+    @Resource
+    private PatientDAO patientDAO;
 
     Connection connection;
 
@@ -21,7 +25,7 @@ public class PatientServiceImpl implements PatientService {
 
 
     @Override
-    public void createPatient(PatientData patientData) {
+    public void createPatient(PatientData patientData) throws SQLException {
         //converion from data -> model
             Patient patient = new Patient();
         patient.setName(patientData.getName());
@@ -32,9 +36,9 @@ public class PatientServiceImpl implements PatientService {
         patient.setUsername(patientData.getUsername());
         patient.setPassword(patientData.getPassword());
         patient.setUsername(patientData.getUsername());
+        patientDAO.createPatient(patient);
 
-
-
+/*
         String insertQuery = "INSERT INTO patient(name, surname, codice_fiscale , id_insurance ,telephone_number , username, password, email)" +
                 "VALUES('"+patient.getName()+"','"+patient.getSurname()+"',  '"+patient.getCodice_fiscale()+"', '"+patient.getId_insurance()+"', '"+patient.getTelephone_number()+"', '"+patient.getUsername()+"','"+patient.getPassword()+"','"+patient.getEmail()+"')";
 
@@ -45,6 +49,6 @@ public class PatientServiceImpl implements PatientService {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
+*/
     }
 }

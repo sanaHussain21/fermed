@@ -6,10 +6,7 @@ import com.fermed.model.Patient;
 import com.fermed.services.PatientService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -17,6 +14,7 @@ import javax.validation.Valid;
 @Data
 @RestController
 @RequestMapping("/patient")  //with (/patient) we will access the patient controller
+@CrossOrigin("*")
 public class PatientController {
 
     @Resource

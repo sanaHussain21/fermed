@@ -11,6 +11,7 @@ import javax.validation.Valid;
 @Data
 @RestController
 @RequestMapping("/doctor")  //with (/doctor) we will access the doctor controller
+@CrossOrigin("*")
 public class DoctorController {
 
 

@@ -2,7 +2,7 @@ package com.fermed.exception;
 
 import lombok.Data;
 
-@Data
+
 public class ResourceNotFoundException  extends RuntimeException{
     //creating unchecked exception
    String resourceName;

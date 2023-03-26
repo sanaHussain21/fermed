@@ -6,6 +6,8 @@ import com.fermed.DAO.DoctorDAO;
 import com.fermed.DTO.DoctorData;
 import com.fermed.model.Doctor;
 import com.fermed.services.DoctorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -19,6 +21,9 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Resource
     private DoctorDAO doctorDAO;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     Connection connection;
 
@@ -38,7 +43,7 @@ public class DoctorServiceImpl implements DoctorService {
          doctor.setInsurance_id_insurance(doctorData.getInsurance_id_insurance());
          doctor.setEmail(doctorData.getEmail());
          doctor.setUsername(doctorData.getUsername());
-         doctor.setPassword(doctorData.getPassword());
+         doctor.setPassword(this.passwordEncoder.encode(doctorData.getPassword()));
          doctorDAO.createDoctor(doctor);
 
 

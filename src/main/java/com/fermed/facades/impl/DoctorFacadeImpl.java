@@ -12,6 +12,7 @@ import com.fermed.response.LoginResponse;
 import com.fermed.services.DoctorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 
 import javax.annotation.Resource;
+import java.util.Optional;
 
 
 @Component
@@ -27,14 +29,16 @@ public class DoctorFacadeImpl implements DoctorFacade {
     @Resource
     private DoctorService doctorService;
 
-
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
+
 
      private DoctorRepository doctorRepository;
 
 
-
+//this.passwordEncoder.encode(doctorDTO.getPassword())
 
     @Override
     public void createDoctor(DoctorDTO doctorDTO) throws Exception {
@@ -47,7 +51,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
         doctorData.setInsurance_id_insurance(doctorDTO.getInsurance_id_insurance());
         doctorData.setEmail(doctorDTO.getEmail());
         doctorData.setUsername(doctorDTO.getUsername());
-        doctorData.setPassword(this.passwordEncoder.encode(doctorDTO.getPassword()));
+        doctorData.setPassword(this.bCryptPasswordEncoder.encode(doctorDTO.getPassword()));
         doctorService.createDoctor(doctorData);
 
     }
@@ -56,13 +60,31 @@ public class DoctorFacadeImpl implements DoctorFacade {
     @Override
     public LoginResponse loginDoctor(DoctorLoginDTO doctorLoginDTO) {
         String message= "";
-        Doctor doctor =  doctorRepository.findByEmail(doctorLoginDTO.getEmail());
-        if (doctor != null){
+        Doctor doctor1 =  doctorRepository.findByEmail(doctorLoginDTO.getEmail());
+        if (doctor1 != null){
             String password = doctorLoginDTO.getPassword();
+            String encodedPassword = doctor1.getPassword();
+            Boolean isPasswordRight = bCryptPasswordEncoder.matches(password,  encodedPassword);
+            if(isPasswordRight){
+                Optional<Doctor> doctor = doctorRepository.findByEmailAndPassword(doctorLoginDTO.getEmail(), encodedPassword);
+                if (doctor.isPresent()){
+                    return new LoginResponse("Login Success", true);
+                }else
+                    {
+                    return  new LoginResponse("Login Failed", false);
+                     }
 
+            }else {
+                return  new LoginResponse("Password Not Match", false);
+                 }
+
+        }else
+        {
+            return  new LoginResponse("Email not exits", false);
         }
-    return null;
+
     }
+
 
 
 }

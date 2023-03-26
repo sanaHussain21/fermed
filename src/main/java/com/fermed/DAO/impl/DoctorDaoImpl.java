@@ -15,8 +15,6 @@ import java.sql.SQLException;
 @Component
 public class DoctorDaoImpl implements DoctorDAO {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     @Override
     public void createDoctor(Doctor doctor) throws SQLException {
@@ -26,12 +24,12 @@ public class DoctorDaoImpl implements DoctorDAO {
 
 
         String insertQuery = "INSERT INTO doctor(name, surname, gender,id_type_of_doctor, insurance_id_insurance, email, password, username) " +
-                "VALUES('"+doctor.getName()+"', '"+doctor.getSurname()+"', '"+doctor.getGender()+"', "+doctor.getId_type_of_doctor()+", "+doctor.getInsurance_id_insurance()+",  '"+doctor.getEmail()+"','"+doctor.getUsername()+"','"+(this.passwordEncoder.encode(doctor.getPassword()))+"')";
+                "VALUES('"+doctor.getName()+"', '"+doctor.getSurname()+"', '"+doctor.getGender()+"', "+doctor.getId_type_of_doctor()+", "+doctor.getInsurance_id_insurance()+",  '"+doctor.getEmail()+"','"+doctor.getPassword()+"','"+doctor.getUsername()+"')";
 
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();
-            System.out.println("Siamo passati da doctor service imple a doctor dao impl :)");
+            System.out.println("Siamo passati da doctor service impl a doctor dao impl :)");
             System.out.println("DOCTOR DATA INSERTED SUCCESSFULLY! :)");
         }catch (SQLException e){
             e.printStackTrace();

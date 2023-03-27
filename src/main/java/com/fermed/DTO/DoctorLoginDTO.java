@@ -9,6 +9,15 @@ public class DoctorLoginDTO {
     private String password;
 
 
+
+
+
+
+
+
+
+
+
     public DoctorLoginDTO(String email, String password) {
         this.email = email;
         this.password = password;

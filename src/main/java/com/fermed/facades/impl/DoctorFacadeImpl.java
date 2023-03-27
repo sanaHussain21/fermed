@@ -61,27 +61,26 @@ public class DoctorFacadeImpl implements DoctorFacade {
     public LoginResponse loginDoctor(DoctorLoginDTO doctorLoginDTO) {
         String message= "";
         Doctor doctor1 =  doctorRepository.findByEmail(doctorLoginDTO.getEmail());
-        if (doctor1 != null){
+        if (doctor1 != null) {
             String password = doctorLoginDTO.getPassword();
             String encodedPassword = doctor1.getPassword();
             Boolean isPasswordRight = bCryptPasswordEncoder.matches(password,  encodedPassword);
-            if(isPasswordRight){
+            if(isPasswordRight) {
                 Optional<Doctor> doctor = doctorRepository.findByEmailAndPassword(doctorLoginDTO.getEmail(), encodedPassword);
                 if (doctor.isPresent()){
                     return new LoginResponse("Login Success", true);
-                }else
-                    {
-                    return  new LoginResponse("Login Failed", false);
+                }else{
+                        return  new LoginResponse("Login Failed", false);
                      }
 
             }else {
-                return  new LoginResponse("Password Not Match", false);
+                    return  new LoginResponse("Password Not Match", false);
                  }
 
-        }else
-        {
-            return  new LoginResponse("Email not exits", false);
-        }
+        }else {
+               return  new LoginResponse("Email not exits", false);
+             }
+
 
     }
 

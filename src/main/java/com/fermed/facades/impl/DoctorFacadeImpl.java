@@ -34,7 +34,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
 
 
 
-    @Autowired
+    @Resource
      private DoctorRepository doctorRepository;
 
 

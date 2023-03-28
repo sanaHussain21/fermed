@@ -16,7 +16,11 @@ public interface DoctorService {
 
    // Doctor findByEmail(String email) throws Exception;
 
-    void findByEmailAndPassword(String temporaryEmail, String temporaryPassword) throws Exception;
+    //void findByEmailAndPassword(String email, String password) throws Exception;
+
+
+
+    void loginDoctor(String email, String password) throws Exception;
 
     //getting the email and password
 

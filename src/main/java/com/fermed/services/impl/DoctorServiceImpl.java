@@ -56,8 +56,8 @@ public class DoctorServiceImpl implements DoctorService {
     }
 */
     @Override
-    public void findByEmailAndPassword(String temporaryEmail, String temporaryPassword) throws Exception {
-        doctorDAO.findByEmailAndPassword(temporaryEmail, temporaryPassword);
+    public void loginDoctor(String email, String password) throws Exception {
+        doctorDAO.loginDoctor(email, password);
 
     }
 

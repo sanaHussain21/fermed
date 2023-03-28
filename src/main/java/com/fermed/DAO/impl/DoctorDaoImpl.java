@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Component
@@ -41,7 +42,7 @@ public class DoctorDaoImpl implements DoctorDAO {
     }
 
     @Override
-    public void findByEmailAndPassword(String temporaryEmail, String temporaryPassword) throws SQLException {
+    public void loginDoctor(String email, String password)throws SQLException {
 
         Connection connection;
         connection =  DatabaseDAO.getConnection();
@@ -49,11 +50,21 @@ public class DoctorDaoImpl implements DoctorDAO {
         String selectQuery = "SELECT email , password FROM doctor WHERE email = '' AND password = '' ";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
-            preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
             //System.out.println("Siamo passati da doctor service impl a doctor dao impl :)");
-            System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
-            System.out.println("DOCTOR EMAIL: "+temporaryEmail);
-            System.out.println("DOCTOR PASSWORD: "+temporaryPassword);
+
+            while (resultSet.next()){
+                if (resultSet.getString(7).equals(email) && resultSet.getString(8).equals(password)){
+                    System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
+                    System.out.println("DOCTOR EMAIL: "+email);
+                    System.out.println("DOCTOR PASSWORD: "+password);
+                }else {
+                    System.out.println("DOCTOR LOGIN FAILED!!!");
+                    System.out.println("DOCTOR EMAIL: "+email);
+                    System.out.println("DOCTOR PASSWORD: "+password);
+                }
+            }
+
         }catch (SQLException e){
             e.getMessage();
         }

@@ -54,10 +54,13 @@ public class DoctorFacadeImpl implements DoctorFacade {
 
     @Override
     public void loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception {
-        String temporaryEmail = doctorLoginDTO.getEmail();
-        String temporaryPassword = doctorLoginDTO.getPassword();
-        if (temporaryEmail != null && temporaryPassword != null) {
-            doctorService.findByEmailAndPassword(temporaryEmail, temporaryPassword);
+        String email = doctorLoginDTO.getEmail();
+        String password = doctorLoginDTO.getPassword();
+        Doctor doctor = new Doctor();
+        if (email != null && password != null) {
+            doctorService.loginDoctor(email, password);
+        }else {
+            throw  new Exception("Email and Password are invalid :)");
         }
 
     }

@@ -47,14 +47,12 @@ public class DoctorDaoImpl implements DoctorDAO {
         Connection connection;
         connection =  DatabaseDAO.getConnection();
 
-        String selectQuery = "SELECT email , password FROM doctor WHERE email = '' AND password = '' ";
+        //String selectQuery = "SELECT email , password FROM doctor WHERE email = '"+email+"' AND password = '"+password+"' ";
         try{
-            PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT email , password FROM doctor WHERE email = '"+email+"' AND password = '"+password+"' ");
             ResultSet resultSet = preparedStatement.executeQuery();
             //System.out.println("Siamo passati da doctor service impl a doctor dao impl :)");
-
-            while (resultSet.next()){
-                if (resultSet.getString(7).equals(email) && resultSet.getString(8).equals(password)){
+                if (resultSet != null){
                     System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
                     System.out.println("DOCTOR EMAIL: "+email);
                     System.out.println("DOCTOR PASSWORD: "+password);
@@ -63,7 +61,6 @@ public class DoctorDaoImpl implements DoctorDAO {
                     System.out.println("DOCTOR EMAIL: "+email);
                     System.out.println("DOCTOR PASSWORD: "+password);
                 }
-            }
 
         }catch (SQLException e){
             e.getMessage();

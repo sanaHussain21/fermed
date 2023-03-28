@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @EnableJpaRepositories
 @Repository
-public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
+public  interface DoctorRepository extends JpaRepository<Doctor, Integer> {
 
    //finding email and password for login
     Optional<Doctor> findByEmailAndPassword(String email, String password);

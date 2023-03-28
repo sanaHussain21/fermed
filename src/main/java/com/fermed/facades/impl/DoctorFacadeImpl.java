@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 
 import javax.annotation.Resource;
+import java.sql.SQLException;
 import java.util.Optional;
 
 
@@ -31,11 +32,6 @@ public class DoctorFacadeImpl implements DoctorFacade {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-
-
-    @Resource
-     private DoctorRepository doctorRepository;
 
 
 //this.passwordEncoder.encode(doctorDTO.getPassword())
@@ -56,17 +52,28 @@ public class DoctorFacadeImpl implements DoctorFacade {
 
     }
 
-
     @Override
-    public LoginResponse  loginDoctor(DoctorLoginDTO doctorLoginDTO) {
+    public void loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception {
+        String temporaryEmail = doctorLoginDTO.getEmail();
+        String temporaryPassword = doctorLoginDTO.getPassword();
+        if (temporaryEmail != null && temporaryPassword != null) {
+            doctorService.findByEmailAndPassword(temporaryEmail, temporaryPassword);
+        }
+
+    }
+
+
+/*
+    @Override
+    public LoginResponse  loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception {
         String msg = "";
-        Doctor doctor1 = doctorRepository.findByEmail(doctorLoginDTO.getEmail());
+        Doctor doctor1 = doctorService.findByEmail(doctorLoginDTO.getEmail());
         if (doctor1 != null) {
             String password = doctorLoginDTO.getPassword();
             String encodedPassword = doctor1.getPassword();
             Boolean isPwdRight = bCryptPasswordEncoder.matches(password, encodedPassword);
             if (isPwdRight) {
-                Optional<Doctor> doctor = doctorRepository.findByEmailAndPassword(doctorLoginDTO.getEmail(), encodedPassword);
+                Optional<Doctor> doctor = doctorService.findByEmailAndPassword(doctorLoginDTO.getEmail(), encodedPassword);
                 if (doctor.isPresent()) {
                     return new LoginResponse("Login Success", true);
                 } else {
@@ -82,7 +89,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
 
 
     }
+*/
 
 
-
-}
+    }

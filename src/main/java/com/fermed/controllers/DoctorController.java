@@ -3,6 +3,7 @@ package com.fermed.controllers;
 import com.fermed.DTO.DoctorDTO;
 import com.fermed.DTO.DoctorLoginDTO;
 import com.fermed.facades.DoctorFacade;
+import com.fermed.model.Doctor;
 import com.fermed.response.LoginResponse;
 import lombok.Data;
 import org.springframework.context.annotation.ComponentScan;
@@ -35,9 +36,9 @@ public class DoctorController {
 
     //creating API  TO GET DOCTOR BY EMAIL AND PASSWORD
         @PostMapping(path = "/doctorLogin")
-    public ResponseEntity<?> loginDoctor(@RequestBody DoctorLoginDTO doctorLoginDTO){
-            LoginResponse loginResponse = doctorFacade.loginDoctor(doctorLoginDTO);
-        return  ResponseEntity.ok(loginResponse);
+    public void loginDoctor(@Valid @RequestBody DoctorLoginDTO doctorLoginDTO) throws Exception {
+        doctorFacade.loginDoctor(doctorLoginDTO);
+
 
         }
 

@@ -29,8 +29,8 @@ public class DoctorDaoImpl implements DoctorDAO {
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();
-            System.out.println("Siamo passati da doctor service impl a doctor dao impl :)");
-            System.out.println("DOCTOR DATA INSERTED SUCCESSFULLY! :)");
+            //System.out.println("Siamo passati da doctor service impl a doctor dao impl :)");
+            System.out.println("DOCTOR REGISTERED SUCCESSFULLY! :)");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -39,4 +39,39 @@ public class DoctorDaoImpl implements DoctorDAO {
 
 
     }
-}
+
+    @Override
+    public void findByEmailAndPassword(String temporaryEmail, String temporaryPassword) throws SQLException {
+
+        Connection connection;
+        connection =  DatabaseDAO.getConnection();
+
+        String selectQuery = "SELECT email , password FROM doctor WHERE email = '' AND password = '' ";
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
+            preparedStatement.executeQuery();
+            //System.out.println("Siamo passati da doctor service impl a doctor dao impl :)");
+            System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
+            System.out.println("DOCTOR EMAIL: "+temporaryEmail);
+            System.out.println("DOCTOR PASSWORD: "+temporaryPassword);
+        }catch (SQLException e){
+            e.getMessage();
+        }
+
+    }
+/*
+    @Override
+    public Doctor findByEmail(String email) throws SQLException {
+        Connection connection;
+        connection =  DatabaseDAO.getConnection();
+        String selectQuery = "SELECT email  FROM doctor WHERE email = ''";
+
+
+            PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
+            preparedStatement.executeQuery();
+            System.out.println("Doctor Email found :)");
+            return findByEmail(email);
+        }
+*/
+    }
+

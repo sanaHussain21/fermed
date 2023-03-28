@@ -8,13 +8,11 @@ import com.fermed.model.Doctor;
 import com.fermed.services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
 import javax.annotation.Resource;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @Service
@@ -49,7 +47,19 @@ public class DoctorServiceImpl implements DoctorService {
 
 
     }
+/*
+    @Override
+    public Doctor findByEmail(String email) throws Exception {
+            //for  testing
 
+        return doctorDAO.findByEmail(email);
+    }
+*/
+    @Override
+    public void findByEmailAndPassword(String temporaryEmail, String temporaryPassword) throws Exception {
+        doctorDAO.findByEmailAndPassword(temporaryEmail, temporaryPassword);
+
+    }
 
 
 }

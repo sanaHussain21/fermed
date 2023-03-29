@@ -35,7 +35,7 @@ public class DoctorController {
 
 
     //creating API  TO GET DOCTOR BY EMAIL AND PASSWORD
-        @GetMapping(path = "/doctorLogin")
+        @PostMapping(path = "/doctorLogin")
     public void loginDoctor(@Valid @RequestBody DoctorLoginDTO doctorLoginDTO) throws Exception {
         doctorFacade.loginDoctor(doctorLoginDTO);
 

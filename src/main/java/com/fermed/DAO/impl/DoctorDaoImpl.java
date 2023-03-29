@@ -51,16 +51,18 @@ public class DoctorDaoImpl implements DoctorDAO {
         try{
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM doctor WHERE email = '"+email+"' AND password = '"+password+"' ");
             ResultSet resultSet = preparedStatement.executeQuery();
-            //System.out.println("Siamo passati da doctor service impl a doctor dao impl :)");
-                if (resultSet != null){
-                    System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
-                    System.out.println("DOCTOR EMAIL: "+email);
-                    System.out.println("DOCTOR PASSWORD: "+password);
-                }else {
-                    System.out.println("DOCTOR LOGIN FAILED!!!");
-                    System.out.println("DOCTOR EMAIL: "+email);
-                    System.out.println("DOCTOR PASSWORD: "+password);
-                }
+           while(resultSet.next()){
+               if (resultSet.getString(7).equals(email) && resultSet.getString(8).equals(password)){
+                   System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
+                   System.out.println("DOCTOR EMAIL: "+email);
+                   System.out.println("DOCTOR PASSWORD: "+password);
+               }else {
+                   System.out.println("DOCTOR LOGIN FAILED!!!");
+                   System.out.println("DOCTOR EMAIL: "+email);
+                   System.out.println("DOCTOR PASSWORD: "+password);
+               }
+           }
+
 
         }catch (SQLException e){
             e.getMessage();
@@ -80,6 +82,25 @@ public class DoctorDaoImpl implements DoctorDAO {
             System.out.println("Doctor Email found :)");
             return findByEmail(email);
         }
+
+
+        if (resultSet != null){
+                    System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
+                    System.out.println("DOCTOR EMAIL: "+email);
+                    System.out.println("DOCTOR PASSWORD: "+password);
+                }else {
+                    System.out.println("DOCTOR LOGIN FAILED!!!");
+                    System.out.println("DOCTOR EMAIL: "+email);
+                    System.out.println("DOCTOR PASSWORD: "+password);
+                }
+
+
+
+
+
+
+
+
 */
     }
 

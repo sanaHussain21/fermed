@@ -20,11 +20,17 @@ public class HomeController {
     private HomeFacade homeFacade;
 
 
+    /*
+    *   @GetMapping("/")
+    public ResponseEntity<List<DoctorDTO>> getAllDoctors(){
+        return ResponseEntity.ok(this.homeFacade.getAllDoctors());
+    }
+    * */
 
     //creating API to return  the doctor list
     @GetMapping("/")
-    public ResponseEntity<List<DoctorDTO>> getAllDoctors(){
-        return ResponseEntity.ok(this.homeFacade.getAllDoctors());
+    public List<DoctorDTO> getAllDoctors(){
+        return this.homeFacade.getAllDoctors();
     }
 
     }

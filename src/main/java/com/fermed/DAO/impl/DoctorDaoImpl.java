@@ -58,8 +58,8 @@ public class DoctorDaoImpl implements DoctorDAO {
                    System.out.println("DOCTOR PASSWORD: "+password);
                }else {
                    System.out.println("DOCTOR LOGIN FAILED!!!");
-                   System.out.println("DOCTOR EMAIL: "+email);
-                   System.out.println("DOCTOR PASSWORD: "+password);
+                   //System.out.println("DOCTOR EMAIL: "+email);
+                   //System.out.println("DOCTOR PASSWORD: "+password);
                }
            }
 

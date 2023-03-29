@@ -22,10 +22,10 @@ import java.util.List;
 public class HomeServiceImpl implements HomeService {
 
 
-    private DoctorRepository doctorRepository;
+
     //list of doctors already implemented
     @Autowired
-    static List<DoctorDTO> doctorList = new ArrayList<>();
+    static List<DoctorDTO> doctorList = new ArrayList(); //removed <>
 
     Connection connection;
     public HomeServiceImpl() throws SQLException

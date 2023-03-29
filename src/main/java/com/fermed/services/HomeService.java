@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Repository
-public interface HomeService {
+public interface  HomeService {
 
     List<DoctorDTO> getAllDoctors();
 

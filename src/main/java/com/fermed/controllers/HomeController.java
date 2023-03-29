@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/home") //with (/home) we will access the home controller
+@CrossOrigin("*")
 public class HomeController {
 
     @Resource

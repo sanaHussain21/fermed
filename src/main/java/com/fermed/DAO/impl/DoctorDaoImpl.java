@@ -49,7 +49,7 @@ public class DoctorDaoImpl implements DoctorDAO {
 
         //String selectQuery = "SELECT email , password FROM doctor WHERE email = '"+email+"' AND password = '"+password+"' ";
         try{
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT email , password FROM doctor WHERE email = '"+email+"' AND password = '"+password+"' ");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM doctor WHERE email = '"+email+"' AND password = '"+password+"' ");
             ResultSet resultSet = preparedStatement.executeQuery();
             //System.out.println("Siamo passati da doctor service impl a doctor dao impl :)");
                 if (resultSet != null){

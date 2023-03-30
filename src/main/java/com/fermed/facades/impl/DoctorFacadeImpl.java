@@ -47,7 +47,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
         doctorData.setInsurance_id_insurance(doctorDTO.getInsurance_id_insurance());
         doctorData.setEmail(doctorDTO.getEmail());
         doctorData.setUsername(doctorDTO.getUsername());
-        doctorData.setPassword(this.bCryptPasswordEncoder.encode(doctorDTO.getPassword()));
+        doctorData.setPassword(doctorDTO.getPassword());
         doctorService.createDoctor(doctorData);
 
     }
@@ -56,7 +56,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
     public void loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception {
         String email = doctorLoginDTO.getEmail();
         String password = doctorLoginDTO.getPassword();
-        Doctor doctor = new Doctor();
+
         if (email != null && password != null) {
             doctorService.loginDoctor(email, password);
         }else {

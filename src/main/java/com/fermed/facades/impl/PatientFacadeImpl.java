@@ -20,7 +20,7 @@ public class PatientFacadeImpl implements PatientFacade {
 
 
     @Override
-    public void createPatient(PatientDTO patientDTO) throws SQLException {
+    public void createPatient(PatientDTO patientDTO) throws Exception {
         //CONVERSION FROM DTO -> DATA
         PatientData patientData = new PatientData();
         patientData.setName(patientDTO.getName());

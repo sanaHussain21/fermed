@@ -10,7 +10,7 @@ public interface DoctorService {
 
     void loginDoctor(String email, String password) throws Exception;
 
-  
+
 
 
 

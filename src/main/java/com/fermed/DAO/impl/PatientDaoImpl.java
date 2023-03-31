@@ -24,7 +24,6 @@ public class PatientDaoImpl implements PatientDAO {
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();
-            System.out.println("Siamo passati da patient service impl a patinet dao impl :)");
             System.out.println("PATIENT DATA INSERTED SUCCESSFULLY! :)");
         }catch (SQLException e){
             e.printStackTrace();

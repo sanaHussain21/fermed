@@ -30,7 +30,7 @@ public class DoctorServiceImpl implements DoctorService {
        connection =  DatabaseDAO.getConnection();
     }
 
-    //for bycrypting the password:   doctor.setPassword(this.bCryptPasswordEncoder.encode(doctorData.getPassword()));
+    //for bcrypting the password:   doctor.setPassword(this.bCryptPasswordEncoder.encode(doctorData.getPassword()));
     @Override
     public void createDoctor(DoctorData doctorData) throws Exception {
         //CONVERSION FROM DATA -> MODEL
@@ -45,20 +45,10 @@ public class DoctorServiceImpl implements DoctorService {
          doctor.setUsername(doctorData.getUsername());
          doctor.setPassword(doctorData.getPassword());
          doctorDAO.createDoctor(doctor);
-
-
     }
-/*
-    @Override
-    public Doctor findByEmail(String email) throws Exception {
-            //for  testing
 
-        return doctorDAO.findByEmail(email);
-    }
-*/
     @Override
     public void loginDoctor(String email, String password) throws Exception {
-
              doctorDAO.loginDoctor(email, password);
 
     }

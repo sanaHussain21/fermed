@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @Service
@@ -40,22 +39,10 @@ public class PatientServiceImpl implements PatientService {
         patient.setEmail(patientData.getEmail());
         patientDAO.createPatient(patient);
 
-/*
-        String insertQuery = "INSERT INTO patient(name, surname, codice_fiscale , id_insurance ,telephone_number , username, password, email)" +
-                "VALUES('"+patient.getName()+"','"+patient.getSurname()+"',  '"+patient.getCodice_fiscale()+"', '"+patient.getId_insurance()+"', '"+patient.getTelephone_number()+"', '"+patient.getUsername()+"','"+patient.getPassword()+"','"+patient.getEmail()+"')";
-
-        try{
-            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
-            preparedStatement.executeUpdate();
-            System.out.println("PATIENT DATA INSERTED SUCCESSFULLY! :)");
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-*/
     }
 
     @Override
-    public void loginPatient(String email, String password) throws SQLException {
+    public void loginPatient(String email, String password) throws Exception {
         patientDAO.loginPatient(email, password);
 
     }

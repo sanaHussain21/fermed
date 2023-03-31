@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public interface PatientFacade {
 
         //creating patient
-     void createPatient(PatientDTO patientDTO) throws SQLException;
+     void createPatient(PatientDTO patientDTO) throws SQLException, Exception;
 
 
     //this method is needed for login

@@ -1,5 +1,6 @@
 package com.fermed.controllers;
 
+import com.fermed.DTO.DoctorLoginDTO;
 import com.fermed.DTO.PatientDTO;
 import com.fermed.facades.PatientFacade;
 import com.fermed.model.Patient;
@@ -26,7 +27,13 @@ public class PatientController {
         patientFacade.createPatient(patientDTO);
     }
 
+    //creating API  TO GET DOCTOR BY EMAIL AND PASSWORD
+    @PostMapping(path = "/patientLogin")
+    public void loginPatient(@Valid @RequestBody PatientLoginDTO patientLoginDTO) throws Exception {
+        patientFacade.loginPatient(patientLoginDTO);
 
+
+    }
 
 
 }

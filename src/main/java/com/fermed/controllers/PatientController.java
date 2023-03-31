@@ -2,6 +2,7 @@ package com.fermed.controllers;
 
 import com.fermed.DTO.DoctorLoginDTO;
 import com.fermed.DTO.PatientDTO;
+import com.fermed.DTO.PatientLoginDTO;
 import com.fermed.facades.PatientFacade;
 import com.fermed.model.Patient;
 import com.fermed.services.PatientService;

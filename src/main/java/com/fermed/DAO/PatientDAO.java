@@ -9,4 +9,6 @@ import java.sql.SQLException;
 @Component
 public interface PatientDAO {
     void createPatient(Patient patient) throws SQLException;
+
+    void loginPatient(String email, String password) throws SQLException;
 }

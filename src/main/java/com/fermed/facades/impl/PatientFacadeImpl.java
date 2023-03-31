@@ -2,6 +2,7 @@ package com.fermed.facades.impl;
 
 import com.fermed.DTO.PatientDTO;
 import com.fermed.DTO.PatientData;
+import com.fermed.DTO.PatientLoginDTO;
 import com.fermed.facades.PatientFacade;
 import com.fermed.services.PatientService;
 import lombok.Data;
@@ -35,5 +36,17 @@ public class PatientFacadeImpl implements PatientFacade {
 
 
 
+    }
+
+    @Override
+    public void loginPatient(PatientLoginDTO patientLoginDTO) throws Exception {
+        String email = patientLoginDTO.getEmail();
+        String password = patientLoginDTO.getPassword();
+
+        if (email != null && password != null) {
+            patientService.loginPatient(email, password);
+        }else {
+            throw  new Exception("Email and Password are invalid :)");
+        }
     }
 }

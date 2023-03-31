@@ -59,7 +59,7 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public void loginDoctor(String email, String password) throws Exception {
 
-        doctorDAO.loginDoctor(email, password);
+             doctorDAO.loginDoctor(email, password);
 
     }
 

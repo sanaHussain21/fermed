@@ -13,4 +13,5 @@ public interface PatientService {
     //creating patient
      void createPatient(PatientData patientData) throws SQLException;
 
+    void loginPatient(String email, String password) throws SQLException;
 }

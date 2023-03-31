@@ -14,20 +14,22 @@ import java.sql.SQLException;
 
 @Service
 public class PatientServiceImpl implements PatientService {
+
+
     @Resource
     private PatientDAO patientDAO;
 
     Connection connection;
 
     public PatientServiceImpl() throws SQLException {
-        connection =  DatabaseDAO.getConnection();
+        connection = DatabaseDAO.getConnection();
     }
 
 
     @Override
     public void createPatient(PatientData patientData) throws SQLException {
         //converion from data -> model
-            Patient patient = new Patient();
+        Patient patient = new Patient();
         patient.setName(patientData.getName());
         patient.setSurname(patientData.getSurname());
         patient.setCodice_fiscale(patientData.getCodice_fiscale());
@@ -50,5 +52,11 @@ public class PatientServiceImpl implements PatientService {
             e.printStackTrace();
         }
 */
+    }
+
+    @Override
+    public void loginPatient(String email, String password) throws SQLException {
+        patientDAO.loginPatient(email, password);
+
     }
 }

@@ -39,7 +39,7 @@ public class PatientDaoImpl implements PatientDAO {
 
 
                 try{
-                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT email, password FROM patient WHERE email = '"+email+"' AND password = '"+password+"' ");
+                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM patient WHERE email = '"+email+"' AND password = '"+password+"' ");
                     ResultSet resultSet = preparedStatement.executeQuery();
                     while(resultSet.next()){
                         if (resultSet.getString(9).equals(email) && resultSet.getString(8).equals(password)){

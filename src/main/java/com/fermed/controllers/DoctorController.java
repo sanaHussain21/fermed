@@ -18,7 +18,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/doctor")  //with (/doctor) we will access the doctor controller
 @CrossOrigin("*")
-@ComponentScan({"com.fermed.controllers", "com.fermed.facade", "com.fermed.repository"})
+
 public class DoctorController {
 
 

@@ -29,7 +29,7 @@ public class PatientController {
     }
 
     //creating API  TO GET DOCTOR BY EMAIL AND PASSWORD
-    @PostMapping(path = "/patientLogin")
+    @PostMapping(value = "/patientLogin")
     public void loginPatient(@Valid @RequestBody PatientLoginDTO patientLoginDTO) throws Exception {
         patientFacade.loginPatient(patientLoginDTO);
 

@@ -5,7 +5,6 @@ import com.fermed.DTO.PatientData;
 import com.fermed.DTO.PatientLoginDTO;
 import com.fermed.facades.PatientFacade;
 import com.fermed.services.PatientService;
-import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -31,7 +30,7 @@ public class PatientFacadeImpl implements PatientFacade {
         patientData.setTelephone_number(patientDTO.getTelephone_number());
         patientData.setUsername(patientDTO.getUsername());
         patientData.setPassword(patientDTO.getPassword());
-        patientData.setUsername(patientDTO.getUsername());
+        patientData.setEmail(patientDTO.getEmail());
         patientService.createPatient(patientData);
 
 

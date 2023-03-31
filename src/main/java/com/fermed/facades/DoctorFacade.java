@@ -2,11 +2,9 @@ package com.fermed.facades;
 
 import com.fermed.DTO.DoctorDTO;
 import com.fermed.DTO.DoctorLoginDTO;
-import com.fermed.model.Doctor;
-import com.fermed.response.LoginResponse;
 import org.springframework.stereotype.Component;
 
-import java.sql.SQLException;
+
 
 @Component
 public interface DoctorFacade {

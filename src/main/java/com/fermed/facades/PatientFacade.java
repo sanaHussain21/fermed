@@ -1,7 +1,7 @@
 package com.fermed.facades;
 
 
-import com.fermed.DTO.DoctorLoginDTO;
+
 import com.fermed.DTO.PatientDTO;
 import com.fermed.DTO.PatientLoginDTO;
 import org.springframework.stereotype.Component;

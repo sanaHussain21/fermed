@@ -37,7 +37,7 @@ public class PatientServiceImpl implements PatientService {
         patient.setTelephone_number(patientData.getTelephone_number());
         patient.setUsername(patientData.getUsername());
         patient.setPassword(patientData.getPassword());
-        patient.setUsername(patientData.getUsername());
+        patient.setEmail(patientData.getEmail());
         patientDAO.createPatient(patient);
 
 /*

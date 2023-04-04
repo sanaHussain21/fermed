@@ -21,7 +21,7 @@ public class AppointmentDTO {
     private int patient_id;
     private  int ID_DOC;
 
-    
+
     private boolean IsBeingNotified;
     private boolean NotifiedByEmail;
     private  boolean NotifiedBySMS;

@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @Data
 @RestController
 @RequestMapping("/patient")  //with (/patient) we will access the patient controller
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PatientController {
 
     @Resource
@@ -29,6 +29,7 @@ public class PatientController {
     }
 
     //creating API  TO GET DOCTOR BY EMAIL AND PASSWORD
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value = "/patientLogin")
     public void loginPatient(@Valid @RequestBody PatientLoginDTO patientLoginDTO) throws Exception {
         patientFacade.loginPatient(patientLoginDTO);

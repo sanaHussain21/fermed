@@ -65,5 +65,14 @@ public class DoctorDaoImpl implements DoctorDAO {
 
     }
 
+
+
+    //this method find Doctor username
+
+
+
+
+
+
     }
 

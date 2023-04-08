@@ -65,6 +65,11 @@ public class DoctorFacadeImpl implements DoctorFacade {
 
     }
 
-
-
+    //for testing purpose
+    @Override
+    public void doctorData(DoctorDTO doctorDTO) throws Exception {
+        doctorService.doctorData(doctorDTO);
     }
+
+
+}

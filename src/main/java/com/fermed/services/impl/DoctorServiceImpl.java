@@ -3,6 +3,7 @@ package com.fermed.services.impl;
 
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DAO.DoctorDAO;
+import com.fermed.DTO.DoctorDTO;
 import com.fermed.DTO.DoctorData;
 import com.fermed.model.Doctor;
 import com.fermed.services.DoctorService;
@@ -51,6 +52,12 @@ public class DoctorServiceImpl implements DoctorService {
     public void loginDoctor(String email, String password) throws Exception {
              doctorDAO.loginDoctor(email, password);
 
+    }
+
+    //for testing purpose
+    @Override
+    public void doctorData(DoctorDTO doctorDTO) throws Exception {
+        doctorDAO.doctorData(doctorDTO);
     }
 
 

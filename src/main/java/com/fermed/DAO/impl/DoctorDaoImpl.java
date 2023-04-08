@@ -2,6 +2,7 @@ package com.fermed.DAO.impl;
 
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DAO.DoctorDAO;
+import com.fermed.DTO.DoctorDTO;
 import com.fermed.model.Doctor;
 import org.springframework.stereotype.Component;
 
@@ -65,9 +66,19 @@ public class DoctorDaoImpl implements DoctorDAO {
 
     }
 
+    @Override
+    public void doctorData(DoctorDTO doctorDTO) throws SQLException {
+
+        Connection connection;
+        connection =  DatabaseDAO.getConnection();
 
 
-    //this method find Doctor username
+
+
+    }
+
+
+
 
 
 

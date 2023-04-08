@@ -17,6 +17,6 @@ public interface DoctorFacade {
     void loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception;
 
 
-    //testing
-    void doctorData(DoctorDTO doctorDTO);
+    //this method is for testing
+    void doctorData(DoctorDTO doctorDTO) throws Exception;
 }

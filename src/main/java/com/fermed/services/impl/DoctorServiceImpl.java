@@ -60,10 +60,6 @@ public class DoctorServiceImpl implements DoctorService {
         doctorDAO.doctorData(doctorDTO);
     }
 
-    //for testing purpose
-    @Override
-    public void doctorData(DoctorDTO doctorDTO) throws Exception {
-        doctorDAO.doctorData(doctorDTO);
-    }
+  
 
 }

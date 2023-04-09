@@ -74,7 +74,7 @@ public class DoctorDaoImpl implements DoctorDAO {
         connection =  DatabaseDAO.getConnection();
 
         try{
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, email, username FROM doctor WHERE email = '"+doctorDTO.getEmail()+"' ANd password = '"+doctorDTO.getPassword()+"'");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, email, username FROM doctor WHERE email = '"+doctorDTO.getEmail()+"'");
             ResultSet resultSet = preparedStatement.executeQuery();
            System.out.println("Doctor data is : "+ resultSet);
 

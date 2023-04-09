@@ -42,6 +42,6 @@ public class DoctorController {
         doctorFacade.doctorData(doctorDTO);
     }
 
-  
+
 
 }

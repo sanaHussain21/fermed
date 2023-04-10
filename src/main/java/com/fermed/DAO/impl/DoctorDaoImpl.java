@@ -6,6 +6,7 @@ import com.fermed.DTO.DoctorDTO;
 import com.fermed.model.Doctor;
 import org.springframework.stereotype.Component;
 
+import javax.print.Doc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -75,19 +76,47 @@ public class DoctorDaoImpl implements DoctorDAO {
         connection =  DatabaseDAO.getConnection();
 
         ArrayList doctorData = new ArrayList();
+
         try {
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, username ,email  FROM doctor WHERE email = '"+doctorDTO.getEmail()+"'");
         ResultSet resultSet = preparedStatement.executeQuery();
         while(resultSet.next()){
 
-            ArrayList data = new ArrayList();
-            data.add(resultSet.getString(1));
-            data.add(resultSet.getString(2));
-            data.add(resultSet.getString(3));
-            data.add(resultSet.getString(4));
-            data.add(resultSet.getString(5));
-            doctorData.add(data);
-            System.out.println("Doctor Data is: " + data);
+            if (resultSet.getString(5).equals(doctorDTO.getEmail())){
+                ArrayList data = new ArrayList();
+                data.add(resultSet.getString(1));
+                data.add(resultSet.getString(2));
+                data.add(resultSet.getString(3));
+                data.add(resultSet.getString(4));
+                data.add(resultSet.getString(5));
+                doctorData.add(data);
+                System.out.println("Doctor Data is: " + data);
+
+            }else {
+                System.out.println("DOCTOR DATA RETRIVING FAILED!!!");
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
     } catch (Exception ex) {

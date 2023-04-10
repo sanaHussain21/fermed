@@ -60,6 +60,6 @@ public class DoctorServiceImpl implements DoctorService {
         doctorDAO.doctorData(doctorDTO);
     }
 
-  
+
 
 }

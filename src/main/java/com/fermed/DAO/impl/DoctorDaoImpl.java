@@ -102,7 +102,14 @@ public class DoctorDaoImpl implements DoctorDAO {
 
 
 
-
+            ArrayList data = new ArrayList();
+            data.add(resultSet.getString(1));
+            data.add(resultSet.getString(2));
+            data.add(resultSet.getString(3));
+            data.add(resultSet.getString(4));
+            data.add(resultSet.getString(5));
+            doctorData.add(data);
+            System.out.println("Doctor Data is: " + data);
 
 
 

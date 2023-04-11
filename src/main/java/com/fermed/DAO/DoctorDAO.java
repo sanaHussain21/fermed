@@ -17,4 +17,3 @@ public interface DoctorDAO {
     //for trsting purpose
     void doctorData(DoctorDTO doctorDTO) throws Exception;
 }
-   

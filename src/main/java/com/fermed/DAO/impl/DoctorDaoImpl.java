@@ -91,28 +91,6 @@ public class DoctorDaoImpl implements DoctorDAO {
                 doctorData.add(data);
                 System.out.println("Doctor Data is: " + data);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
 
     } catch (Exception ex) {

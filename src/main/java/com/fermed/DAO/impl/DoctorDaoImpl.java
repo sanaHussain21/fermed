@@ -82,7 +82,6 @@ public class DoctorDaoImpl implements DoctorDAO {
         ResultSet resultSet = preparedStatement.executeQuery();
         while(resultSet.next()){
 
-            if (resultSet.getString(5).equals(doctorDTO.getEmail())){
                 ArrayList data = new ArrayList();
                 data.add(resultSet.getString(1));
                 data.add(resultSet.getString(2));
@@ -92,9 +91,6 @@ public class DoctorDaoImpl implements DoctorDAO {
                 doctorData.add(data);
                 System.out.println("Doctor Data is: " + data);
 
-            }else {
-                System.out.println("DOCTOR DATA RETRIVING FAILED!!!");
-            }
 
 
 
@@ -102,7 +98,7 @@ public class DoctorDaoImpl implements DoctorDAO {
 
 
 
-          
+
 
 
 

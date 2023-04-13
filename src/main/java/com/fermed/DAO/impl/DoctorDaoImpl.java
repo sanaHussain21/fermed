@@ -55,6 +55,11 @@ public class DoctorDaoImpl implements DoctorDAO {
                    System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
                    System.out.println("DOCTOR EMAIL: "+email);
                    System.out.println("DOCTOR PASSWORD: "+password);
+
+                   //for testing
+    
+
+
                }else {
                    System.out.println("DOCTOR LOGIN FAILED!!!");
 
@@ -68,6 +73,7 @@ public class DoctorDaoImpl implements DoctorDAO {
 
     }
 
+
     //for testing
     @Override
     public void doctorData(DoctorDTO doctorDTO) throws Exception {
@@ -75,7 +81,7 @@ public class DoctorDaoImpl implements DoctorDAO {
         Connection connection;
         connection =  DatabaseDAO.getConnection();
 
-        ArrayList doctorData = new ArrayList();
+        ArrayList doctorData1 = new ArrayList();
 
         try {
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, username ,email  FROM doctor WHERE email = '"+doctorDTO.getEmail()+"'");
@@ -88,8 +94,9 @@ public class DoctorDaoImpl implements DoctorDAO {
                 data.add(resultSet.getString(3));
                 data.add(resultSet.getString(4));
                 data.add(resultSet.getString(5));
-                doctorData.add(data);
+                doctorData1.add(data);
                 System.out.println("Doctor Data is: " + data);
+
         }
 
     } catch (Exception ex) {

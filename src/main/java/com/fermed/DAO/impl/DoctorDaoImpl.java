@@ -1,5 +1,6 @@
 package com.fermed.DAO.impl;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DAO.DoctorDAO;
 import com.fermed.DTO.DoctorDTO;
@@ -57,17 +58,10 @@ public class DoctorDaoImpl implements DoctorDAO {
                    System.out.println("DOCTOR EMAIL: "+email);
                    System.out.println("DOCTOR PASSWORD: "+password);
 
-                  
-
-
-
                }else {
                    System.out.println("DOCTOR LOGIN FAILED!!!");
-
                }
            }
-
-
         }catch (SQLException e){
             e.getMessage();
         }
@@ -75,14 +69,14 @@ public class DoctorDaoImpl implements DoctorDAO {
     }
 
 
-    //for testing
+
     @Override
     public void doctorData(DoctorDTO doctorDTO) throws Exception {
 
         Connection connection;
         connection =  DatabaseDAO.getConnection();
 
-        ArrayList doctorData1 = new ArrayList();
+        //ArrayList doctorData1 = new ArrayList();
 
         try {
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, username ,email  FROM doctor WHERE email = '"+doctorDTO.getEmail()+"'");
@@ -95,8 +89,15 @@ public class DoctorDaoImpl implements DoctorDAO {
                 data.add(resultSet.getString(3));
                 data.add(resultSet.getString(4));
                 data.add(resultSet.getString(5));
-                doctorData1.add(data);
+                //doctorData1.add(data);
                 System.out.println("Doctor Data is: " + data);
+
+
+                //for testing
+
+
+
+
 
         }
 

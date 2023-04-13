@@ -50,14 +50,14 @@ public class DoctorDaoImpl implements DoctorDAO {
 
 
         try{
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, surname, email, password FROM doctor WHERE email = '"+email+"' AND password = '"+password+"' ");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, username, email, password FROM doctor WHERE email = '"+email+"' AND password = '"+password+"' ");
             ResultSet resultSet = preparedStatement.executeQuery();
            while(resultSet.next()){
                if (resultSet.getString(5).equals(email) && resultSet.getString(6).equals(password)){
                    System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
                    System.out.println("DOCTOR EMAIL: "+email);
                    System.out.println("DOCTOR PASSWORD: "+password);
-
+                    System.out.println(resultSet.getString(1) + ",   " + resultSet.getString(2)+ ",   " + resultSet.getString(3)+ ",   " + resultSet.getString(4)+ ",   "+ resultSet.getString(5)+ "   ");
 
 
                }else {

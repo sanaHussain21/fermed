@@ -3,6 +3,7 @@ package com.fermed.DAO.impl;
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DAO.DoctorDAO;
 import com.fermed.DTO.DoctorDTO;
+import com.fermed.DTO.DoctorData;
 import com.fermed.model.Doctor;
 import org.springframework.stereotype.Component;
 
@@ -57,8 +58,7 @@ public class DoctorDaoImpl implements DoctorDAO {
                    System.out.println("DOCTOR PASSWORD: "+password);
 
                    //for testing
-    
-
+                   doctorData();
 
                }else {
                    System.out.println("DOCTOR LOGIN FAILED!!!");

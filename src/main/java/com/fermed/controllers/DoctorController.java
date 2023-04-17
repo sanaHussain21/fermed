@@ -5,7 +5,7 @@ import com.fermed.DTO.DoctorLoginDTO;
 import com.fermed.facades.DoctorFacade;
 import com.fermed.model.Doctor;
 import lombok.Data;
-import org.springframework.data.jpa.repository.query.Procedure;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -33,8 +33,7 @@ public class DoctorController {
 
         //creating API  TO GET DOCTOR BY EMAIL AND PASSWORD
 
-        @PostMapping(path = "/doctorLogin")
-        @Produce("application/json")
+        @PostMapping(path = "/doctorLogin", produces = MediaType.APPLICATION_JSON_VALUE)
         public Doctor loginDoctor(@Valid @RequestBody DoctorLoginDTO doctorLoginDTO) throws Exception {
         return doctorFacade.loginDoctor(doctorLoginDTO);
         }
@@ -42,7 +41,7 @@ public class DoctorController {
 
         //testing
 
-    @GetMapping(path = "/getDoctorDetails")
+    @GetMapping(path = "/getDoctorDetails" , produces = MediaType.APPLICATION_JSON_VALUE)
     public void doctorData(@RequestBody DoctorDTO doctorDTO) throws Exception {
         doctorFacade.doctorData(doctorDTO);
     }

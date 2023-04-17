@@ -58,6 +58,7 @@ public class DoctorDaoImpl implements DoctorDAO {
                    System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
                    System.out.println("DOCTOR EMAIL: "+doctor1.getEmail());
                    System.out.println("DOCTOR PASSWORD: "+doctor1.getPassword());
+
                     System.out.println(resultSet.getString(1) + ",   " + resultSet.getString(2)+ ",   " + resultSet.getString(3)+ ",   " + resultSet.getString(4)+ ",   "+ resultSet.getString(5)+ "   ");
 
 
@@ -86,6 +87,7 @@ public class DoctorDaoImpl implements DoctorDAO {
         ResultSet resultSet = preparedStatement.executeQuery();
         while(resultSet.next()){
                 //for testing
+            System.out.println("Email is : " + doctorDTO.getEmail());
             System.out.println(resultSet.getString(1) + ",   " + resultSet.getString(2)+ ",   " + resultSet.getString(3)+ ",   " + resultSet.getString(4)+ ",   "+ resultSet.getString(5)+ "   ");
 
         }

@@ -54,6 +54,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
 
     @Override
     public void loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception {
+        /*
         String email = doctorLoginDTO.getEmail();
         String password = doctorLoginDTO.getPassword();
 
@@ -62,6 +63,12 @@ public class DoctorFacadeImpl implements DoctorFacade {
         }else {
             throw  new Exception("Email and Password are invalid :)");
         }
+
+         */
+
+        //testing
+        
+
 
     }
 

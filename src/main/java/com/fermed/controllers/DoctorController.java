@@ -37,6 +37,7 @@ public class DoctorController {
 
 
         //testing
+
     @GetMapping(path = "/getDoctorDetails")
     public void doctorData(@RequestBody DoctorDTO doctorDTO) throws Exception {
         doctorFacade.doctorData(doctorDTO);

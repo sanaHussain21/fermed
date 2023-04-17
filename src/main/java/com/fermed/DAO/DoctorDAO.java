@@ -12,8 +12,8 @@ public interface DoctorDAO {
     void createDoctor(Doctor doctor) throws SQLException;
 
 
-    void loginDoctor(String email, String password) throws SQLException;
+    Doctor loginDoctor(Doctor doctor1) throws SQLException;
 
-    //for trsting purpose
+    //for testing purpose
     void doctorData(DoctorDTO doctorDTO) throws Exception;
 }

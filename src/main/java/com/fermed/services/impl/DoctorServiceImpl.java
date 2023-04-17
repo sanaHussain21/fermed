@@ -49,8 +49,13 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public void loginDoctor(String email, String password) throws Exception {
-             doctorDAO.loginDoctor(email, password);
+    public Doctor loginDoctor(DoctorData doctorData1) throws Exception {
+
+        //conversion from DATA-> O MODEL
+        Doctor doctor1= new Doctor();
+             doctor1.setEmail(doctorData1.getEmail());
+             doctor1.setPassword(doctorData1.getPassword());
+            return doctorDAO.loginDoctor(doctor1);
 
     }
 

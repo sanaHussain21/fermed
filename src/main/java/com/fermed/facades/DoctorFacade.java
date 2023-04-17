@@ -1,7 +1,9 @@
 package com.fermed.facades;
 
 import com.fermed.DTO.DoctorDTO;
+import com.fermed.DTO.DoctorData;
 import com.fermed.DTO.DoctorLoginDTO;
+import com.fermed.model.Doctor;
 import org.springframework.stereotype.Component;
 
 
@@ -14,7 +16,7 @@ public interface DoctorFacade {
 
 
      //this method is needed for login
-    void loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception;
+     Doctor loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception;
 
 
     //this method is for testing

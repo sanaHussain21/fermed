@@ -7,21 +7,14 @@ import com.fermed.facades.DoctorFacade;
 
 
 import com.fermed.model.Doctor;
-import com.fermed.repository.DoctorRepository;
-import com.fermed.response.LoginResponse;
 import com.fermed.services.DoctorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 
 import javax.annotation.Resource;
-import java.sql.SQLException;
-import java.util.Optional;
 
 
 @Component
@@ -49,11 +42,10 @@ public class DoctorFacadeImpl implements DoctorFacade {
         doctorData.setUsername(doctorDTO.getUsername());
         doctorData.setPassword(doctorDTO.getPassword());
         doctorService.createDoctor(doctorData);
-
     }
 
     @Override
-    public void loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception {
+    public Doctor loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception {
         /*
         String email = doctorLoginDTO.getEmail();
         String password = doctorLoginDTO.getPassword();
@@ -67,8 +59,10 @@ public class DoctorFacadeImpl implements DoctorFacade {
          */
 
         //testing
-        
-
+        DoctorData doctorData1 =  new DoctorData();
+        doctorData1.setEmail(doctorLoginDTO.getEmail());
+        doctorData1.setPassword(doctorLoginDTO.getPassword());
+        return doctorService.loginDoctor(doctorData1);
 
     }
 

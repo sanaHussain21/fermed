@@ -6,6 +6,7 @@ import com.fermed.DAO.DoctorDAO;
 import com.fermed.DTO.DoctorDTO;
 import com.fermed.DTO.DoctorData;
 import com.fermed.model.Doctor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.stereotype.Component;
 
 import javax.print.Doc;
@@ -43,20 +44,20 @@ public class DoctorDaoImpl implements DoctorDAO {
     }
 
     @Override
-    public void loginDoctor(String email, String password)throws SQLException {
+    public Doctor loginDoctor(Doctor doctor1)throws SQLException {
 
         Connection connection;
         connection =  DatabaseDAO.getConnection();
 
 
         try{
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, username, email, password FROM doctor WHERE email = '"+email+"' AND password = '"+password+"' ");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, username, email, password FROM doctor WHERE email = '"+doctor1.getEmail()+"' AND password = '"+doctor1.getPassword()+"' ");
             ResultSet resultSet = preparedStatement.executeQuery();
            while(resultSet.next()){
-               if (resultSet.getString(5).equals(email) && resultSet.getString(6).equals(password)){
+               if (resultSet.getString(5).equals(doctor1.getEmail()) && resultSet.getString(6).equals(doctor1.getPassword())){
                    System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
-                   System.out.println("DOCTOR EMAIL: "+email);
-                   System.out.println("DOCTOR PASSWORD: "+password);
+                   System.out.println("DOCTOR EMAIL: "+doctor1.getEmail());
+                   System.out.println("DOCTOR PASSWORD: "+doctor1.getPassword());
                     System.out.println(resultSet.getString(1) + ",   " + resultSet.getString(2)+ ",   " + resultSet.getString(3)+ ",   " + resultSet.getString(4)+ ",   "+ resultSet.getString(5)+ "   ");
 
 
@@ -67,7 +68,7 @@ public class DoctorDaoImpl implements DoctorDAO {
         }catch (SQLException e){
             e.getMessage();
         }
-
+        return doctor1;
     }
 
 

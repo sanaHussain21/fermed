@@ -83,7 +83,7 @@ public class DoctorDaoImpl implements DoctorDAO {
         //ArrayList doctorData1 = new ArrayList();
 
         try {
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, username ,email  FROM doctor WHERE email = '"+doctorDTO.getEmail()+"'");
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, username ,email, password  FROM doctor WHERE email = '"+doctorDTO.getEmail()+"'  and password = '"+doctorDTO.getPassword()+"'");
         ResultSet resultSet = preparedStatement.executeQuery();
         while(resultSet.next()){
                 //for testing

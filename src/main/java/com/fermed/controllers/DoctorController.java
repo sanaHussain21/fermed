@@ -39,12 +39,15 @@ public class DoctorController {
         }
 
 
-        //testing
 
+    //by this API we get
     @GetMapping(path = "/getDoctorDetails" , produces = MediaType.APPLICATION_JSON_VALUE)
     public void doctorData(@RequestBody DoctorDTO doctorDTO) throws Exception {
         doctorFacade.doctorData(doctorDTO);
     }
+
+    //by this API we will book the appointment
+    
 
 
 

@@ -47,7 +47,7 @@ public class DoctorController {
     }
 
     //by this API we will book the appointment
-    
+
 
 
 

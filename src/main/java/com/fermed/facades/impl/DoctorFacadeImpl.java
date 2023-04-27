@@ -62,7 +62,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
         DoctorData doctorData1 =  new DoctorData();
         doctorData1.setEmail(doctorLoginDTO.getEmail());
         doctorData1.setPassword(doctorLoginDTO.getPassword());
-        return doctorService.loginDoctor(doctorData1);
+            return doctorService.loginDoctor(doctorData1);
 
     }
 

@@ -18,7 +18,7 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
 
     //converting DTO to data
     @Override
-    public void createAppointment(AppointmentDTO appointmentDTO) {
+    public void createAppointment(AppointmentDTO appointmentDTO) throws Exception {
         AppointmentData appointmentData = new AppointmentData();
 
         appointmentData.setTime_date(appointmentDTO.getTime_date());

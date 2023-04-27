@@ -6,6 +6,7 @@ import com.fermed.model.Appointment;
 import com.fermed.services.AppointmentService;
 
 import javax.annotation.Resource;
+import java.sql.SQLException;
 
 public class AppointmentServiceImpl implements AppointmentService {
 
@@ -13,7 +14,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     private AppointmentDAO appointmentDAO;
 
     @Override
-    public void createAppointment(AppointmentData appointmentData) {
+    public void createAppointment(AppointmentData appointmentData) throws Exception {
         //conversion from DATA-> MODEL
         Appointment appointment = new Appointment();
         appointment.setTime_date(appointmentData.getTime_date());

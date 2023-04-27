@@ -2,8 +2,9 @@ package com.fermed.DAO;
 
 import com.fermed.model.Appointment;
 
-public class AppointmentDAO {
+import java.sql.SQLException;
+
+public interface AppointmentDAO {
     //creating the appointment for patient
-    public void createAppointment(Appointment appointment) {
-    }
+     void createAppointment(Appointment appointment) throws SQLException;
 }

@@ -18,6 +18,5 @@ public interface PatientFacade {
     //this method is needed for login
     void loginPatient(PatientLoginDTO patientLoginDTO) throws Exception;
 
-    //this method is needed to create the appoitnment
-    void createAppointment(PatientDTO patientDTO);
+
 }

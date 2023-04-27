@@ -48,4 +48,7 @@ public class PatientFacadeImpl implements PatientFacade {
             throw  new Exception("Email and Password are invalid :)");
         }
     }
+
+
+
 }

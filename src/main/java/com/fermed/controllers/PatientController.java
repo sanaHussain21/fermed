@@ -36,12 +36,8 @@ public class PatientController {
     }
 
 
-    //by this API doctor will book the appointment
-    //creating API to create appointment
-    @PostMapping(value = "/createAppointment")
-    public void createAppointment(@Valid @RequestBody PatientDTO patientDTO) throws Exception {
-        patientFacade.createAppointment(patientDTO);
+
     }
 
 
-}
+

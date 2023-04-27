@@ -1,5 +1,6 @@
 package com.fermed.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,7 +17,7 @@ public class Appointment {
 
     int id_appuntamento;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH-mm-ss")
+ @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssX")
     Date time_date;
      int payment;
      int patient_id;

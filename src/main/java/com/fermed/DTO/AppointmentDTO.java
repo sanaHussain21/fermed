@@ -1,5 +1,6 @@
 package com.fermed.DTO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.data.relational.core.mapping.Embedded;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,7 +16,7 @@ public class AppointmentDTO {
 
     @NotEmpty
     @NotBlank(message = "time_date must be selected!!!")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH-mm-ss")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssX")
     private Date time_date;
 
 

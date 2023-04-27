@@ -4,10 +4,13 @@ import com.fermed.DAO.AppointmentDAO;
 import com.fermed.DTO.AppointmentData;
 import com.fermed.model.Appointment;
 import com.fermed.services.AppointmentService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Date;
 import java.sql.SQLException;
 
+@Service
 public class AppointmentServiceImpl implements AppointmentService {
 
     @Resource

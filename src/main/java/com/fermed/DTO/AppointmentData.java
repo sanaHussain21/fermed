@@ -1,6 +1,7 @@
 package com.fermed.DTO;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -8,6 +9,7 @@ import java.util.Date;
 public class AppointmentData {
     private int id_appointment;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH-mm-ss")
     private Date time_date;
 
     private int payment;

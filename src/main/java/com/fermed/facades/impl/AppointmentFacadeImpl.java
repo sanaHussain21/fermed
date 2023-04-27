@@ -15,6 +15,15 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
     @Resource
     private AppointmentService appointmentService;
 
+    //creating isBeingNotified method
+
+
+
+
+
+
+
+
 
     //converting DTO to data
     @Override

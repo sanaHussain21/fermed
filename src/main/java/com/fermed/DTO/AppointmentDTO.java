@@ -2,6 +2,7 @@ package com.fermed.DTO;
 
 import lombok.Data;
 import org.springframework.data.relational.core.mapping.Embedded;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -14,6 +15,7 @@ public class AppointmentDTO {
 
     @NotEmpty
     @NotBlank(message = "time_date must be selected!!!")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH-mm-ss")
     private Date time_date;
 
 

@@ -5,6 +5,7 @@ import com.fermed.DAO.DatabaseDAO;
 import com.fermed.model.Appointment;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AppointmentDAOImpl implements AppointmentDAO {
@@ -15,6 +16,19 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         Connection connection;
         connection = DatabaseDAO.getConnection();
 
-        String insertQuery = "";
+        String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)"+
+                //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)";
+                "VALUES("+appointment.getTime_date()+", "+appointment.getPayment()+", "+appointment.getPatient_id()+",  "+appointment.getID_DOC()+", '"+appointment.isIsBeingNotified()+"',  '"+appointment.setNotifiedByEmail()+"' , '"+appointment.setNotifiedBySMS()+"')";
+                try{
+                    PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+                    preparedStatement.executeUpdate();
+                    System.out.println("APPOINTMENT CREATED SUCCESSFULLY! :)");
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+
+
+
+
     }
 }

@@ -20,8 +20,9 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
     @Override
     public void createAppointment(AppointmentDTO appointmentDTO) {
         AppointmentData appointmentData = new AppointmentData();
-        appointmentData.setPayment(appointmentDTO.getPayment());
+
         appointmentData.setTime_date(appointmentDTO.getTime_date());
+        appointmentData.setPayment(appointmentDTO.getPayment());
         appointmentData.setPatient_id(appointmentDTO.getPatient_id());
         appointmentData.setID_DOC(appointmentDTO.getID_DOC());
         appointmentData.setIsBeingNotified(appointmentDTO.isIsBeingNotified());

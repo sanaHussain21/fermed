@@ -5,5 +5,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface AppointmentFacade {
+    //creating appointment for patient
     void createAppointment(AppointmentDTO appointmentDTO);
 }

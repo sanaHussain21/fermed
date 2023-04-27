@@ -46,7 +46,6 @@ public class DoctorController {
         doctorFacade.doctorData(doctorDTO);
     }
 
-    //by this API we will book the appointment
 
 
 

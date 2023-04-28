@@ -14,35 +14,19 @@ import java.sql.Date;
 @Data
 public class AppointmentDTO {
  //creating the appointmentDTO to transfer the data
-    private int id_appointment;
-
-
+     int id_appointment;
 
    @Temporal(TemporalType.TIME)
     @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    private Date time_date;
+     Date time_date;
 
-
-
-
-
-
-
-    private int payment;
-
-
-
-    private int patient_id;
-
-
-
-    private  int ID_DOC;
-
-
+     int payment;
+     int patient_id;
+      int ID_DOC;
     //will create a radio button
-    private boolean IsBeingNotified;
-    private boolean NotifiedByEmail;
-    private  boolean NotifiedBySMS;
+     boolean IsBeingNotified;
+     boolean NotifiedByEmail;
+    boolean NotifiedBySMS;
 
 
 }

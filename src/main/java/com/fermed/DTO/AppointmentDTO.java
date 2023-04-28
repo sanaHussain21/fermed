@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 public class AppointmentDTO {
@@ -16,11 +16,16 @@ public class AppointmentDTO {
 
     @NotEmpty
     @NotBlank(message = "time_date must be selected!!!")
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssX")
-    private Date time_date;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+
+    private DateTimeFormat time_date;
 
 
-    @NotEmpty
+
+
+
+   @NotEmpty
     @NotBlank(message = "Payment must be inserted!!!")
     private int payment;
 

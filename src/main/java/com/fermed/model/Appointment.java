@@ -6,8 +6,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 
+import java.sql.Time;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.sql.Date;
 
 
 @Entity
@@ -17,8 +18,12 @@ public class Appointment {
 
     int id_appuntamento;
 
- @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssX")
-    Date time_date;
+    //@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", shape = JsonFormat.Shape.STRING)
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+
+    DateTimeFormat time_date;
+
+
      int payment;
      int patient_id;
      int ID_DOC;

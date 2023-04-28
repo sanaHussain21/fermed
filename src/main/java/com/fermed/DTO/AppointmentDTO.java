@@ -14,8 +14,7 @@ public class AppointmentDTO {
  //creating the appointmentDTO to transfer the data
     private int id_appointment;
 
-    @NotEmpty
-    @NotBlank(message = "time_date must be selected!!!")
+
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date time_date;
@@ -24,8 +23,8 @@ public class AppointmentDTO {
 
 
 
-   @NotEmpty
-    @NotBlank(message = "Payment must be inserted!!!")
+
+
     private int payment;
 
 

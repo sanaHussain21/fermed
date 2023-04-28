@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 
 
@@ -11,11 +14,13 @@ import java.sql.Date;
 public class AppointmentData {
     private int id_appointment;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @NotBlank
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date time_date;
 
-    private DateTimeFormat time_date;
 
-
+    @NotEmpty
+    @NotBlank
     private int payment;
 
     private int patient_id;

@@ -17,9 +17,8 @@ public class AppointmentDTO {
     @NotEmpty
     @NotBlank(message = "time_date must be selected!!!")
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-
-    private DateTimeFormat time_date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date time_date;
 
 
 
@@ -29,12 +28,12 @@ public class AppointmentDTO {
     @NotBlank(message = "Payment must be inserted!!!")
     private int payment;
 
-    @NotEmpty
-    @NotBlank(message = "Patient name must be inserted!!!")
+
+
     private int patient_id;
 
-    @NotEmpty
-    @NotBlank(message = "Doctor name must be inserted!!!")
+
+
     private  int ID_DOC;
 
 

@@ -19,9 +19,8 @@ public class Appointment {
     int id_appuntamento;
 
     //@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", shape = JsonFormat.Shape.STRING)
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 
-    DateTimeFormat time_date;
+    Date time_date;
 
 
      int payment;

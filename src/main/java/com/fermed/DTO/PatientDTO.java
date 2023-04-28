@@ -31,7 +31,7 @@ public class PatientDTO {
 
     int id_insurance = 1;
 
-    //fare comtrollo in caso qualcuno inserisce lettere al poato di numei
+    //fare comtrollo in caso qualcuno inserisce lettere al posto di numeri
     @NotEmpty
     @Pattern(regexp="(^$|[0-9]{10})")
     @NotBlank(message = "Telephone number field should not be empty!!!")

@@ -15,7 +15,7 @@ import java.sql.Date;
 public class AppointmentData {
     private int id_appointment;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date time_date;
 
 

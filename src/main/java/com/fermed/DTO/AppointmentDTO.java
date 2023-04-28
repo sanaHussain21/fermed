@@ -5,6 +5,8 @@ import lombok.Data;
 import org.springframework.data.relational.core.mapping.Embedded;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.sql.Date;
@@ -16,7 +18,8 @@ public class AppointmentDTO {
 
 
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+   @Temporal(TemporalType.TIME)
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date time_date;
 
 

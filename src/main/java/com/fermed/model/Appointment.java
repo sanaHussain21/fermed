@@ -35,12 +35,7 @@ public class Appointment {
 }
 
 
-    int payment;
-    int patient_id;
-    int ID_DOC;
-    boolean IsBeingNotified;
-    boolean NotifiedByEmail;
-    boolean NotifiedBySMS;
+    
 
 
 

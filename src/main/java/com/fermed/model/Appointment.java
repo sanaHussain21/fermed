@@ -23,17 +23,6 @@ public class Appointment {
     Date time_date;
 
 
-     int payment;
-     int patient_id;
-     int ID_DOC;
-     boolean IsBeingNotified;
-     boolean NotifiedByEmail;
-     boolean NotifiedBySMS;
-
-
-
-}
-
     int payment;
     int patient_id;
     int ID_DOC;
@@ -42,5 +31,6 @@ public class Appointment {
     boolean NotifiedBySMS;
 
 
+}
 
 

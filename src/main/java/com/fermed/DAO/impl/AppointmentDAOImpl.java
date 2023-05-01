@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Date;
 
 @Component
 public class AppointmentDAOImpl implements AppointmentDAO {
@@ -17,6 +18,9 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         //connection for database
         Connection connection;
         connection = DatabaseDAO.getConnection();
+
+        //Date date = new Date();
+        //System.out.println(date);
 
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)"+
                 //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)";

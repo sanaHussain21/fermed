@@ -33,8 +33,8 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         appointmentData.setTime_date(appointmentDTO.getTime_date());
         appointmentData.setPayment(appointmentDTO.getPayment());
         appointmentData.setPatient_id(appointmentDTO.getPatient_id());
-        appointmentData.setID_DOC(appointmentDTO.getID_DOC());
-        appointmentData.setIsBeingNotified(appointmentDTO.isIsBeingNotified());
+        appointmentData.setId_doc(appointmentDTO.getId_doc());
+        appointmentData.setBeingNotified(appointmentDTO.isBeingNotified());
         appointmentData.setNotifiedByEmail(appointmentDTO.isNotifiedByEmail());
         appointmentData.setNotifiedBySMS(appointmentDTO.isNotifiedBySMS());
         appointmentService.createAppointment(appointmentData);

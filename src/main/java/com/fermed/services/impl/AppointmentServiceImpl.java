@@ -23,8 +23,8 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointment.setTime_date(appointmentData.getTime_date());
         appointment.setPayment(appointmentData.getPayment());
         appointment.setPatient_id(appointmentData.getPatient_id());
-        appointment.setID_DOC(appointmentData.getID_DOC());
-        appointment.setIsBeingNotified(appointmentData.isIsBeingNotified());
+        appointment.setId_doc(appointmentData.getId_doc());
+        appointment.setBeingNotified(appointmentData.isBeingNotified());
         appointment.setNotifiedByEmail(appointmentData.isNotifiedByEmail());
         appointment.setNotifiedBySMS(appointmentData.isNotifiedBySMS());
         appointmentDAO.createAppointment(appointment);

@@ -1,32 +1,28 @@
 package com.fermed.DTO;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.springframework.data.relational.core.mapping.Embedded;
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import java.sql.Date;
+import java.util.Date;
 
 @Data
 public class AppointmentDTO {
- //creating the appointmentDTO to transfer the data
-     int id_appointment;
+    //creating the appointmentDTO to transfer the data
+    int id_appointment;
 
-   @Temporal(TemporalType.TIME)
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-     Date time_date;
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+    Date time_date;
 
-     int payment;
-     int patient_id;
-      int ID_DOC;
+    int payment;
+    int patient_id;
+    int id_doc;
     //will create a radio button
-     boolean IsBeingNotified;
-     boolean NotifiedByEmail;
-    boolean NotifiedBySMS;
+    boolean beingNotified;
+    boolean notifiedByEmail;
+    boolean notifiedBySMS;
 
 
 }

@@ -1,17 +1,13 @@
 package com.fermed.controllers;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fermed.DTO.AppointmentDTO;
 import com.fermed.facades.AppointmentFacade;
-import lombok.Data;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
 
-@Data
 @RestController
 @RequestMapping("/appointment")
 @CrossOrigin("*")
@@ -25,7 +21,7 @@ public class AppointmentController {
 
 
     //this post mapping is needed to create the appointment
-    @PostMapping(path = "/createAppointment", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/createAppointment")
 
     public void createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO) throws Exception {
         appointmentFacade.createAppointment(appointmentDTO);

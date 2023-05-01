@@ -21,8 +21,6 @@ public class Appointment {
     //@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", shape = JsonFormat.Shape.STRING)
 
     Date time_date;
-
-
     int payment;
     int patient_id;
     int ID_DOC;

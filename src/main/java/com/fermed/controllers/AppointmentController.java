@@ -25,7 +25,7 @@ public class AppointmentController {
 
 
     //this post mapping is needed to create the appointment
-    @PostMapping(path = "/createAppointment", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/createAppointment", produces = MediaType.APPLICATION_JSON_VALUE)
 
     public void createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO) throws Exception {
         appointmentFacade.createAppointment(appointmentDTO);

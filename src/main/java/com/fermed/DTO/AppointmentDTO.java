@@ -12,7 +12,7 @@ public class AppointmentDTO {
     //creating the appointmentDTO to transfer the data
     int id_appointment;
 
-    @Temporal(TemporalType.TIMESTAMP)
+   // @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     Date time_date;
 

@@ -30,7 +30,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
 
         Date thisDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/Y HH:mm a");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-Y HH:mm a");
         String stringDate = dateFormat.format(thisDate);
 
 

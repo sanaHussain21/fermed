@@ -24,7 +24,9 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
     @Override
     public void createAppointment(AppointmentDTO appointmentDTO) throws Exception {
 
-
+        Date thisDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/Y HH:mm a");
+        String stringDate = dateFormat.format(thisDate);
 
 
         AppointmentData appointmentData = new AppointmentData();
@@ -37,4 +39,6 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         appointmentData.setNotifiedBySMS(appointmentDTO.isNotifiedBySMS());
         appointmentService.createAppointment(appointmentData);
     }
+
+
 }

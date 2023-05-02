@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Component
@@ -29,7 +28,6 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         java.util.Date dateStr = dateFormat.parse(date);
         java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());*/
 
-
         Date thisDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         String stringDate = dateFormat.format(appointment.getTime_date());
@@ -37,6 +35,8 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +
                 //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)";
+
+
                 "VALUES('" + appointment.getTime_date(stringDate) + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
 
 
@@ -44,7 +44,6 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();
             System.out.println("APPOINTMENT CREATED SUCCESSFULLY! :)");
-
 
 
         } catch (SQLException e) {

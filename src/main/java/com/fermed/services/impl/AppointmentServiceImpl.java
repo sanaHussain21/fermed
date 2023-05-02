@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
@@ -20,7 +21,8 @@ public class AppointmentServiceImpl implements AppointmentService {
     public void createAppointment(AppointmentData appointmentData) throws Exception {
         //conversion from DATA-> MODEL
         Appointment appointment = new Appointment();
-        appointment.setTime_date(appointmentData.getTime_date());
+
+        appointment.setTime_date(Timestamp.valueOf(appointmentData.getTime_date()));
         appointment.setPayment(appointmentData.getPayment());
         appointment.setPatient_id(appointmentData.getPatient_id());
         appointment.setId_doc(appointmentData.getId_doc());

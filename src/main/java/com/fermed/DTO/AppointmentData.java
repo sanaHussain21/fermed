@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -16,8 +17,8 @@ public class AppointmentData {
     int id_appuntamento;
 
     //@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", shape = JsonFormat.Shape.STRING)
-    @JsonFormat(pattern="dd-MM-YYYY HH:mm")
-    Date time_date;
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm")
+    LocalDateTime time_date;
     int payment;
     int patient_id;
     int id_doc;

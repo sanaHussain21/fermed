@@ -8,8 +8,14 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.text.DateFormat;
+import java.text.Format;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 
 @Component
 public class AppointmentFacadeImpl implements AppointmentFacade {
@@ -24,13 +30,14 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
     @Override
     public void createAppointment(AppointmentDTO appointmentDTO) throws Exception {
 
-        Date thisDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/Y HH:mm a");
-        String stringDate = dateFormat.format(thisDate);
+        Format simpleformatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        String dateConvertedIntoString = simpleformatter.format(appointmentDTO.getTime_date());
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm", Locale.ENGLISH);
+        LocalDateTime date = LocalDateTime.parse(dateConvertedIntoString, formatter);
 
         AppointmentData appointmentData = new AppointmentData();
-        appointmentData.setTime_date(appointmentDTO.getTime_date());
+        appointmentData.setTime_date(date);
         appointmentData.setPayment(appointmentDTO.getPayment());
         appointmentData.setPatient_id(appointmentDTO.getPatient_id());
         appointmentData.setId_doc(appointmentDTO.getId_doc());

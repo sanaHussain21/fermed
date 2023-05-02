@@ -1,25 +1,19 @@
 package com.fermed.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
-
-import java.sql.Time;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
 @Entity
 @Data
 public class Appointment {
-    //appointment entity, using lombol
+    //appointment entity, using lombok
 
     int id_appuntamento;
 
-    //@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", shape = JsonFormat.Shape.STRING)
-    @JsonFormat(pattern="dd-MM-YYYY HH:mm")
     Date time_date;
     int payment;
     int patient_id;

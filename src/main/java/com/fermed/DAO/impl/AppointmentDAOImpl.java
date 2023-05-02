@@ -21,7 +21,12 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         connection = DatabaseDAO.getConnection();
 
 
-
+/*
+*    Date thisDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/Y HH:mm a");
+        String stringDate = dateFormat.format(thisDate);
+        java.util.Date dateStr = dateFormat.parse(date);
+        java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());*/
 
 
 

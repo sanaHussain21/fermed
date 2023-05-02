@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -28,21 +29,22 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         java.util.Date dateStr = dateFormat.parse(date);
         java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());*/
 
-        Date thisDate = new Date();
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        //Date currentDate= new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-YYYY HH:mm");
         String stringDate = dateFormat.format(appointment.getTime_date());
+        System.out.println("The date i have inserted from postman is : "+stringDate);
 
-        System.out.println(stringDate);
 
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +
                 //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)";
 
 
-                "VALUES('" + appointment.getTime_date() + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
-
-
+                "VALUES('" + appointment.getTime_date(stringDate) + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
         try {
+
+
+
+
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();
             System.out.println("APPOINTMENT CREATED SUCCESSFULLY! :)");

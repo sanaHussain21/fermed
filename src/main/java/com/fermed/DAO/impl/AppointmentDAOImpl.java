@@ -32,14 +32,12 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
         Date thisDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-
-
         String stringDate = dateFormat.format(appointment.getTime_date());
         System.out.println(stringDate);
 
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +
                 //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)";
-                "VALUES('" + appointment.getTime_date() + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
+                "VALUES('" + appointment.getTime_date(stringDate) + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
 
 
         try {

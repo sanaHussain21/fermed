@@ -13,7 +13,7 @@ public class AppointmentDTO {
     int id_appointment;
 
    // @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm")
     Date time_date;
 
     int payment;

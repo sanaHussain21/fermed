@@ -30,8 +30,8 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
 
         Date thisDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-Y HH:mm a");
-        String stringDate = dateFormat.format(thisDate);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+        String stringDate = dateFormat.format(appointment.getTime_date());
 
 
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +

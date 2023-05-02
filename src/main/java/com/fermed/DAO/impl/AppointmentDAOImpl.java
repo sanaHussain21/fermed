@@ -20,10 +20,6 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         Connection connection;
         connection = DatabaseDAO.getConnection();
 
-        Date thisDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/Y HH:mm a");
-        String stringDate = dateFormat.format(thisDate);
-        System.out.println(stringDate);
 
 
 
@@ -31,7 +27,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +
                 //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)";
-                "VALUES('" + appointment.getTime_date(stringDate) + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
+                "VALUES('" + appointment.getTime_date() + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();

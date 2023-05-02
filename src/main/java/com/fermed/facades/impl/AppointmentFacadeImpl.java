@@ -8,6 +8,8 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Component
 public class AppointmentFacadeImpl implements AppointmentFacade {
@@ -15,21 +17,19 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
     @Resource
     private AppointmentService appointmentService;
 
-    //creating isBeingNotified method
 
-
-
-
-
-
-
-
+        //System.out.println(stringDate);
 
     //converting DTO to data
     @Override
     public void createAppointment(AppointmentDTO appointmentDTO) throws Exception {
-        AppointmentData appointmentData = new AppointmentData();
 
+        Date thisDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/Y HH:mm a");
+        String stringDate = dateFormat.format(thisDate);
+
+
+        AppointmentData appointmentData = new AppointmentData();
         appointmentData.setTime_date(appointmentDTO.getTime_date());
         appointmentData.setPayment(appointmentDTO.getPayment());
         appointmentData.setPatient_id(appointmentDTO.getPatient_id());

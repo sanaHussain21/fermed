@@ -31,7 +31,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
 
         Date thisDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 
 
         String stringDate = dateFormat.format(appointment.getTime_date());

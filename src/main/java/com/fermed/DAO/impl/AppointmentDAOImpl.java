@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @Component
 public class AppointmentDAOImpl implements AppointmentDAO {
@@ -24,18 +23,16 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         //Date date = new Date();
         //System.out.println(date);
 
-        String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)"+
+        String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +
                 //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)";
-                "VALUES('"+appointment.getTime_date()+"', '"+appointment.getPayment()+"', "+appointment.getPatient_id()+",  "+appointment.getId_doc()+", "+appointment.isBeingNotified()+",  "+appointment.isNotifiedByEmail()+" , "+appointment.isNotifiedBySMS()+")";
-                try{
-                    PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
-                    preparedStatement.executeUpdate();
-                    System.out.println("APPOINTMENT CREATED SUCCESSFULLY! :)");
-                }catch (SQLException e){
-                    e.printStackTrace();
-                }
-
-
+                "VALUES('" + appointment.getTime_date() + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+            preparedStatement.executeUpdate();
+            System.out.println("APPOINTMENT CREATED SUCCESSFULLY! :)");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }

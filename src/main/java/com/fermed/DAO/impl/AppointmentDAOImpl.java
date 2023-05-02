@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
@@ -18,6 +19,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         //connection for database
         Connection connection;
         connection = DatabaseDAO.getConnection();
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/Y HH:mm a");
 
         //Date date = new Date();
         //System.out.println(date);

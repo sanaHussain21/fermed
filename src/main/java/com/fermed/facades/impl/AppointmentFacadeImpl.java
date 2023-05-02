@@ -30,6 +30,9 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
     @Override
     public void createAppointment(AppointmentDTO appointmentDTO) throws Exception {
 
+        //CONVERSION FROM String date to localdate
+        // then converted from localdate to timeStamp to save in databse
+        
         Format simpleformatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         String dateConvertedIntoString = simpleformatter.format(appointmentDTO.getTime_date());
 

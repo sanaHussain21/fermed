@@ -29,6 +29,10 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());*/
 
 
+        Date thisDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/Y HH:mm a");
+        String stringDate = dateFormat.format(thisDate);
+
 
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +
                 //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)";
@@ -40,11 +44,6 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             preparedStatement.executeUpdate();
             System.out.println("APPOINTMENT CREATED SUCCESSFULLY! :)");
             //for testing:
-
-
-
-
-
 
 
         } catch (SQLException e) {

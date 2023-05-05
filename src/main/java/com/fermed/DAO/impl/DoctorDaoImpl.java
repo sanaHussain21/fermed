@@ -96,6 +96,7 @@ public class DoctorDaoImpl implements DoctorDAO {
            ex.printStackTrace();
 
         }
+
     }
 
     }

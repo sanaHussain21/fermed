@@ -5,6 +5,7 @@ import com.fermed.DTO.DoctorDTO;
 import com.fermed.model.Doctor;
 import org.springframework.stereotype.Component;
 
+import javax.print.Doc;
 import java.sql.SQLException;
 
 @Component

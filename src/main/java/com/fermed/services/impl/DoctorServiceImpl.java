@@ -62,7 +62,7 @@ public class DoctorServiceImpl implements DoctorService {
     //for testing purpose
     @Override
     public void doctorData(DoctorDTO doctorDTO) throws Exception {
-        doctorDAO.doctorData(doctorDTO);
+       doctorDAO.doctorData(doctorDTO);
     }
 
 

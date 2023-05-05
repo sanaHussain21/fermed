@@ -21,7 +21,7 @@ public interface DoctorService {
 
 
     //for testing purpose
-    void doctorData(DoctorDTO doctorDTO) throws SQLException, Exception;
+    void doctorData(DoctorDTO doctorDTO) throws  Exception;
 
 
 }

@@ -20,5 +20,5 @@ public interface DoctorFacade {
 
 
     //this method is for testing
-    void doctorData(DoctorDTO doctorDTO) throws Exception;
+   void doctorData(DoctorDTO doctorDTO) throws Exception;
 }

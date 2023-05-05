@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 
 import javax.annotation.Resource;
+import javax.print.Doc;
 
 
 @Component
@@ -69,7 +70,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
     //for testing purpose
     @Override
     public void doctorData(DoctorDTO doctorDTO) throws Exception {
-        doctorService.doctorData(doctorDTO);
+         doctorService.doctorData(doctorDTO);
     }
 
 

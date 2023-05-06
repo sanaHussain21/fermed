@@ -5,6 +5,8 @@ import com.fermed.facades.AppointmentFacade;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
@@ -23,9 +25,12 @@ public class AppointmentController {
     //this post mapping is needed to create the appointment
     @PostMapping(path = "/createAppointment")
 
-    public void createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO) throws Exception {
+    public void createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO, HttpServletRequest request) throws Exception {
         appointmentFacade.createAppointment(appointmentDTO);
+        HttpSession session  = request.getSession();
+        session.setAttribute("patientName", appointmentDTO);
     }
+
 
 
 }

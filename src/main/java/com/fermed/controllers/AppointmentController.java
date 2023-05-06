@@ -29,6 +29,7 @@ public class AppointmentController {
         appointmentFacade.createAppointment(appointmentDTO);
         HttpSession session  = request.getSession();
         session.setAttribute("patientName", appointmentDTO);
+       //to be checked
     }
 
 

@@ -35,3 +35,9 @@ public class AppointmentController {
 
 
 }
+    public void createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO, HttpServletRequest request) throws Exception {
+        appointmentFacade.createAppointment(appointmentDTO);
+        HttpSession session  = request.getSession();
+        session.setAttribute("patientName", appointmentDTO);
+        //to be checked
+    }

@@ -43,7 +43,7 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
 
 
 
-        String fakeName = "Paola Piras ";
+        String fakeName = "Paola Piras";
         int patient_id_converted  = Integer.parseInt(fakeName);
         System.out.println(patient_id_converted);
 

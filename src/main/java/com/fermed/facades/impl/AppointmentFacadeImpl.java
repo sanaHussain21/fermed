@@ -33,16 +33,21 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         //CONVERSION FROM String date to localdate
         // then converted from localdate to timeStamp to save in databse
 
+
+
         Format simpleformatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         String dateConvertedIntoString = simpleformatter.format(appointmentDTO.getTime_date());
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm", Locale.ENGLISH);
         LocalDateTime date = LocalDateTime.parse(dateConvertedIntoString, formatter);
 
+
+        String fakeName  ="Paola Piras";
+
         AppointmentData appointmentData = new AppointmentData();
         appointmentData.setTime_date(date);
         appointmentData.setPayment(appointmentDTO.getPayment());
-        appointmentData.setPatient_id(appointmentDTO.getPatient_id());
+        appointmentData.setPatient_id(appointmentDTO.getPatient_id(Integer.valueOf(fakeName)));
         appointmentData.setId_doc(appointmentDTO.getId_doc());
         appointmentData.setBeingNotified(appointmentDTO.isBeingNotified());
         appointmentData.setNotifiedByEmail(appointmentDTO.isNotifiedByEmail());

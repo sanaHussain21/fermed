@@ -45,13 +45,13 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
 
         String fakeName = "Paola Piras ";
         int patient_id_converted  = Integer.parseInt(fakeName);
-
+        System.out.println(patient_id_converted);
 
 
         AppointmentData appointmentData = new AppointmentData();
         appointmentData.setTime_date(date);
         appointmentData.setPayment(appointmentDTO.getPayment());
-        appointmentData.setPatient_id(appointmentDTO.getPatient_id(Integer.parseInt(fakeName)));
+        appointmentData.setPatient_id(appointmentDTO.getPatient_id());
         appointmentData.setId_doc(appointmentDTO.getId_doc());
         appointmentData.setBeingNotified(appointmentDTO.isBeingNotified());
         appointmentData.setNotifiedByEmail(appointmentDTO.isNotifiedByEmail());

@@ -4,17 +4,13 @@ import com.fermed.DTO.AppointmentDTO;
 import com.fermed.DTO.AppointmentData;
 import com.fermed.facades.AppointmentFacade;
 import com.fermed.services.AppointmentService;
-import org.springframework.context.annotation.ComponentScans;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Locale;
 
 @Component
@@ -24,7 +20,7 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
     private AppointmentService appointmentService;
 
 
-        //System.out.println(stringDate);
+    //System.out.println(stringDate);
 
     //converting DTO to data
     @Override
@@ -34,28 +30,20 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         // then converted from localdate to timeStamp to save in databse
 
 
-
-        Format simpleformatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        Format simpleformatter = new SimpleDateFormat("MM/DD/YYYY HH:mm");
         String dateConvertedIntoString = simpleformatter.format(appointmentDTO.getTime_date());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm", Locale.ENGLISH);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/DD/YYYY HH:mm", Locale.ENGLISH);
         LocalDateTime date = LocalDateTime.parse(dateConvertedIntoString, formatter);
 
 
-
-        String fakeName = "68";
-        int patient_id_converted  = Integer.parseInt(fakeName);
-        System.out.println(patient_id_converted);
-
-
-
-
-
+        String str = "56";
+        int val = Integer.parseInt(str);
 
         AppointmentData appointmentData = new AppointmentData();
         appointmentData.setTime_date(date);
         appointmentData.setPayment(appointmentDTO.getPayment());
-        appointmentData.setPatient_id(appointmentDTO.getPatient_id(patient_id_converted));
+        appointmentData.setPatient_id(val);
         appointmentData.setId_doc(appointmentDTO.getId_doc());
         appointmentData.setBeingNotified(appointmentDTO.isBeingNotified());
         appointmentData.setNotifiedByEmail(appointmentDTO.isNotifiedByEmail());

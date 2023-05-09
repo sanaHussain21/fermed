@@ -43,7 +43,8 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
 
 
-
+        String str = "25";
+        int val = Integer.parseInt(str);
 
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +
                 //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)";

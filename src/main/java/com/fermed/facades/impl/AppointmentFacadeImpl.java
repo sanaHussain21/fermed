@@ -30,10 +30,12 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         // then converted from localdate to timeStamp to save in databse
 
 
-        Format simpleformatter = new SimpleDateFormat("MM/DD/YYYY HH:mm");
+        //Format simpleformatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
+        Format simpleformatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         String dateConvertedIntoString = simpleformatter.format(appointmentDTO.getTime_date());
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/DD/YYYY HH:mm", Locale.ENGLISH);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm", Locale.ENGLISH);
         LocalDateTime date = LocalDateTime.parse(dateConvertedIntoString, formatter);
 
 

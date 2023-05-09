@@ -17,7 +17,7 @@ public class AppointmentData {
     int id_appuntamento;
 
     //@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", shape = JsonFormat.Shape.STRING)
-    @JsonFormat(pattern="MM/DD/YYYY HH:mm")
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm")
     LocalDateTime time_date;
     int payment;
     int patient_id;

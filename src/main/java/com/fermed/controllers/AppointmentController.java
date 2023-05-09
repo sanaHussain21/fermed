@@ -25,10 +25,10 @@ public class AppointmentController {
     //this post mapping is needed to create the appointment
     @PostMapping(path = "/createAppointment")
 
-    public void createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO, HttpServletRequest request) throws Exception {
+    public void createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO) throws Exception {
         appointmentFacade.createAppointment(appointmentDTO);
-        HttpSession session  = request.getSession();
-        session.setAttribute("patientName", appointmentDTO);
+        //HttpSession session  = request.getSession();
+        //session.setAttribute("patientName", appointmentDTO);
        //to be checked
     }
 

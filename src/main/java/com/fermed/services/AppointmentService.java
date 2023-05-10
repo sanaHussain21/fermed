@@ -10,5 +10,5 @@ public interface AppointmentService {
     //creating appointment for the patient
     void createAppointment(AppointmentData appointmentData) throws Exception;
 
-    List<AppointmentDTO> getAppointmentData();
+    List<AppointmentDTO> getAppointmentData() throws Exception;
 }

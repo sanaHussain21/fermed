@@ -12,5 +12,5 @@ public interface AppointmentDAO {
     //creating the appointment for patient
      void createAppointment(Appointment appointment) throws SQLException;
 
-    List<AppointmentDTO> getAppointmentData();
+    List<AppointmentDTO> getAppointmentData() throws SQLException;
 }

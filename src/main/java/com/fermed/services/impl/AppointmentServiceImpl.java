@@ -40,7 +40,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     //getting appointment list
     @Override
-    public List<AppointmentDTO> getAppointmentData() {
+    public List<AppointmentDTO> getAppointmentData() throws Exception {
         return appointmentDAO.getAppointmentData();
     }
 

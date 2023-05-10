@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 
 @RestController
@@ -35,6 +36,10 @@ public class AppointmentController {
 
 
     //API to return list of appointment present in DB
+    @GetMapping("/")
+    public List<AppointmentDTO> getAppointmentData(){
+        return this.appointmentFacade.getAppointmentData();
+    }
 
 
 }

@@ -1,6 +1,7 @@
 package com.fermed.services.impl;
 
 import com.fermed.DAO.AppointmentDAO;
+import com.fermed.DTO.AppointmentDTO;
 import com.fermed.DTO.AppointmentData;
 import com.fermed.model.Appointment;
 import com.fermed.services.AppointmentService;
@@ -10,6 +11,7 @@ import javax.annotation.Resource;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
@@ -35,4 +37,12 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointment.setNotifiedBySMS(appointmentData.isNotifiedBySMS());
         appointmentDAO.createAppointment(appointment);
     }
+
+    //getting appointment list
+    @Override
+    public List<AppointmentDTO> getAppointmentData() {
+        return appointmentDAO.getAppointmentData();
+    }
+
+
 }

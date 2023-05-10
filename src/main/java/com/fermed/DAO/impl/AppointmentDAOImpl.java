@@ -2,6 +2,7 @@ package com.fermed.DAO.impl;
 
 import com.fermed.DAO.AppointmentDAO;
 import com.fermed.DAO.DatabaseDAO;
+import com.fermed.DTO.AppointmentDTO;
 import com.fermed.model.Appointment;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Component
 public class AppointmentDAOImpl implements AppointmentDAO {
@@ -40,31 +42,23 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         } catch (ParseException e) {
             e.printStackTrace();
         }*/
-
-
-
-        String str = "25";
-        int val = Integer.parseInt(str);
-
+       
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +
-                //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)";
-
-
+                //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)"
                 "VALUES('" + appointment.getTime_date() + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
         try {
-
-
-
-
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();
             System.out.println("APPOINTMENT CREATED SUCCESSFULLY! :)");
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
+    }
+
+    @Override
+    public List<AppointmentDTO> getAppointmentData() {
+        return null;
     }
 }

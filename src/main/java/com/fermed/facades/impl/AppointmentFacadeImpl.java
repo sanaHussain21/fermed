@@ -11,6 +11,7 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Locale;
 
 @Component
@@ -52,6 +53,17 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         appointmentData.setNotifiedBySMS(appointmentDTO.isNotifiedBySMS());
         appointmentService.createAppointment(appointmentData);
     }
+
+    @Override
+    public List<AppointmentDTO> getAppointmentData() {
+        return appointmentService.getAppointmentData();
+    }
+
+
+    //getting appointment list
+
+
+
 
 
 }

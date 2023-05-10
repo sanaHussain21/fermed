@@ -33,7 +33,8 @@ public class AppointmentController {
     }
 
 
-    
+
+    //API to return list of appointment present in DB
 
 
 }

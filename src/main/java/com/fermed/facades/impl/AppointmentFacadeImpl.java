@@ -68,16 +68,4 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
 
 }
 
-    String str = "56";
-    int val = Integer.parseInt(str);
-
-    AppointmentData appointmentData = new AppointmentData();
-        appointmentData.setTime_date(date);
-                appointmentData.setPayment(appointmentDTO.getPayment());
-                appointmentData.setPatient_id(val);
-                appointmentData.setId_doc(appointmentDTO.getId_doc());
-                appointmentData.setBeingNotified(appointmentDTO.isBeingNotified());
-                appointmentData.setNotifiedByEmail(appointmentDTO.isNotifiedByEmail());
-                appointmentData.setNotifiedBySMS(appointmentDTO.isNotifiedBySMS());
-                appointmentService.createAppointment(appointmentData);
-                }
+    

@@ -3,6 +3,7 @@ package com.fermed.controllers;
 import com.fermed.DTO.AppointmentDTO;
 import com.fermed.facades.AppointmentFacade;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -40,11 +41,23 @@ public class AppointmentController {
 
 
     //API to return list of appointment present in DB
+
     @GetMapping("/")
     public List<AppointmentDTO> getAppointmentData() throws Exception {
         return this.appointmentFacade.getAppointmentData();
     }
 
 
+
+
+
+/*
+    //testing to get all appointments
+    @GetMapping("/")
+    public ResponseEntity<?> getAppointments() throws Exception {
+        return ResponseEntity.ok(this.appointmentFacade.getAppointments());
+    }
+
+*/
 }
 

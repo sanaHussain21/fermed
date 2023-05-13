@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
 
 @Component
 public interface AppointmentDAO {
@@ -13,4 +14,6 @@ public interface AppointmentDAO {
      void createAppointment(Appointment appointment) throws SQLException;
 
     List<AppointmentDTO> getAppointmentData() throws SQLException;
+
+    //Set<AppointmentDTO> getAppointments() throws SQLException;
 }

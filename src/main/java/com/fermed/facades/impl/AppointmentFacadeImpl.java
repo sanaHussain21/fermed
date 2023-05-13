@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 @Component
 public class AppointmentFacadeImpl implements AppointmentFacade {
@@ -59,6 +60,12 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         return appointmentService.getAppointmentData();
     }
 
+  /*
+    @Override
+    public Set<AppointmentDTO> getAppointments() throws Exception {
+        return appointmentService.getAppointments();
+    }
+*/
 
     //getting appointment list
 

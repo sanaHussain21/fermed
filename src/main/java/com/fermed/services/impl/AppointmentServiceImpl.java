@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
@@ -44,5 +45,11 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentDAO.getAppointmentData();
     }
 
+    /*
+    @Override
+    public Set<AppointmentDTO> getAppointments() throws Exception {
+        return appointmentDAO.getAppointments();
+    }
+*/
 
 }

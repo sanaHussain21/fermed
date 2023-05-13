@@ -5,10 +5,13 @@ import com.fermed.DTO.AppointmentData;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
 
 public interface AppointmentService {
     //creating appointment for the patient
     void createAppointment(AppointmentData appointmentData) throws Exception;
 
     List<AppointmentDTO> getAppointmentData() throws Exception;
+
+    //Set<AppointmentDTO> getAppointments() throws Exception;
 }

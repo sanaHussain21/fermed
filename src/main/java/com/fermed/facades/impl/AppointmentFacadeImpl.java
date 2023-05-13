@@ -33,10 +33,10 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
 
         //Format simpleformatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 
-        Format simpleformatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-        String dateConvertedIntoString = simpleformatter.format(appointmentDTO.getTime_date());
+        Format simpleformatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String dateConvertedIntoString = simpleformatter.format(appointmentDTO.getTime_date()); //something over here stop the creation is the appointment from front-end
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm", Locale.ENGLISH);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm", Locale.ENGLISH);
         LocalDateTime date = LocalDateTime.parse(dateConvertedIntoString, formatter);
 
 

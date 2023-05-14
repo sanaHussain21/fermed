@@ -74,7 +74,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             while(resultSet.next()){
                 AppointmentDTO appointmentDTO = new AppointmentDTO();
                 appointmentDTO.setId_appointment(resultSet.getInt(1));
-                appointmentDTO.setTime_date(resultSet.getDate(2));
+                appointmentDTO.setTime_date(resultSet.getString(2));
                 appointmentDTO.setPayment(resultSet.getInt(3));
                 appointmentDTO.setPatient_id(resultSet.getInt(4));
                 appointmentDTO.setId_doc(resultSet.getInt(5));

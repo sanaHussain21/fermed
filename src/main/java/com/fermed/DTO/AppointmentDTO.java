@@ -14,9 +14,9 @@ public class AppointmentDTO {
 
    // @Temporal(TemporalType.TIMESTAMP)
     //@JsonFormat(pattern="dd-MM-yyyy HH:mm")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
-    Date time_date;
-
+    //@JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    //Date time_date;
+   String time_date;
     int payment;
     int patient_id;
     int id_doc;

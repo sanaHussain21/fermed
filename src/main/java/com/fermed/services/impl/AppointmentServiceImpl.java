@@ -29,7 +29,8 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         Appointment appointment = new Appointment();
 
-        appointment.setTime_date(Timestamp.valueOf(appointmentData.getTime_date()));
+        //appointment.setTime_date(Timestamp.valueOf(appointmentData.getTime_date()));
+        appointment.setTime_date(appointmentData.getTime_date());
         appointment.setPayment(appointmentData.getPayment());
         appointment.setPatient_id(val);
         appointment.setId_doc(appointmentData.getId_doc());

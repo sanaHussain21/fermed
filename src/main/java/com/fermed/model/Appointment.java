@@ -14,7 +14,9 @@ public class Appointment {
 
     int id_appuntamento;
 
-    Date time_date;
+    //testing  Date time_date;
+    String time_date;
+
     int payment;
     int patient_id;
     int id_doc;

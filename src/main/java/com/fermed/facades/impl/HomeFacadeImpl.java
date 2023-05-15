@@ -1,7 +1,9 @@
 package com.fermed.facades.impl;
 
 import com.fermed.DTO.DoctorDTO;
+import com.fermed.DTO.DoctorData;
 import com.fermed.facades.HomeFacade;
+import com.fermed.model.Doctor;
 import com.fermed.services.HomeService;
 import org.springframework.stereotype.Component;
 
@@ -19,4 +21,7 @@ public class HomeFacadeImpl implements HomeFacade {
         //System.out.println("Siamo passati da home facade a home service :)");
         return homeService.getAllDoctors();
     }
+
+
+
 }

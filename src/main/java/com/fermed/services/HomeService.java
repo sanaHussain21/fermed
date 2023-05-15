@@ -1,6 +1,8 @@
 package com.fermed.services;
 
 import com.fermed.DTO.DoctorDTO;
+import com.fermed.DTO.DoctorData;
+import com.fermed.model.Doctor;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
@@ -9,5 +11,6 @@ import java.util.List;
 public interface  HomeService {
 
     List<DoctorDTO> getAllDoctors();
+
 
 }

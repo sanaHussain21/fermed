@@ -2,6 +2,7 @@ package com.fermed.services.impl;
 
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DTO.DoctorDTO;
+import com.fermed.model.Doctor;
 import com.fermed.repository.DoctorRepository;
 
 import com.fermed.services.HomeService;

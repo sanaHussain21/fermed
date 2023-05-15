@@ -23,7 +23,7 @@ public class HomeController {
 
 
     //creating API to return  the doctor list
-    @GetMapping("/getDoctorList")
+    @GetMapping("/")
     public List<DoctorDTO> getAllDoctors(){
         return this.homeFacade.getAllDoctors();
     }

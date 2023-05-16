@@ -8,11 +8,7 @@ import com.fermed.services.AppointmentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.sql.Date;
-import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService {

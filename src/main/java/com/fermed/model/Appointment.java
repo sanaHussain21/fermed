@@ -13,11 +13,8 @@ public class Appointment {
     //appointment entity, using lombok
 
     int id_appuntamento;
-
-    //testing  Date time_date;
     String time_date;
-
-    int payment;
+    String payment;
     int patient_id;
     int id_doc;
     boolean isBeingNotified;

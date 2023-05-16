@@ -46,7 +46,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +
                 //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)"
-                "VALUES('" + appointment.getTime_date() + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
+                "VALUES('" + appointment.getTime_date() + "', '"+appointment.getPayment()+"', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();
@@ -75,7 +75,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
                 AppointmentDTO appointmentDTO = new AppointmentDTO();
                 appointmentDTO.setId_appointment(resultSet.getInt(1));
                 appointmentDTO.setTime_date(resultSet.getString(2));
-                appointmentDTO.setPayment(resultSet.getInt(3));
+                appointmentDTO.setPayment(resultSet.getString(3));
                 appointmentDTO.setPatient_id(resultSet.getInt(4));
                 appointmentDTO.setId_doc(resultSet.getInt(5));
                 appointmentDTO.setBeingNotified(resultSet.getBoolean(6));

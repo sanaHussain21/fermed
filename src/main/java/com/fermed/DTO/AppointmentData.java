@@ -20,7 +20,7 @@ public class AppointmentData {
    // @JsonFormat(pattern="dd-MM-yyyy HH:mm")
     //  LocalDateTime time_date;
     String time_date;
-    int payment;
+    String payment;
     int patient_id;
     int id_doc;
     boolean isBeingNotified;

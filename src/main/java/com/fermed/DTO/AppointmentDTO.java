@@ -17,7 +17,7 @@ public class AppointmentDTO {
     //@JsonFormat(pattern="yyyy-MM-dd HH:mm")
     //Date time_date;
    String time_date;
-    int payment;
+    String payment;
     int patient_id;
     int id_doc;
     //will create a radio button
@@ -25,5 +25,7 @@ public class AppointmentDTO {
     boolean notifiedByEmail;
     boolean notifiedBySMS;
 
-
+    public String getTime_date() {
+        return time_date; //getting null
+    }
 }

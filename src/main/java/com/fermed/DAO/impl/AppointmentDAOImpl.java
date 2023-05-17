@@ -61,7 +61,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
     //getting appointmrnt data
     @Autowired
     static List<AppointmentDTO> appointmentList = new ArrayList();
-    
+
 
     @Override
     public List<AppointmentDTO> getAppointmentData() throws SQLException {

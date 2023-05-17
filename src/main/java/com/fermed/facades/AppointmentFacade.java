@@ -16,3 +16,9 @@ public interface AppointmentFacade {
 
    // public Set<AppointmentDTO> getAppointments() throws Exception;
 }
+    //creating appointment for patient
+    void createAppointment(AppointmentDTO appointmentDTO) throws Exception;
+
+    List<AppointmentDTO> getAppointmentData() throws Exception;
+
+// public Set<AppointmentDTO> getAppointments() throws Exception;

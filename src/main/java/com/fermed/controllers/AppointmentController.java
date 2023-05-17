@@ -2,6 +2,7 @@ package com.fermed.controllers;
 
 import com.fermed.DTO.AppointmentDTO;
 import com.fermed.facades.AppointmentFacade;
+import com.fermed.model.Appointment;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

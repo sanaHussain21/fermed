@@ -3,6 +3,7 @@ package com.fermed.facades.impl;
 import com.fermed.DTO.AppointmentDTO;
 import com.fermed.DTO.AppointmentData;
 import com.fermed.facades.AppointmentFacade;
+import com.fermed.model.Appointment;
 import com.fermed.services.AppointmentService;
 import org.springframework.stereotype.Component;
 

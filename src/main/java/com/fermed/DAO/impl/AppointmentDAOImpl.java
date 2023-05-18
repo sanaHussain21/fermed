@@ -60,7 +60,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
     //getting appointmrnt data
 
-   private List<AppointmentDTO> appointmentList = new ArrayList<>() ;
+   List<AppointmentDTO> appointmentList = new ArrayList<>() ;
 
 
     @Override

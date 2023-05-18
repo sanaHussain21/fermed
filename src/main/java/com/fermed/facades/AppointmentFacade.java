@@ -12,7 +12,7 @@ public interface AppointmentFacade {
     //creating appointment for patient
     void createAppointment(AppointmentDTO appointmentDTO) throws Exception;
 
-    List<AppointmentDTO> getAppointmentData() throws Exception;
+    List<AppointmentDTO> getAllAppointments() throws Exception;
 
    // public Set<AppointmentDTO> getAppointments() throws Exception;
 }

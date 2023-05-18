@@ -59,12 +59,13 @@ public class AppointmentDAOImpl implements AppointmentDAO {
     }
 
     //getting appointmrnt data
-
-   List<AppointmentDTO> appointmentList = new ArrayList<>() ;
+//@Autowired
+    //static   List<AppointmentDTO> appointmentList = new ArrayList<>();
+   List<AppointmentDTO> appointmentList = new ArrayList<>();
 
 
     @Override
-    public List<AppointmentDTO> getAppointmentData() throws SQLException {
+    public List<AppointmentDTO> getAllAppointments() throws SQLException {
         Connection connection;
         connection = DatabaseDAO.getConnection();
         try {

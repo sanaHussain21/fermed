@@ -59,8 +59,8 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
     }
 
     @Override
-    public List<AppointmentDTO> getAppointmentData() throws Exception {
-        return appointmentService.getAppointmentData();
+    public List<AppointmentDTO> getAllAppointments() throws Exception {
+        return appointmentService.getAllAppointments();
     }
 
   /*

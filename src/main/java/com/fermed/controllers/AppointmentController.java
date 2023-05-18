@@ -44,8 +44,8 @@ public class AppointmentController {
     //API to return list of appointment present in DB
 
     @GetMapping("/")
-    public List<AppointmentDTO> getAppointmentData() throws Exception {
-        return this.appointmentFacade.getAppointmentData();
+    public List<AppointmentDTO> getAllAppointments() throws Exception {
+        return this.appointmentFacade.getAllAppointments();
     }
 
 

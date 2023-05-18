@@ -59,8 +59,8 @@ public class AppointmentDAOImpl implements AppointmentDAO {
     }
 
     //getting appointmrnt data
-    @Autowired
-    static List<AppointmentDTO> appointmentList = new ArrayList();
+
+   private List<AppointmentDTO> appointmentList = new ArrayList<>();
 
 
     @Override
@@ -90,29 +90,5 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         return appointmentList;
     }
 
-/*
-    //testing to get all appointments
-    @Override
-    public Set<AppointmentDTO> getAppointments() throws SQLException {
-        Connection connection;
-        connection = DatabaseDAO.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_appuntamento, time_date, payment, patient_id, ID_DOC FROM appuntamento");
-            ResultSet resultSet = preparedStatement.executeQuery();
 
-            //it will read one by one all raws from the doctor's table
-            while(resultSet.next()){
-                AppointmentDTO appointmentDTO = new AppointmentDTO();
-                appointmentDTO.setId_appointment(resultSet.getInt(1));
-                appointmentDTO.setTime_date(resultSet.getDate(2));
-                appointmentDTO.setPayment(resultSet.getInt(3));
-                appointmentDTO.setPatient_id(resultSet.getInt(4));
-                appointmentDTO.setId_doc(resultSet.getInt(5));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return new LinkedHashSet<>(this.getAppointments());
-    }
-*/
 }

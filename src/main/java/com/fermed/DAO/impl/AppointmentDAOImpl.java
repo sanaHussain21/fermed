@@ -11,13 +11,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Component
 public class AppointmentDAOImpl implements AppointmentDAO {
+
 
     @Override
     public void createAppointment(Appointment appointment) throws SQLException {
@@ -58,10 +56,13 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
     }
 
+
+
     //getting appointmrnt data
-//@Autowired
-    //static   List<AppointmentDTO> appointmentList = new ArrayList<>();
-   List<AppointmentDTO> appointmentList = new ArrayList<>();
+
+    //List<AppointmentDTO> appointmentList = new ArrayList<>();
+    @Autowired
+    static  List<AppointmentDTO> appointmentList = new ArrayList<>();
 
 
     @Override
@@ -72,7 +73,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_appuntamento, time_date, payment, patient_id, ID_DOC, IsBeingNotified, NotifiedByEmail, NotifiedBySMS FROM appuntamento");
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            //it will read one by one all raws from the doctor's table
+            //it will read one by one all rows from the doctor's table
             while(resultSet.next()){
                 AppointmentDTO appointmentDTO = new AppointmentDTO();
                 appointmentDTO.setId_appointment(resultSet.getInt(1));

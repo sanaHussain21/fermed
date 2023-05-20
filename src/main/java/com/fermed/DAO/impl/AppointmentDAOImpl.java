@@ -94,12 +94,3 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
 
 }
-    AppointmentDTO appointmentDTO = new AppointmentDTO();
-                appointmentDTO.setId_appointment(resultSet.getInt(1));
-                        appointmentDTO.setTime_date(resultSet.getString(2));
-                        appointmentDTO.setPayment(resultSet.getString(3));
-                        appointmentDTO.setPatient_id(resultSet.getInt(4));
-                        appointmentDTO.setId_doc(resultSet.getInt(5));
-                        appointmentDTO.setBeingNotified(resultSet.getBoolean(6));
-                        appointmentDTO.setNotifiedByEmail(resultSet.getBoolean(7));
-                        appointmentDTO.setNotifiedBySMS(resultSet.getBoolean(8));

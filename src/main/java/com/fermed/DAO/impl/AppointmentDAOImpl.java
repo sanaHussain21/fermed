@@ -4,9 +4,12 @@ import com.fermed.DAO.AppointmentDAO;
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DTO.AppointmentDTO;
 import com.fermed.model.Appointment;
+import com.fermed.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +19,8 @@ import java.util.*;
 @Component
 public class AppointmentDAOImpl implements AppointmentDAO {
 
+
+    private AppointmentRepository appointmentRepository;
 
     @Override
     public void createAppointment(Appointment appointment) throws SQLException {
@@ -55,7 +60,13 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
 
     }
-
+/*
+//trying to use with the JPA REPOSITORY
+    @Override
+    public List<AppointmentDTO> getAllAppointments() throws SQLException {
+        return appointmentRepository.findAll();
+    }
+*/
 
 
     //getting appointmrnt data

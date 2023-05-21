@@ -102,7 +102,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             e.printStackTrace();
         }
         return appointmentList;
-      
+
     }
 
 

@@ -69,7 +69,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 */
 
 
-    //getting appointmrnt data
+    //getting appointment data
 
     //List<AppointmentDTO> appointmentList = new ArrayList<>();
     @Autowired
@@ -96,11 +96,13 @@ public class AppointmentDAOImpl implements AppointmentDAO {
                 appointmentDTO.setNotifiedByEmail(resultSet.getBoolean(7));
                 appointmentDTO.setNotifiedBySMS(resultSet.getBoolean(8));
                 appointmentList.add(appointmentDTO);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return appointmentList;
+      
     }
 
 

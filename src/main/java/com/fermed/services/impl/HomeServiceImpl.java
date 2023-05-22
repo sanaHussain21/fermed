@@ -25,8 +25,7 @@ public class HomeServiceImpl implements HomeService {
 
 
     //list of doctors already implemented
-    @Autowired
-    static List<DoctorDTO> doctorList = new ArrayList(); //removed <>
+
 
     Connection connection;
     public HomeServiceImpl() throws SQLException
@@ -37,6 +36,7 @@ public class HomeServiceImpl implements HomeService {
     //getting the data
     @Override
     public List<DoctorDTO> getAllDoctors() {
+        List<DoctorDTO> doctorList = new ArrayList();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_doctor, name, surname, gender, email, password, username FROM doctor");
             ResultSet resultSet = preparedStatement.executeQuery();

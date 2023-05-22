@@ -72,19 +72,19 @@ public class AppointmentDAOImpl implements AppointmentDAO {
     //getting appointment data
 
     //List<AppointmentDTO> appointmentList = new ArrayList<>();
-    @Autowired
-    static  List<AppointmentDTO> appointmentList = new ArrayList<>();
+
 
 
     @Override
     public List<AppointmentDTO> getAllAppointments() throws SQLException {
+        List<AppointmentDTO> appointmentList = new ArrayList<>();
         Connection connection;
         connection = DatabaseDAO.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_appuntamento, time_date, payment, patient_id, ID_DOC, IsBeingNotified, NotifiedByEmail, NotifiedBySMS FROM appuntamento");
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            //it will read one by one all rows from the doctor's table
+
             while(resultSet.next()){
                 AppointmentDTO appointmentDTO = new AppointmentDTO();
                 appointmentDTO.setId_appointment(resultSet.getInt(1));

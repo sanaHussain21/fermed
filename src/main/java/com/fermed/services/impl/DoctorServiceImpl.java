@@ -65,6 +65,10 @@ public class DoctorServiceImpl implements DoctorService {
        doctorDAO.doctorData(doctorDTO);
     }
 
+    @Override
+    public void getDoctorById(DoctorDTO  doctorDTO) throws Exception {
+         doctorDAO.getDoctorById(doctorDTO);
+    }
 
 
 }

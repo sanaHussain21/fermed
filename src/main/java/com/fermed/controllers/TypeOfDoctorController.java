@@ -17,6 +17,7 @@ public class TypeOfDoctorController {
     @Resource
     private TypeOfDoctorFacade typeOfDoctorFacade;
 
+    //creating API to return doctor type list
 
 
 
@@ -25,5 +26,4 @@ public class TypeOfDoctorController {
 
 
 
-    
 }

@@ -1,4 +1,9 @@
 package com.fermed.facades;
 
-public class TypeOfDoctorFacade {
+import com.fermed.DTO.TypeOfDoctorDTO;
+
+import java.util.List;
+
+public interface TypeOfDoctorFacade {
+    public List<TypeOfDoctorDTO> getAllDoctorType();
 }

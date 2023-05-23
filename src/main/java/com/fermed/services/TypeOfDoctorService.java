@@ -1,4 +1,9 @@
 package com.fermed.services;
 
-public class TypeOfDoctorService {
+import com.fermed.DTO.TypeOfDoctorDTO;
+
+import java.util.List;
+
+public interface TypeOfDoctorService {
+    List<TypeOfDoctorDTO> getAllDoctorType();
 }

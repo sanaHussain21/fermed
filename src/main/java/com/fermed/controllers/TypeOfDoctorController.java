@@ -1,7 +1,7 @@
 package com.fermed.controllers;
 
+import com.fermed.DTO.TypeOfDoctorDTO;
 import com.fermed.facades.TypeOfDoctorFacade;
-import com.fermed.model.TypeOfDoctor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +22,10 @@ public class TypeOfDoctorController {
     //creating API to return doctor type list
 
     @GetMapping("/typeOfDoctor")
+    public List<TypeOfDoctorDTO> getAllDoctorType()
+    {
+        return typeOfDoctorFacade.getAllDoctorType();
+    }
 
 
 

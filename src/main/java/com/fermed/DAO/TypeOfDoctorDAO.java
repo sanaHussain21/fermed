@@ -1,4 +1,9 @@
 package com.fermed.DAO;
 
-public class TypeOfDoctorDAO {
+import com.fermed.DTO.TypeOfDoctorDTO;
+
+import java.util.List;
+
+public interface TypeOfDoctorDAO {
+    List<TypeOfDoctorDTO> getAllDoctorType();
 }

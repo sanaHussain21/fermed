@@ -26,6 +26,6 @@ public class AppointmentDTO {
     boolean notifiedBySMS;
 
     public String getTime_date() {
-        return time_date; //getting null
+        return time_date;
     }
 }

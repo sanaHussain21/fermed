@@ -4,18 +4,13 @@ import com.fermed.DTO.DoctorDTO;
 import com.fermed.DTO.DoctorData;
 import com.fermed.DTO.DoctorLoginDTO;
 import com.fermed.facades.DoctorFacade;
-
-
 import com.fermed.model.Doctor;
 import com.fermed.services.DoctorService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-
 import javax.annotation.Resource;
-import javax.print.Doc;
 
 
 @Component
@@ -60,17 +55,17 @@ public class DoctorFacadeImpl implements DoctorFacade {
          */
 
         //testing
-        DoctorData doctorData1 =  new DoctorData();
+        DoctorData doctorData1 = new DoctorData();
         doctorData1.setEmail(doctorLoginDTO.getEmail());
         doctorData1.setPassword(doctorLoginDTO.getPassword());
-            return doctorService.loginDoctor(doctorData1);
+        return doctorService.loginDoctor(doctorData1);
 
     }
 
     //for testing purpose
     @Override
     public void doctorData(DoctorDTO doctorDTO) throws Exception {
-         doctorService.doctorData(doctorDTO);
+        doctorService.doctorData(doctorDTO);
     }
 
 

@@ -21,9 +21,8 @@ public class TypeOfDoctorController {
 
     //creating API to return doctor type list
 
-    @GetMapping("/typeOfDoctor")
-    public List<TypeOfDoctorDTO> getAllDoctorType()
-    {
+    @GetMapping("/listTypeOfDoctors")
+    public List<TypeOfDoctorDTO> getAllDoctorType() throws Exception {
         return typeOfDoctorFacade.getAllDoctorType();
     }
 

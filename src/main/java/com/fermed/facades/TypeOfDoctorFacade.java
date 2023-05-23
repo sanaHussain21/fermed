@@ -5,5 +5,5 @@ import com.fermed.DTO.TypeOfDoctorDTO;
 import java.util.List;
 
 public interface TypeOfDoctorFacade {
-    public List<TypeOfDoctorDTO> getAllDoctorType();
+    public List<TypeOfDoctorDTO> getAllDoctorType() throws Exception;
 }

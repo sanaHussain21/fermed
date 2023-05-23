@@ -20,7 +20,7 @@ import java.util.*;
 public class AppointmentDAOImpl implements AppointmentDAO {
 
 
-    private AppointmentRepository appointmentRepository;
+    //private AppointmentRepository appointmentRepository;
 
     @Override
     public void createAppointment(Appointment appointment) throws SQLException {

@@ -6,6 +6,7 @@ import com.fermed.model.TypeOfDoctor;
 import com.fermed.services.TypeOfDoctorService;
 
 import javax.annotation.Resource;
+import java.sql.SQLException;
 import java.util.List;
 
 public class TypeOfDoctorServiceImpl implements TypeOfDoctorService {
@@ -14,7 +15,7 @@ public class TypeOfDoctorServiceImpl implements TypeOfDoctorService {
     private TypeOfDoctorDAO typeOfDoctorServiceDAO;
 
     @Override
-    public List<TypeOfDoctorDTO> getAllDoctorType() {
+    public List<TypeOfDoctorDTO> getAllDoctorType() throws Exception {
         return typeOfDoctorServiceDAO.getAllDoctorType();
     }
 }

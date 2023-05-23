@@ -14,7 +14,7 @@ public class TypeOfDoctorFacadeImpl implements TypeOfDoctorFacade {
     private TypeOfDoctorService typeOfDoctorService;
 
     @Override
-    public List<TypeOfDoctorDTO> getAllDoctorType() {
+    public List<TypeOfDoctorDTO> getAllDoctorType() throws Exception {
         return typeOfDoctorService.getAllDoctorType();
     }
 }

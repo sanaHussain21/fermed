@@ -47,11 +47,8 @@ public class DoctorController {
     }
 
 
-    //get Doctor by ID
-    @GetMapping("/getDoctorById/{id_doctor}")
-    public void getDoctorById(@PathVariable("") DoctorDTO  doctorDTO, Integer id_doctor ) throws Exception {
-         doctorFacade.getDoctorById(doctorDTO);
-    }
+    //get doctor department by entering name and surname
+
 
 
 }

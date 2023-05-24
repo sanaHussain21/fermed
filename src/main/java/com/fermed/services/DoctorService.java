@@ -24,5 +24,5 @@ public interface DoctorService {
     void doctorData(DoctorDTO doctorDTO) throws  Exception;
 
 
-    void getDoctorById(DoctorDTO  doctorDTO) throws Exception;
+
 }

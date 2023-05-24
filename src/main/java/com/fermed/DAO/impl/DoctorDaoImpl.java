@@ -99,30 +99,7 @@ public class DoctorDaoImpl implements DoctorDAO {
 
     }
 
-    @Override
-    public void getDoctorById(DoctorDTO  doctorDTO) throws SQLException {
 
-        Connection connection;
-        connection =  DatabaseDAO.getConnection();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_doctor, name, surname, gender, id_type_of_doctor, insurance_id_insurance, email, password, username FROM doctor WHERE id_doctor = '"+doctorDTO.getId_doctor()+"' ");
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
-                //for testing
-
-                System.out.println(resultSet.getInt(1) + ",   " + resultSet.getString(2)+ ",   " + resultSet.getString(3)+ ",   " + resultSet.getString(4)+ ",   "+ resultSet.getInt(5)+ ",  "+ resultSet.getInt(6)+ ", " +resultSet.getString(7) + ", " +resultSet.getString(8) + ", "  +resultSet.getString(9) + ",");
-
-                //SELECT id_doctor, name, surname, gender, id_type_of_doctor, insurance_id_insurance, email, password, username FROM doctor WHERE id_doctor = ""
-                //
-                //
-            }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-
-        }
-
-    }
 
 }
 

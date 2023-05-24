@@ -18,5 +18,5 @@ public interface DoctorDAO {
     //for testing purpose
     void doctorData(DoctorDTO doctorDTO) throws Exception;
 
-    void getDoctorById(DoctorDTO  doctorDTO) throws SQLException;
+
 }

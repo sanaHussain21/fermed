@@ -99,6 +99,12 @@ public class DoctorDaoImpl implements DoctorDAO {
 
     }
 
+    @Override
+    public void getDoctorDepartment(DoctorDTO doctorDTO) throws SQLException {
+
+        Connection connection;
+        connection =  DatabaseDAO.getConnection();
+    }
 
 
 }

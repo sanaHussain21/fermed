@@ -68,7 +68,10 @@ public class DoctorFacadeImpl implements DoctorFacade {
         doctorService.doctorData(doctorDTO);
     }
 
-
+    @Override
+    public void getDoctorDepartment(DoctorDTO doctorDTO) throws Exception {
+        doctorService.getDoctorDepartment(doctorDTO);
+    }
 
 
 }

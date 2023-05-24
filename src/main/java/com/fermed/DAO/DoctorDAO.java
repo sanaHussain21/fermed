@@ -19,5 +19,5 @@ public interface DoctorDAO {
     void doctorData(DoctorDTO doctorDTO) throws Exception;
 
 
-    void getDoctorDepartment(DoctorDTO doctorDTO) throws SQLException;
+    //void getDoctorDepartment(DoctorDTO doctorDTO) throws SQLException;
 }

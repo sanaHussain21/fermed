@@ -98,14 +98,33 @@ public class DoctorDaoImpl implements DoctorDAO {
         }
 
     }
-
+    /*
     @Override
     public void getDoctorDepartment(DoctorDTO doctorDTO) throws SQLException {
 
         Connection connection;
         connection =  DatabaseDAO.getConnection();
-    }
 
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT doctor.name, doctor.surname, type_of_doctor.nome FROM doctor INNER JOIN  type_of_doctor USING(id_type_of_doctor) WHERE doctor.name = '"+doctorDTO.getName()+"' AND doctor.surname = '"+doctorDTO.getSurname()+"' ");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+
+
+                System.out.println(resultSet.getString(1) + ",   " + resultSet.getString(2)+ ",   " + resultSet.getString(3)+ ",");
+
+                //SELECT doctor.name, doctor.surname, type_of_doctor.nome FROM doctor INNER JOIN  type_of_doctor USING(id_type_of_doctor) WHERE doctor.name = 'Enrico' AND doctor.surname = 'Pugliesi'
+                //"SELECT name, surname, gender, username ,email FROM doctor WHERE email = '"+doctorDTO.getEmail()+"' "
+
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
+        }
+    }
+*/
 
 }
 

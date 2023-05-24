@@ -47,11 +47,12 @@ public class DoctorController {
     }
 
 
+    /*
     //get doctor department by entering name and surname
-    @GetMapping("/getDoctorDeparment")
+    @GetMapping("/getDoctorDepartment")
     public void getDoctorDepartment(@RequestBody DoctorDTO doctorDTO) throws Exception {
         doctorFacade.getDoctorDepartment(doctorDTO);
     }
-
+*/
 
 }

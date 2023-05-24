@@ -64,11 +64,12 @@ public class DoctorServiceImpl implements DoctorService {
     public void doctorData(DoctorDTO doctorDTO) throws Exception {
        doctorDAO.doctorData(doctorDTO);
     }
-
+    /*
     @Override
     public void getDoctorDepartment(DoctorDTO doctorDTO) throws Exception {
         doctorDAO.getDoctorDepartment(doctorDTO);
     }
+    */
 
 
 }

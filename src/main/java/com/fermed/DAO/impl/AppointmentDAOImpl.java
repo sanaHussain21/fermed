@@ -3,6 +3,7 @@ package com.fermed.DAO.impl;
 import com.fermed.DAO.AppointmentDAO;
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DTO.AppointmentDTO;
+import com.fermed.DTO.PatientDTO;
 import com.fermed.model.Appointment;
 import com.fermed.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,17 @@ import java.util.*;
 
 @Component
 public class AppointmentDAOImpl implements AppointmentDAO {
+
+    Connection connection;
+    public AppointmentDAOImpl() throws SQLException
+    {
+        connection = DatabaseDAO.getConnection();
+    }
+
+
+
+
+
 
 
     //private AppointmentRepository appointmentRepository;
@@ -103,6 +115,35 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         }
         return appointmentList;
 
+    }
+
+    @Override
+    public List<PatientDTO> getAllPatientsList() {
+        List<PatientDTO> patientsList = new ArrayList<>();
+        try {
+            //SELECT id_patient, name, surname, codice_fiscale, id_insurance, telephone_number, username, password, email FROM patient
+
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_patient, name, surname, codice_fiscale, id_insurance, telephone_number, username, password, email FROM patient");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            //it will read one by one all raws from the doctor's table
+            while(resultSet.next()){
+                PatientDTO patientDTO= new PatientDTO();
+                patientDTO.setId_patient(resultSet.getInt(1));
+                patientDTO.setName(resultSet.getString(2));
+                patientDTO.setSurname(resultSet.getString(3));
+                patientDTO.setCodice_fiscale(resultSet.getString(4));
+                patientDTO.setId_insurance(resultSet.getInt(5));
+                patientDTO.setTelephone_number(resultSet.getString(6));
+                patientDTO.setUsername(resultSet.getString(7));
+                patientDTO.setPassword(resultSet.getString(7));
+                patientDTO.setEmail(resultSet.getString(7));
+                patientsList.add(patientDTO);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return patientsList;
     }
 
 

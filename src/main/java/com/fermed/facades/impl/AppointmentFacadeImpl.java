@@ -2,6 +2,7 @@ package com.fermed.facades.impl;
 
 import com.fermed.DTO.AppointmentDTO;
 import com.fermed.DTO.AppointmentData;
+import com.fermed.DTO.PatientDTO;
 import com.fermed.facades.AppointmentFacade;
 import com.fermed.model.Appointment;
 import com.fermed.services.AppointmentService;
@@ -61,6 +62,11 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
     @Override
     public List<AppointmentDTO> getAllAppointments() throws Exception {
         return appointmentService.getAllAppointments();
+    }
+
+    @Override
+    public List<PatientDTO> getAllPatientsList() {
+        return appointmentService.getAllPatientsList();
     }
 
   /*

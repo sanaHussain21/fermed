@@ -3,6 +3,7 @@ package com.fermed.services.impl;
 import com.fermed.DAO.AppointmentDAO;
 import com.fermed.DTO.AppointmentDTO;
 import com.fermed.DTO.AppointmentData;
+import com.fermed.DTO.PatientDTO;
 import com.fermed.model.Appointment;
 import com.fermed.services.AppointmentService;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,11 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Override
     public List<AppointmentDTO> getAllAppointments() throws Exception {
         return appointmentDAO.getAllAppointments();
+    }
+
+    @Override
+    public List<PatientDTO> getAllPatientsList() {
+        return appointmentDAO.getAllPatientsList();
     }
 
     /*

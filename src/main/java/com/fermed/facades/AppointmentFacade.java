@@ -1,6 +1,7 @@
 package com.fermed.facades;
 
 import com.fermed.DTO.AppointmentDTO;
+import com.fermed.DTO.PatientDTO;
 import com.fermed.model.Appointment;
 import org.springframework.stereotype.Component;
 
@@ -14,5 +15,7 @@ public interface AppointmentFacade {
 
     List<AppointmentDTO> getAllAppointments() throws Exception;
 
-   // public Set<AppointmentDTO> getAppointments() throws Exception;
+    List<PatientDTO> getAllPatientsList();
+
+    // public Set<AppointmentDTO> getAppointments() throws Exception;
 }

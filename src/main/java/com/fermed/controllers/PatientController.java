@@ -1,17 +1,14 @@
 package com.fermed.controllers;
 
-import com.fermed.DTO.DoctorLoginDTO;
 import com.fermed.DTO.PatientDTO;
 import com.fermed.DTO.PatientLoginDTO;
 import com.fermed.facades.PatientFacade;
-import com.fermed.model.Patient;
-import com.fermed.services.PatientService;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.List;
 
 @Data
 @RestController
@@ -35,9 +32,13 @@ public class PatientController {
         patientFacade.loginPatient(patientLoginDTO);
     }
 
-
-
+    //creating API to get Single patient by its id
+    @GetMapping("/getSinglePatient/{id_patient}")
+    public void getSinglePatient(PatientDTO patientDTO, @PathVariable int id_patient){
+        patientFacade.getSinglePatient(patientDTO,id_patient);
     }
+
+}
 
 
 

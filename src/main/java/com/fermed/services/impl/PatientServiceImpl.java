@@ -2,6 +2,7 @@ package com.fermed.services.impl;
 
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DAO.PatientDAO;
+import com.fermed.DTO.PatientDTO;
 import com.fermed.DTO.PatientData;
 import com.fermed.model.Patient;
 import com.fermed.services.PatientService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -45,5 +47,10 @@ public class PatientServiceImpl implements PatientService {
     public void loginPatient(String email, String password) throws Exception {
         patientDAO.loginPatient(email, password);
 
+    }
+
+    @Override
+    public void getSinglePatient(PatientDTO patientDTO, int id_patient) {
+        patientDAO.getSinglePatient(patientDTO, id_patient);
     }
 }

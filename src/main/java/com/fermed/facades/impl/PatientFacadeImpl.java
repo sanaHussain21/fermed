@@ -8,7 +8,7 @@ import com.fermed.services.PatientService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.sql.SQLException;
+import java.util.List;
 
 
 @Component
@@ -49,6 +49,11 @@ public class PatientFacadeImpl implements PatientFacade {
         }
     }
 
+    @Override
+    public void getSinglePatient(PatientDTO patientDTO, int id_patient) {
+        patientService.getSinglePatient(patientDTO, id_patient);
+
+    }
 
 
 }

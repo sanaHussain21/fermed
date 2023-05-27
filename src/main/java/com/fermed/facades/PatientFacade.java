@@ -7,6 +7,7 @@ import com.fermed.DTO.PatientLoginDTO;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @Component
 public interface PatientFacade {
@@ -19,4 +20,5 @@ public interface PatientFacade {
     void loginPatient(PatientLoginDTO patientLoginDTO) throws Exception;
 
 
+    void getSinglePatient(PatientDTO patientDTO, int id_patient);
 }

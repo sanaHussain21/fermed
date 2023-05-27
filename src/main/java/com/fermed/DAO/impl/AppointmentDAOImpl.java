@@ -128,8 +128,8 @@ public class AppointmentDAOImpl implements AppointmentDAO {
                 patientDTO.setId_insurance(resultSet.getInt(5));
                 patientDTO.setTelephone_number(resultSet.getString(6));
                 patientDTO.setUsername(resultSet.getString(7));
-                patientDTO.setPassword(resultSet.getString(7));
-                patientDTO.setEmail(resultSet.getString(7));
+                patientDTO.setPassword(resultSet.getString(8));
+                patientDTO.setEmail(resultSet.getString(9));
                 patientsList.add(patientDTO);
             }
         } catch (SQLException e) {

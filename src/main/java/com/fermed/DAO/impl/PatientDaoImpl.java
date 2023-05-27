@@ -2,6 +2,7 @@ package com.fermed.DAO.impl;
 
 import com.fermed.DAO.DatabaseDAO;
 import com.fermed.DAO.PatientDAO;
+import com.fermed.DTO.PatientDTO;
 import com.fermed.model.Patient;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,15 @@ import java.sql.SQLException;
 
 @Component
 public class PatientDaoImpl implements PatientDAO {
+
+
+    Connection connection;
+    public PatientDaoImpl() throws SQLException
+    {
+        connection = DatabaseDAO.getConnection();
+    }
+
+
     @Override
     public void createPatient(Patient patient) throws SQLException {
 
@@ -55,6 +65,33 @@ public class PatientDaoImpl implements PatientDAO {
 
         }catch (SQLException e){
             e.getMessage();
+        }
+    }
+
+    //SELECT patient.name, patient.surname, patient.codice_fiscale, patient.telephone_number, patient.username, patient.email FROM patient WHERE patient.id_patient = ''
+
+    @Override
+    public void getSinglePatient(PatientDTO patientDTO, int id_patient) {
+        try {
+
+
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_patient, name, surname, codice_fiscale, telephone_number, username, email FROM patient WHERE patient.id_patient = '"+id_patient+"' ");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+            while(resultSet.next()){
+                PatientDTO patientDTO1 = new PatientDTO();
+                patientDTO1.setId_patient(resultSet.getInt(1));
+                patientDTO1.setName(resultSet.getString(2));
+                patientDTO1.setSurname(resultSet.getString(3));
+                patientDTO1.setCodice_fiscale(resultSet.getString(4));
+                patientDTO1.setTelephone_number(resultSet.getString(5));
+                patientDTO1.setUsername(resultSet.getString(6));
+                patientDTO1.setEmail(resultSet.getString(7));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

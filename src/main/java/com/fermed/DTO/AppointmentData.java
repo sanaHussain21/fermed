@@ -21,6 +21,11 @@ public class AppointmentData {
     //  LocalDateTime time_date;
     String time_date;
     String payment;
+
+    public int getPatient_id() {
+        return patient_id;
+    }
+
     int patient_id;
     int id_doc;
     boolean isBeingNotified;

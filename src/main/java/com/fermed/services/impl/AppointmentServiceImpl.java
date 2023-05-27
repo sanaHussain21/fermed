@@ -21,15 +21,15 @@ public class AppointmentServiceImpl implements AppointmentService {
     public void createAppointment(AppointmentData appointmentData) throws Exception {
         //conversion from DATA-> MODEL
 
-        String str = "56";
-        int val = Integer.parseInt(str);
+        //String str = "56";
+        //int val = Integer.parseInt(str);
 
         Appointment appointment = new Appointment();
 
         //appointment.setTime_date(Timestamp.valueOf(appointmentData.getTime_date()));
         appointment.setTime_date(appointmentData.getTime_date());
         appointment.setPayment(appointmentData.getPayment());
-        appointment.setPatient_id(val);
+        appointment.setPatient_id(appointmentData.getPatient_id());
         appointment.setId_doc(appointmentData.getId_doc());
         appointment.setBeingNotified(appointmentData.isBeingNotified());
         appointment.setNotifiedByEmail(appointmentData.isNotifiedByEmail());

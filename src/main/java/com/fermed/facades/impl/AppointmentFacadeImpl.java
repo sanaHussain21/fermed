@@ -44,14 +44,14 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         LocalDateTime date = LocalDateTime.parse(dateConvertedIntoString, formatter);
 */
 
-        String str = "56";
-        int val = Integer.parseInt(str);
+        //String str = "56";
+        //int val = Integer.parseInt(str);
 
         AppointmentData appointmentData = new AppointmentData();
         //appointmentData.setTime_date(date);
         appointmentData.setTime_date(appointmentDTO.getTime_date());
         appointmentData.setPayment(appointmentDTO.getPayment());
-        appointmentData.setPatient_id(val);
+        appointmentData.setPatient_id(appointmentDTO.getPatient_id());
         appointmentData.setId_doc(appointmentDTO.getId_doc());
         appointmentData.setBeingNotified(appointmentDTO.isBeingNotified());
         appointmentData.setNotifiedByEmail(appointmentDTO.isNotifiedByEmail());

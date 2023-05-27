@@ -19,6 +19,11 @@ public class AppointmentDTO {
    String time_date;
     String payment;
     int patient_id;
+
+    public int getPatient_id() {
+        return patient_id;
+    }
+
     int id_doc;
     //will create a radio button
     boolean beingNotified;

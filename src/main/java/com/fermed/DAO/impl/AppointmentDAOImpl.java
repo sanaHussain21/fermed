@@ -72,18 +72,10 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
 
     }
-/*
-//trying to use with the JPA REPOSITORY
-    @Override
-    public List<AppointmentDTO> getAllAppointments() throws SQLException {
-        return appointmentRepository.findAll();
-    }
-*/
 
 
-    //getting appointment data
 
-    //List<AppointmentDTO> appointmentList = new ArrayList<>();
+
 
 
 

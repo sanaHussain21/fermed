@@ -116,7 +116,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 AppointmentDTO appointmentDTO = new AppointmentDTO();
                 appointmentDTO.setId_appointment(resultSet.getInt(1));
                 appointmentDTO.setTime_date(resultSet.getString(2));
@@ -133,7 +133,6 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             e.printStackTrace();
         }
         return appointmentList;
-
     }
 
     @Override

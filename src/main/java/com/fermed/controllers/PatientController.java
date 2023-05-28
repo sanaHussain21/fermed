@@ -40,10 +40,6 @@ public class PatientController {
 
 }
 
-    //creating API to get Single patient by its id
-    @GetMapping("/getSinglePatient/{id_patient}")
-    public void getSinglePatient(PatientDTO patientDTO, @PathVariable int id_patient){
-        patientFacade.getSinglePatient(patientDTO,id_patient);
-    }
+
 
 

@@ -128,7 +128,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
                 appointmentDTO.setNotifiedBySMS(resultSet.getBoolean(8));
                 appointmentList.add(appointmentDTO);
 
-              
+
 
             }
         } catch (SQLException e) {

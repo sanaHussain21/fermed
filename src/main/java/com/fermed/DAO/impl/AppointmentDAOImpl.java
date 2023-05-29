@@ -29,7 +29,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         connection = DatabaseDAO.getConnection();
     }
 
-
+    private AppointmentRepository appointmentRepository;
 
 
 

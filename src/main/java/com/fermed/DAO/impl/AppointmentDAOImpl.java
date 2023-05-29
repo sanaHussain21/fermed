@@ -8,6 +8,7 @@ import com.fermed.model.Appointment;
 import com.fermed.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -19,6 +20,11 @@ import java.util.*;
 
 @Component
 public class AppointmentDAOImpl implements AppointmentDAO {
+
+
+
+
+
 
     Connection connection;
     public AppointmentDAOImpl() throws SQLException
@@ -106,36 +112,40 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
     @Override
     public List<AppointmentDTO> getAllAppointments() throws SQLException {
-        List<AppointmentDTO> appointmentList = new ArrayList<>();
-        Connection connection;
-        connection = DatabaseDAO.getConnection();
-        try {
-            //SELECT patient.id_patient, patient.name, patient.surname, appuntamento.payment, appuntamento.time_date FROM patient INNER JOIN appuntamento ON patient.id_patient = appuntamento.patient_id WHERE id_patient = '56'
-
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_appuntamento, time_date, payment, patient_id, ID_DOC, IsBeingNotified, NotifiedByEmail, NotifiedBySMS FROM appuntamento");
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-
-            while (resultSet.next()) {
-                AppointmentDTO appointmentDTO = new AppointmentDTO();
-                appointmentDTO.setId_appointment(resultSet.getInt(1));
-                appointmentDTO.setTime_date(resultSet.getString(2));
-                appointmentDTO.setPayment(resultSet.getString(3));
-                appointmentDTO.setPatient_id(resultSet.getInt(4));
-                appointmentDTO.setId_doc(resultSet.getInt(5));
-                appointmentDTO.setBeingNotified(resultSet.getBoolean(6));
-                appointmentDTO.setNotifiedByEmail(resultSet.getBoolean(7));
-                appointmentDTO.setNotifiedBySMS(resultSet.getBoolean(8));
-                appointmentList.add(appointmentDTO);
 
 
 
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return appointmentList;
+
+
+
+
+
+
+
+
+
+     return null;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public List<PatientDTO> getAllPatientsList() {

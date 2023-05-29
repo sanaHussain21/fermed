@@ -115,7 +115,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         try {
             //SELECT patient.id_patient, patient.name, patient.surname, appuntamento.payment, appuntamento.time_date FROM patient INNER JOIN appuntamento ON patient.id_patient = appuntamento.patient_id WHERE id_patient = '56'
 
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT patient.id_patient, patient.name, patient.surname, appuntamento.payment, appuntamento.time_date FROM patient INNER JOIN appuntamento ON patient.id_patient = appuntamento.patient_id");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_appuntamento, time_date, payment, patient_id, ID_DOC, IsBeingNotified, NotifiedByEmail, NotifiedBySMS FROM appuntamento");
             ResultSet resultSet = preparedStatement.executeQuery();
 
 

@@ -3,6 +3,7 @@ package com.fermed.controllers;
 import com.fermed.DTO.AppointmentDTO;
 import com.fermed.DTO.PatientDTO;
 import com.fermed.facades.AppointmentFacade;
+import org.apache.logging.log4j.spi.ObjectThreadContextMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -48,7 +49,6 @@ public class AppointmentController {
     }
 
 
-    //TESTING
 
 
 }

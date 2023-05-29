@@ -17,5 +17,6 @@ public interface AppointmentService {
 
     List<PatientDTO> getAllPatientsList();
 
+
     //Set<AppointmentDTO> getAppointments() throws Exception;
 }

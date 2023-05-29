@@ -69,6 +69,12 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         return appointmentService.getAllPatientsList();
     }
 
+
+
+
+
+
+
   /*
     @Override
     public Set<AppointmentDTO> getAppointments() throws Exception {

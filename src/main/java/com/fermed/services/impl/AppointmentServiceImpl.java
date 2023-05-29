@@ -48,6 +48,8 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentDAO.getAllPatientsList();
     }
 
+
+
     /*
     @Override
     public Set<AppointmentDTO> getAppointments() throws Exception {

@@ -24,15 +24,12 @@ import java.util.*;
 public class AppointmentDAOImpl implements AppointmentDAO {
 
     Connection connection;
-    public AppointmentDAOImpl() throws SQLException
-    {
+
+    public AppointmentDAOImpl() throws SQLException {
         connection = DatabaseDAO.getConnection();
     }
 
     private AppointmentRepository appointmentRepository;
-
-
-
 
 
     //private AppointmentRepository appointmentRepository;
@@ -64,7 +61,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
         String insertQuery = "INSERT INTO appuntamento(time_date, payment, patient_id , ID_DOC , IsBeingNotified, NotifiedByEmail, NotifiedBySMS)" +
                 //"VALUES('2', '2023-05-23 13:30:00', '30', '55' , '39', true, true, false)"
-                "VALUES('" + appointment.getTime_date() + "', '"+appointment.getPayment()+"', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
+                "VALUES('" + appointment.getTime_date() + "', '" + appointment.getPayment() + "', " + appointment.getPatient_id() + ",  " + appointment.getId_doc() + ", " + appointment.isBeingNotified() + ",  " + appointment.isNotifiedByEmail() + " , " + appointment.isNotifiedBySMS() + ")";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.executeUpdate();
@@ -106,7 +103,6 @@ public class AppointmentDAOImpl implements AppointmentDAO {
      */
 
 
-
     @Override
     public List<AppointmentDTO> getAllAppointments() throws SQLException {
         List<AppointmentDTO> appointmentList = new ArrayList<>();
@@ -132,7 +128,6 @@ public class AppointmentDAOImpl implements AppointmentDAO {
                 appointmentList.add(appointmentDTO);
 
 
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -150,8 +145,8 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             //it will read one by one all raws from the doctor's table
-            while(resultSet.next()){
-                PatientDTO patientDTO= new PatientDTO();
+            while (resultSet.next()) {
+                PatientDTO patientDTO = new PatientDTO();
                 patientDTO.setId_patient(resultSet.getInt(1));
                 patientDTO.setName(resultSet.getString(2));
                 patientDTO.setSurname(resultSet.getString(3));
@@ -169,7 +164,19 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         return patientsList;
     }
 
+    @Override
+    public AppointmentDTO updateAppointment(AppointmentDTO appointmentDTO) {
+        String updateQuery = "UPDATE  appuntamento SET '"+appointmentDTO.getTime_date()+"' WHERE id_appuntamento '"+appointmentDTO.getId_appointment()+"' ";
+        try {
+            AppointmentDTO appointmentDTO1 = new AppointmentDTO();
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.executeUpdate();
+            appointmentDTO1.setTime_date(appointmentDTO.getTime_date());
 
-
-
+            System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return appointmentDTO;
+    }
 }

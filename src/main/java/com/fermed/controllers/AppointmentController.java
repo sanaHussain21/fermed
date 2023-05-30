@@ -49,6 +49,11 @@ public class AppointmentController {
     }
 
 
+    //UPDATE APPOINTMENT
+    @PutMapping("/updateApointment")
+    public AppointmentDTO updateAppointment(@RequestBody AppointmentDTO appointmentDTO){
+        return appointmentFacade.updateAppointment(appointmentDTO);
+    }
 
 
 }

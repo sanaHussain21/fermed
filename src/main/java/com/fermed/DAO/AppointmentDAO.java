@@ -19,6 +19,8 @@ public interface AppointmentDAO{
 
     List<PatientDTO> getAllPatientsList();
 
+    AppointmentDTO updateAppointment(AppointmentDTO appointmentDTO);
 
-    //Set<AppointmentDTO> getAppointments() throws SQLException;
+
+
 }

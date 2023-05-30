@@ -17,7 +17,8 @@ public interface AppointmentFacade {
 
     List<PatientDTO> getAllPatientsList();
 
+    AppointmentDTO updateAppointment(AppointmentDTO appointmentDTO);
 
 
-    // public Set<AppointmentDTO> getAppointments() throws Exception;
+
 }

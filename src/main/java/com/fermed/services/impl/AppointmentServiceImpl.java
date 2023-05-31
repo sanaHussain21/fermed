@@ -48,7 +48,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentDAO.getAllPatientsList();
     }
 
-   
+
 
 
 }

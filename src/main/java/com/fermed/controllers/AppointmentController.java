@@ -8,6 +8,7 @@ import com.fermed.model.Appointment;
 import com.fermed.repository.AppointmentRepository;
 import org.apache.coyote.Response;
 import org.apache.logging.log4j.spi.ObjectThreadContextMap;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,7 @@ public class AppointmentController {
     private AppointmentFacade appointmentFacade;
 
 
-    @Resource
+    @Autowired
     private AppointmentRepository appointmentRepository;
 
 

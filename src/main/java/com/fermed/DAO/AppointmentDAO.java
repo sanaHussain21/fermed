@@ -19,7 +19,7 @@ public interface AppointmentDAO{
 
     List<PatientDTO> getAllPatientsList();
 
-    AppointmentDTO updateAppointment(AppointmentDTO appointmentDTO);
+    
 
 
 

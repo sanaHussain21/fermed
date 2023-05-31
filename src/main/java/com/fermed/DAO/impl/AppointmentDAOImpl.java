@@ -164,19 +164,5 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         return patientsList;
     }
 
-    @Override
-    public AppointmentDTO updateAppointment(AppointmentDTO appointmentDTO) {
-        String updateQuery = "UPDATE  appuntamento SET '"+appointmentDTO.getTime_date()+"' WHERE id_appuntamento '"+appointmentDTO.getId_appointment()+"' ";
-        try {
-            AppointmentDTO appointmentDTO1 = new AppointmentDTO();
-            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
-            preparedStatement.executeUpdate();
-            appointmentDTO1.setTime_date(appointmentDTO.getTime_date());
 
-            System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return appointmentDTO;
-    }
 }

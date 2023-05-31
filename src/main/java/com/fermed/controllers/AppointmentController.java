@@ -74,6 +74,14 @@ public class AppointmentController {
     }
 */
 
+    @PutMapping("/updateAppointment/{id_appuntamento}")
+    public ResponseEntity<Appointment> updateAppointmentById(@PathVariable Integer id_appuntamento, @RequestBody Appointment appointment){
+        Appointment getAppointment = appointmentRepository.getById(id_appuntamento); //appointmentRepository is giving me null :(
+       getAppointment.setTime_date(appointment.getTime_date());
+       getAppointment.setPayment(appointment.getPayment());
+       Appointment updatedAppointment = appointmentRepository.save(getAppointment);
+       return ResponseEntity.ok().body(updatedAppointment);
+    }
 
 
 }

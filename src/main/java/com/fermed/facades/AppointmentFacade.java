@@ -17,7 +17,7 @@ public interface AppointmentFacade {
 
     List<PatientDTO> getAllPatientsList();
 
-    AppointmentDTO updateAppointment(AppointmentDTO appointmentDTO);
+
 
 
 

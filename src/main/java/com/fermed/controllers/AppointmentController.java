@@ -2,13 +2,19 @@ package com.fermed.controllers;
 
 import com.fermed.DTO.AppointmentDTO;
 import com.fermed.DTO.PatientDTO;
+import com.fermed.exception.ResourceNotFoundException;
 import com.fermed.facades.AppointmentFacade;
+import com.fermed.model.Appointment;
+import com.fermed.repository.AppointmentRepository;
+import org.apache.coyote.Response;
 import org.apache.logging.log4j.spi.ObjectThreadContextMap;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -21,10 +27,16 @@ public class AppointmentController {
     private AppointmentFacade appointmentFacade;
 
 
-    //this post mapping is needed to create the appointment
+    @Resource
+    private AppointmentRepository appointmentRepository;
+
+
+
+
+
+        //this post mapping is needed to create the appointment
     // @PostMapping(path = "/createAppointment", consumes = MediaType.APPLICATION_JSON_VALUE)
     @PostMapping(path = "/createAppointment")
-
     public void createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO) throws Exception {
 
 
@@ -50,8 +62,17 @@ public class AppointmentController {
 
 
     //UPDATE APPOINTMENT
-    @PutMapping("/updateApointment")
-    
+    @PutMapping("/updateAppointment/{id_appuntamento}")
+    public ResponseEntity<Appointment> updateAppointment(@PathVariable Integer id_appuntamento, Appointment appointmentDetails){
+        Appointment appointment = appointmentRepository.findById(id_appuntamento)
+                .orElseThrow(() -> new ResourceNotFoundException("Appointment not exist with this id: " + id_appuntamento));
+        appointment.setTime_date(appointmentDetails.getTime_date());
+        appointment.setPayment(appointmentDetails.getPayment());
+        Appointment updatedAppointment  = appointmentRepository.save(appointment);
+        return ResponseEntity.ok(updatedAppointment);
+    }
+
+
 
 
 }

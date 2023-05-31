@@ -8,8 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 
-@EnableJpaRepositories
-@Repository
-public interface AppointmentRepository extends JpaRepository<AppointmentDTO, Integer> {
+
+public interface AppointmentRepository extends JpaRepository<Appointment, Integer> {
 
 }

@@ -71,10 +71,7 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
 
 
 
-    @Override
-    public AppointmentDTO updateAppointment(AppointmentDTO appointmentDTO) {
-        return appointmentService.updateAppointment(appointmentDTO);
-    }
+   
 
 
 }

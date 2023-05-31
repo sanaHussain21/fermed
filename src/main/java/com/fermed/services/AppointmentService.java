@@ -17,7 +17,7 @@ public interface AppointmentService {
 
     List<PatientDTO> getAllPatientsList();
 
-   
+
 
 
 

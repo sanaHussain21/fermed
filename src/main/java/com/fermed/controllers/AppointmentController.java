@@ -2,21 +2,14 @@ package com.fermed.controllers;
 
 import com.fermed.DTO.AppointmentDTO;
 import com.fermed.DTO.PatientDTO;
-import com.fermed.exception.ResourceNotFoundException;
 import com.fermed.facades.AppointmentFacade;
 import com.fermed.model.Appointment;
-import com.fermed.repository.AppointmentRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
-import org.apache.logging.log4j.spi.ObjectThreadContextMap;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -28,9 +21,6 @@ public class AppointmentController {
     @Resource
     private AppointmentFacade appointmentFacade;
 
-
-    @Autowired
-    private  AppointmentRepository appointmentRepository; //this is giving me null
 
 
 
@@ -86,11 +76,12 @@ public class AppointmentController {
        return ResponseEntity.ok().body(updatedAppointment);
     }
 */
-    @PutMapping("/updateAppointment")
-    public Appointment updateAppointment(@RequestBody Appointment appointmentObj){
-        return appointmentRepository.save(appointmentObj);
-    }
 
+//TESTING
+@PutMapping(path = "/updateAppointment")
+public void updateAppointment(@RequestBody AppointmentDTO appointmentDTO) {
+    appointmentFacade.updateAppointment(appointmentDTO);
 }
+   }
 
 

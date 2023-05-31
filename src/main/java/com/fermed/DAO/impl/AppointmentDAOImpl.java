@@ -6,14 +6,9 @@ import com.fermed.DTO.AppointmentDTO;
 import com.fermed.DTO.PatientDTO;
 import com.fermed.model.Appointment;
 import com.fermed.repository.AppointmentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.swing.text.html.parser.Entity;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +18,7 @@ import java.util.*;
 @Component
 public class AppointmentDAOImpl implements AppointmentDAO {
 
+    private JdbcTemplate jdbcTemplate;
     Connection connection;
 
     public AppointmentDAOImpl() throws SQLException {
@@ -164,5 +160,22 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         return patientsList;
     }
 
+    @Override
+    public void updateAppointment(AppointmentDTO appointmentDTO) {
+        String updateQuery = "UPDATE  appuntamento" +
+                "SET('"+appointmentDTO.getId_appointment()+"', '" + appointmentDTO.getTime_date() + "', '" + appointmentDTO.getPayment() + "',)" +
+                "WHERE id_appuntamento '"+appointmentDTO.getId_appointment()+"' ";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.executeUpdate();
+            System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-}
+
+    }
+    }
+
+
+

@@ -5,9 +5,7 @@ import com.fermed.DTO.AppointmentData;
 import com.fermed.DTO.PatientDTO;
 import com.fermed.model.Appointment;
 
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Set;
 
 public interface AppointmentService {
     //creating appointment for the patient
@@ -18,7 +16,5 @@ public interface AppointmentService {
     List<PatientDTO> getAllPatientsList();
 
 
-
-
-
+    void updateAppointment(AppointmentDTO appointmentDTO);
 }

@@ -6,7 +6,6 @@ import com.fermed.model.Appointment;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Set;
 
 @Component
 public interface AppointmentFacade {
@@ -18,7 +17,5 @@ public interface AppointmentFacade {
     List<PatientDTO> getAllPatientsList();
 
 
-
-
-
+    void updateAppointment(AppointmentDTO appointmentDTO);
 }

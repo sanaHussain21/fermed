@@ -9,13 +9,7 @@ import com.fermed.services.AppointmentService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
-import java.util.Set;
 
 @Component
 public class AppointmentFacadeImpl implements AppointmentFacade {
@@ -69,9 +63,10 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         return appointmentService.getAllPatientsList();
     }
 
-
-
-
+    @Override
+    public void updateAppointment(AppointmentDTO appointmentDTO) {
+        appointmentService.updateAppointment(appointmentDTO);
+    }
 
 
 }

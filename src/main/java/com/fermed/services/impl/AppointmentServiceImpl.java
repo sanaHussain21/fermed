@@ -48,7 +48,10 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentDAO.getAllPatientsList();
     }
 
-
+    @Override
+    public void updateAppointment(AppointmentDTO appointmentDTO) {
+        appointmentDAO.updateAppointment(appointmentDTO);
+    }
 
 
 }

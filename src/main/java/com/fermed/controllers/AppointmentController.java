@@ -6,6 +6,7 @@ import com.fermed.exception.ResourceNotFoundException;
 import com.fermed.facades.AppointmentFacade;
 import com.fermed.model.Appointment;
 import com.fermed.repository.AppointmentRepository;
+import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
 import org.apache.logging.log4j.spi.ObjectThreadContextMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/appointment")
 @CrossOrigin("*")
@@ -28,8 +29,9 @@ public class AppointmentController {
     private AppointmentFacade appointmentFacade;
 
 
+    @Autowired
+    private  AppointmentRepository appointmentRepository; //this is giving me null
 
-    private AppointmentRepository appointmentRepository; //this is giving me null
 
 
 
@@ -74,15 +76,20 @@ public class AppointmentController {
     }
 */
 
-    @PutMapping("/updateAppointment/{id_appuntamento}")
-    public ResponseEntity<Appointment> updateAppointmentById(@PathVariable Integer id_appuntamento, @RequestBody Appointment appointment){
-        Appointment getAppointment = appointmentRepository.getById(id_appuntamento); //appointmentRepository is giving me null :(
-       getAppointment.setTime_date(appointment.getTime_date());
-       getAppointment.setPayment(appointment.getPayment());
-       Appointment updatedAppointment = appointmentRepository.save(getAppointment);
+/*
+    @PutMapping("/updateAppointment/{id_appointment}")
+    public ResponseEntity<AppointmentDTO> updateAppointmentById(@PathVariable Integer id_appointment, @RequestBody AppointmentDTO appointmentDTO){
+        AppointmentDTO getAppointment = appointmentRepository.getById(id_appointment); //appointmentRepository is giving me null :(
+       getAppointment.setTime_date(appointmentDTO.getTime_date());
+       getAppointment.setPayment(appointmentDTO.getPayment());
+       AppointmentDTO updatedAppointment = appointmentRepository.save(getAppointment);
        return ResponseEntity.ok().body(updatedAppointment);
     }
-
+*/
+    @PutMapping("/updateAppointment")
+    public Appointment updateAppointment(@RequestBody Appointment appointmentObj){
+        return appointmentRepository.save(appointmentObj);
+    }
 
 }
 

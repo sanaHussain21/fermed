@@ -28,8 +28,8 @@ public class AppointmentController {
     private AppointmentFacade appointmentFacade;
 
 
-    @Autowired
-    private AppointmentRepository appointmentRepository;
+
+    private AppointmentRepository appointmentRepository; //this is giving me null
 
 
 
@@ -61,7 +61,7 @@ public class AppointmentController {
         return appointmentFacade.getAllPatientsList();
     }
 
-
+/*
     //UPDATE APPOINTMENT
     @PutMapping("/updateAppointment/{id_appuntamento}")
     public ResponseEntity<Appointment> updateAppointment(@PathVariable Integer id_appuntamento, Appointment appointmentDetails){
@@ -72,7 +72,7 @@ public class AppointmentController {
         Appointment updatedAppointment  = appointmentRepository.save(appointment);
         return ResponseEntity.ok(updatedAppointment);
     }
-
+*/
 
 
 

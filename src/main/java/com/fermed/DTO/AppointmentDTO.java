@@ -10,7 +10,7 @@ import java.util.Date;
 @Data
 public class AppointmentDTO {
     //creating the appointmentDTO to transfer the data
-    int id_appointment;
+    int id_appuntamento;
 
    // @Temporal(TemporalType.TIMESTAMP)
     //@JsonFormat(pattern="dd-MM-yyyy HH:mm")

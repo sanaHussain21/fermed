@@ -113,7 +113,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             while (resultSet.next()) {
                 AppointmentDTO appointmentDTO = new AppointmentDTO();
-                appointmentDTO.setId_appointment(resultSet.getInt(1));
+                appointmentDTO.setId_appuntamento(resultSet.getInt(1));
                 appointmentDTO.setTime_date(resultSet.getString(2));
                 appointmentDTO.setPayment(resultSet.getString(3));
                 appointmentDTO.setPatient_id(resultSet.getInt(4));
@@ -162,15 +162,16 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
     @Override
     public void updateAppointment(AppointmentDTO appointmentDTO) {
-        String updateQuery = "UPDATE  appuntamento" +
-                "SET('"+appointmentDTO.getId_appointment()+"', '" + appointmentDTO.getTime_date() + "', '" + appointmentDTO.getPayment() + "',)" +
-                "WHERE id_appuntamento '"+appointmentDTO.getId_appointment()+"' ";
+        String updateQuery = "UPDATE  appuntamento " +
+                "SET time_date = '"+appointmentDTO.getTime_date()+"', payment= '"+appointmentDTO.getPayment()+"' " +
+                "WHERE id_appuntamento = "+appointmentDTO.getId_appuntamento();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
             preparedStatement.executeUpdate();
             System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)");
         } catch (SQLException e) {
             e.printStackTrace();
+            e.getMessage();
         }
 
 

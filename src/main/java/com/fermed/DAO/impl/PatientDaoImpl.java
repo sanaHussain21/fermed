@@ -88,7 +88,7 @@ public class PatientDaoImpl implements PatientDAO {
                 patientDTO1.setTelephone_number(resultSet.getString(5));
                 patientDTO1.setUsername(resultSet.getString(6));
                 patientDTO1.setEmail(resultSet.getString(7));
-
+                //System.out.println("Patient By ID data is: "+ patientDTO1);
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -175,6 +175,19 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         }
     }
 
+    @Override
+    public Appointment getAppointmentById(Appointment appointment, int id_appuntamento) {
+        String selectQuery = "SELECT "
+
+
+
+        
+
+
+
+        return null;
+    }
+
 
     //GETTING SINGLE APPOINTMENT BY ID
     }

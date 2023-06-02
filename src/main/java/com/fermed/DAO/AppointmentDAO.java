@@ -19,4 +19,6 @@ public interface AppointmentDAO{
 
 
     void updateAppointment(AppointmentDTO appointmentDTO);
+
+    Appointment getAppointmentById(Appointment appointment, int id_appuntamento);
 }

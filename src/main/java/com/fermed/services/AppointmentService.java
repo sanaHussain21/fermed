@@ -17,4 +17,7 @@ public interface AppointmentService {
 
 
     void updateAppointment(AppointmentDTO appointmentDTO);
+
+
+    Appointment getAppointmentById(AppointmentData appointmentData, int id_appuntamento);
 }

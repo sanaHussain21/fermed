@@ -22,4 +22,3 @@ public interface AppointmentFacade {
 
     Appointment getAppointmentById(AppointmentDTO appointmentDTO, int id_appuntamento);
 }
- 

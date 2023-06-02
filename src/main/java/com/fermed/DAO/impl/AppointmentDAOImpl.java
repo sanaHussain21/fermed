@@ -163,8 +163,8 @@ public class AppointmentDAOImpl implements AppointmentDAO {
     @Override
     public void updateAppointment(AppointmentDTO appointmentDTO) {
         String updateQuery = "UPDATE  appuntamento " +
-                "SET time_date = '"+appointmentDTO.getTime_date()+"', payment= '"+appointmentDTO.getPayment()+"' " +
-                "WHERE id_appuntamento = "+appointmentDTO.getId_appuntamento();
+                "SET time_date = '" + appointmentDTO.getTime_date() + "', payment= '" + appointmentDTO.getPayment() + "' " +
+                "WHERE id_appuntamento = " + appointmentDTO.getId_appuntamento();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
             preparedStatement.executeUpdate();
@@ -176,21 +176,39 @@ public class AppointmentDAOImpl implements AppointmentDAO {
     }
 
     @Override
-    public Appointment getAppointmentById(Appointment appointment, int id_appuntamento) {
-        String selectQuery = "SELECT "
+    public Appointment getAppointmentById(Appointment appointment) {
+        Appointment appointment1 = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_appuntamento, time_date, payment, patient_id, ID_DOC FROM appuntamento WHERE id_appuntamento = '" + appointment.getId_appuntamento() + "' ");
+            ResultSet resultSet = preparedStatement.executeQuery();
 
+            while(resultSet.next()){
+                 appointment1 = new Appointment();
+                appointment1.setId_appuntamento(appointment.getId_appuntamento());
+                appointment1.setTime_date(appointment.getTime_date());
+                appointment1.setPayment(appointment.getPayment());
+                appointment1.setPatient_id(appointment.getPatient_id());
+                appointment1.setId_doc(appointment.getId_doc());
+                System.out.println(appointment1);
 
+            }
 
-        
+            //System.out.println(resultSet.getInt(1)+", "+resultSet.getString(2)+", "+resultSet.getString(3)+", "+resultSet.getInt(4)+", "+resultSet.getInt(5));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-
-
-        return null;
+return  appointment1;
     }
+}
 
 
-    //GETTING SINGLE APPOINTMENT BY ID
-    }
+
+
+
+
+
+
 
 
 

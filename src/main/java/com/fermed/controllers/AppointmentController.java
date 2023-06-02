@@ -87,9 +87,9 @@ public class AppointmentController {
 
 
     //GETTING SINGLE APPOINTMENT BY ID
-    @GetMapping("/getAppointmentById{id_appuntamento}")
-    public Appointment getAppointmentById(@RequestBody AppointmentDTO appointmentDTO, @PathVariable int id_appuntamento) {
-        return appointmentFacade.getAppointmentById(appointmentDTO, id_appuntamento);
+    @GetMapping("/getAppointmentById/{id_appuntamento}")
+    public Appointment getAppointmentById(AppointmentDTO appointmentDTO) {
+        return appointmentFacade.getAppointmentById(appointmentDTO);
     }
 
    }

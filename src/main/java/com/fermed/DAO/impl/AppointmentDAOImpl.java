@@ -173,9 +173,10 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             e.printStackTrace();
             e.getMessage();
         }
-
-
     }
+
+
+    //GETTING SINGLE APPOINTMENT BY ID
     }
 
 

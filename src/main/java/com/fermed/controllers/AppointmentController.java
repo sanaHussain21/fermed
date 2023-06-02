@@ -79,10 +79,15 @@ public class AppointmentController {
 */
 
 //TESTING
-@PutMapping(path = "/updateAppointment")
-public void updateAppointment(@RequestBody AppointmentDTO appointmentDTO) {
+    @PutMapping(path = "/updateAppointment")
+    public void updateAppointment(@RequestBody AppointmentDTO appointmentDTO) {
     appointmentFacade.updateAppointment(appointmentDTO);
-}
+    }
+
+
+    //GETTING SINGLE APPOINTMENT BY ID
+    
+
    }
 
 

@@ -4,11 +4,11 @@ import com.fermed.DTO.PatientDTO;
 import com.fermed.DTO.PatientLoginDTO;
 import com.fermed.facades.PatientFacade;
 import lombok.Data;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import java.util.List;
 
 @Data
 @RestController
@@ -33,9 +33,9 @@ public class PatientController {
     }
 
     //creating API to get Single patient by its id
-    @GetMapping("/getSinglePatient/{id_patient}")
-    public void getSinglePatient(PatientDTO patientDTO, @PathVariable int id_patient){
-        patientFacade.getSinglePatient(patientDTO,id_patient);
+    @GetMapping(value = "/getSinglePatient/{id_patient}", consumes= MediaType.APPLICATION_JSON_VALUE)
+    public void getSinglePatient(PatientDTO patientDTO, @PathVariable int id_patient) {
+        patientFacade.getSinglePatient(patientDTO, id_patient);
     }
 
 }

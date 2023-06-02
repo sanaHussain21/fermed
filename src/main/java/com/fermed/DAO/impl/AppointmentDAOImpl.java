@@ -189,7 +189,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
                 appointment1.setPayment(resultSet.getString(3));
                 appointment1.setPatient_id(resultSet.getInt(4));
                 appointment1.setId_doc(resultSet.getInt(5));
-                System.out.println(appointment1);
+
 
             }
 

@@ -1,5 +1,6 @@
 package com.fermed.DTO;
 
+import com.fermed.model.Appointment;
 import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -33,4 +34,6 @@ public class AppointmentDTO {
     public String getTime_date() {
         return time_date;
     }
+
+
 }

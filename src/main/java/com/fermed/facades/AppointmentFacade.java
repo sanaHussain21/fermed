@@ -18,4 +18,8 @@ public interface AppointmentFacade {
 
 
     void updateAppointment(AppointmentDTO appointmentDTO);
+
+
+    Appointment getAppointmentById(AppointmentDTO appointmentDTO, int id_appuntamento);
 }
+ 

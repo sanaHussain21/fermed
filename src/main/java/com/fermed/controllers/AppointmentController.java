@@ -5,6 +5,7 @@ import com.fermed.DTO.PatientDTO;
 import com.fermed.facades.AppointmentFacade;
 import com.fermed.model.Appointment;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -86,7 +87,10 @@ public class AppointmentController {
 
 
     //GETTING SINGLE APPOINTMENT BY ID
-    
+    @GetMapping("/getAppointmentById{id_appuntamento}")
+    public Appointment getAppointmentById(@RequestBody AppointmentDTO appointmentDTO, @PathVariable int id_appuntamento) {
+        return appointmentFacade.getAppointmentById(appointmentDTO, id_appuntamento);
+    }
 
    }
 

@@ -58,15 +58,6 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
 
-
-
-
-
-
-
-
-
-
     @Override
     public Appointment getAppointmentById(AppointmentData appointmentData) {
         Appointment appointment = new Appointment();

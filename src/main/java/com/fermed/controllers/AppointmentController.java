@@ -26,16 +26,11 @@ public class AppointmentController {
 
 
 
-
-
-
         //this post mapping is needed to create the appointment
     // @PostMapping(path = "/createAppointment", consumes = MediaType.APPLICATION_JSON_VALUE)
     @PostMapping(path = "/createAppointment")
     public void createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO) throws Exception {
-
-
-        appointmentFacade.createAppointment(appointmentDTO);
+    appointmentFacade.createAppointment(appointmentDTO);
         //HttpSession session  = request.getSession();
         //session.setAttribute("patientName", appointmentDTO);
         //to be checked
@@ -55,31 +50,10 @@ public class AppointmentController {
         return appointmentFacade.getAllPatientsList();
     }
 
-/*
-    //UPDATE APPOINTMENT
-    @PutMapping("/updateAppointment/{id_appuntamento}")
-    public ResponseEntity<Appointment> updateAppointment(@PathVariable Integer id_appuntamento, Appointment appointmentDetails){
-        Appointment appointment = appointmentRepository.findById(id_appuntamento)
-                .orElseThrow(() -> new ResourceNotFoundException("Appointment not exist with this id: " + id_appuntamento));
-        appointment.setTime_date(appointmentDetails.getTime_date());
-        appointment.setPayment(appointmentDetails.getPayment());
-        Appointment updatedAppointment  = appointmentRepository.save(appointment);
-        return ResponseEntity.ok(updatedAppointment);
-    }
-*/
 
-/*
-    @PutMapping("/updateAppointment/{id_appointment}")
-    public ResponseEntity<AppointmentDTO> updateAppointmentById(@PathVariable Integer id_appointment, @RequestBody AppointmentDTO appointmentDTO){
-        AppointmentDTO getAppointment = appointmentRepository.getById(id_appointment); //appointmentRepository is giving me null :(
-       getAppointment.setTime_date(appointmentDTO.getTime_date());
-       getAppointment.setPayment(appointmentDTO.getPayment());
-       AppointmentDTO updatedAppointment = appointmentRepository.save(getAppointment);
-       return ResponseEntity.ok().body(updatedAppointment);
-    }
-*/
 
-//CONTROLLER
+
+    //update appointment by id
     @PutMapping(path = "/updateAppointment/{id_appuntamento}")
     public Appointment updateAppointment(@PathVariable ("id_appuntamento") int id_appuntamento, @RequestBody AppointmentDTO appointmentDTO) {
     return appointmentFacade.updateAppointment(id_appuntamento, appointmentDTO);
@@ -87,7 +61,6 @@ public class AppointmentController {
 
 
     //GETTING SINGLE APPOINTMENT BY ID
-
     @GetMapping("/getAppointmentById/{id_appuntamento}")
     public Appointment getAppointmentById(AppointmentDTO appointmentDTO) {
         return appointmentFacade.getAppointmentById(appointmentDTO);

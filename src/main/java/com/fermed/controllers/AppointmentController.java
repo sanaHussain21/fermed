@@ -87,7 +87,7 @@ public class AppointmentController {
 
 
     //GETTING SINGLE APPOINTMENT BY ID
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @GetMapping("/getAppointmentById/{id_appuntamento}")
     public Appointment getAppointmentById(AppointmentDTO appointmentDTO) {
         return appointmentFacade.getAppointmentById(appointmentDTO);

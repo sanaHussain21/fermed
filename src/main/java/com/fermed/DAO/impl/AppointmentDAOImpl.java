@@ -160,22 +160,33 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         return patientsList;
     }
 
-    /*  @Override
-    public void updateAppointment(AppointmentDTO appointmentDTO) {
+    /*   //my code
+    @Override
+    public Appointment updateAppointment(Appointment appointment) {
         String updateQuery = "UPDATE  appuntamento " +
-                "SET time_date = '" + appointmentDTO.getTime_date() + "', payment= '" + appointmentDTO.getPayment() + "' " +
-                "WHERE id_appuntamento = " + appointmentDTO.getId_appuntamento();
+                "SET time_date = '" + appointment.getTime_date() + "', payment= '" + appointment.getPayment() + "' " +
+                "WHERE id_appuntamento = " + appointment.getId_appuntamento();
+
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
-            preparedStatement.executeUpdate();
-            System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)");
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)");
+            } else {
+                System.out.println("No appointment found with the provided ID : " +appointment.getId_appuntamento());
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            e.getMessage();
+            // Handle the exception appropriately
         }
+        return  appointment;
+    }
+
     }*/
 
-    @Override
+    /* CHATGBT CODE
+     @Override
     public Appointment updateAppointment(Appointment appointment) {
         String updateQuery = "UPDATE appuntamento " +
                 "SET time_date = ?, payment = ? " +
@@ -191,14 +202,45 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             if (rowsAffected > 0) {
                 System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)");
             } else {
-                System.out.println("No appointment found with the provided ID : " +appointment.getId_appuntamento());
+                System.out.println("No appointment found with the provided ID: " + appointment.getId_appuntamento());
             }
         } catch (SQLException e) {
             e.printStackTrace();
             // Handle the exception appropriately
         }
-        return  appointment;
+        return appointment;
     }
+    *
+    * */
+
+    @Override
+    public Appointment updateAppointment(int id_appuntamento, Appointment appointment) {
+        String updateQuery = "UPDATE appuntamento " +
+                "SET time_date = ?, payment = ? " +
+                "WHERE id_appuntamento = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.setString(1, appointment.getTime_date());
+            preparedStatement.setString(2, appointment.getPayment());
+            preparedStatement.setInt(3, id_appuntamento);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)");
+            } else {
+                System.out.println("No appointment found with the provided ID: " + id_appuntamento);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception appropriately
+        }
+        return appointment;
+    }
+
+
+
+
 
     @Override
     public Appointment getAppointmentById(Appointment appointment) {

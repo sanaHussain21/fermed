@@ -79,10 +79,10 @@ public class AppointmentController {
     }
 */
 
-//TESTING
-    @PutMapping(path = "/updateAppointment")
-    public Appointment updateAppointment(AppointmentDTO appointmentDTO) {
-    return appointmentFacade.updateAppointment(appointmentDTO);
+//CONTROLLER
+    @PutMapping(path = "/updateAppointment/{id_appuntamento}")
+    public Appointment updateAppointment(@PathVariable ("id_appuntamento") int id_appuntamento, AppointmentDTO appointmentDTO) {
+    return appointmentFacade.updateAppointment(id_appuntamento, appointmentDTO);
     }
 
 

@@ -63,13 +63,16 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         return appointmentService.getAllPatientsList();
     }
 
+
+
+
     @Override
-    public Appointment updateAppointment(AppointmentDTO appointmentDTO) {
+    public Appointment updateAppointment(int id_appuntamento, AppointmentDTO appointmentDTO) {
         AppointmentData appointmentData1 = new AppointmentData();
         appointmentData1.setId_appuntamento(appointmentDTO.getId_appuntamento());
         appointmentData1.setTime_date(appointmentDTO.getTime_date());
         appointmentData1.setPayment(appointmentDTO.getPayment());
-        return appointmentService.updateAppointment(appointmentData1);
+        return appointmentService.updateAppointment(id_appuntamento, appointmentData1);
     }
 
     @Override

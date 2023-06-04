@@ -49,13 +49,23 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public Appointment updateAppointment(AppointmentData appointmentData) {
+    public Appointment updateAppointment(int id_appuntamento, AppointmentData appointmentData) {
         Appointment appointment1 = new Appointment();
         appointment1.setId_appuntamento(appointmentData.getId_appuntamento());
         appointment1.setTime_date(appointmentData.getTime_date());
         appointment1.setPayment(appointmentData.getPayment());
-        return appointmentDAO.updateAppointment(appointment1);
+        return appointmentDAO.updateAppointment(id_appuntamento, appointment1);
     }
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public Appointment getAppointmentById(AppointmentData appointmentData) {

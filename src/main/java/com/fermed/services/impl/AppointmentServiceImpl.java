@@ -72,5 +72,10 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     }
 
+    @Override
+    public void deleteAppointmentById(int id_appuntamento) {
+        appointmentDAO.deleteAppointmentById(id_appuntamento);
+    }
+
 
 }

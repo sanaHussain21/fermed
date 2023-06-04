@@ -21,4 +21,6 @@ public interface AppointmentFacade {
 
 
     Appointment getAppointmentById(AppointmentDTO appointmentDTO);
+
+    void deleteAppointmentById(int id_appuntamento);
 }

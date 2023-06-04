@@ -273,6 +273,25 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
 return  appointment1;
     }
+
+    @Override
+    public void deleteAppointmentById(int id_appuntamento) {
+        String deleteQuery = "DELETE FROM appuntamento WHERE id_appuntamento = " + id_appuntamento;
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("APPOINTMENT DELETED SUCCESSFULLY! :)"+ id_appuntamento);
+            } else {
+                System.out.println("No appointment has been deleted with the provided ID : " +id_appuntamento);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+    }
 }
 
 

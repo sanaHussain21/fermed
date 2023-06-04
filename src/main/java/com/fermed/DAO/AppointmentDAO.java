@@ -21,4 +21,6 @@ public interface AppointmentDAO{
    Appointment updateAppointment(int  id_appuntamento, Appointment appointment);
 
     Appointment getAppointmentById(Appointment appointment);
+
+    void deleteAppointmentById(int id_appuntamento);
 }

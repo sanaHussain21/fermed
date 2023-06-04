@@ -67,6 +67,9 @@ public class AppointmentController {
     }
 
 
-    //delete appointment by id
-
+    //delete appointment by id   -> DELETE FROM appuntamento WHERE id_appuntamento = '161';
+    @DeleteMapping("/deleteAppointmentById/{id_appuntamento}")
+    public void deleteAppointmentById(@PathVariable("id_appuntamento") int id_appuntamento){
+        appointmentFacade.deleteAppointmentById(id_appuntamento);
+    }
    }

@@ -20,4 +20,6 @@ public interface AppointmentService {
 
 
     Appointment getAppointmentById(AppointmentData appointmentData);
+
+    void deleteAppointmentById(int id_appuntamento);
 }

@@ -86,6 +86,11 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         return appointmentService.getAppointmentById(appointmentData);
     }
 
+    @Override
+    public void deleteAppointmentById(int id_appuntamento) {
+        appointmentService.deleteAppointmentById(id_appuntamento);
+    }
+
 
 }
 

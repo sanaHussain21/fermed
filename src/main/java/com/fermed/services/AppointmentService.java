@@ -16,7 +16,7 @@ public interface AppointmentService {
     List<PatientDTO> getAllPatientsList();
 
 
-    void updateAppointment(AppointmentDTO appointmentDTO);
+    Appointment updateAppointment(AppointmentData appointmentData);
 
 
     Appointment getAppointmentById(AppointmentData appointmentData);

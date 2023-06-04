@@ -49,8 +49,12 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public void updateAppointment(AppointmentDTO appointmentDTO) {
-        appointmentDAO.updateAppointment(appointmentDTO);
+    public Appointment updateAppointment(AppointmentData appointmentData) {
+        Appointment appointment1 = new Appointment();
+        appointment1.setId_appuntamento(appointmentData.getId_appuntamento());
+        appointment1.setTime_date(appointmentData.getTime_date());
+        appointment1.setPayment(appointmentData.getPayment());
+        return appointmentDAO.updateAppointment(appointment1);
     }
 
     @Override

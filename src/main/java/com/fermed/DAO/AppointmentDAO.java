@@ -18,7 +18,7 @@ public interface AppointmentDAO{
     List<PatientDTO> getAllPatientsList();
 
 
-    void updateAppointment(AppointmentDTO appointmentDTO);
+   Appointment updateAppointment(Appointment appointment);
 
     Appointment getAppointmentById(Appointment appointment);
 }

@@ -228,8 +228,12 @@ public class AppointmentDAOImpl implements AppointmentDAO {
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)" + id_appuntamento);
+                System.out.println("time_date: " + appointment.getTime_date());
+                System.out.println("payment: " + appointment.getPayment());
             } else {
                 System.out.println("No appointment found with the provided ID: " + id_appuntamento);
+                System.out.println("time_date: " + appointment.getTime_date());
+                System.out.println("payment: " + appointment.getPayment());
             }
         } catch (SQLException e) {
             e.printStackTrace();

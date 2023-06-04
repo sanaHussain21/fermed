@@ -81,7 +81,7 @@ public class AppointmentController {
 
 //CONTROLLER
     @PutMapping(path = "/updateAppointment/{id_appuntamento}")
-    public Appointment updateAppointment(@PathVariable ("id_appuntamento") int id_appuntamento, AppointmentDTO appointmentDTO) {
+    public Appointment updateAppointment(@PathVariable ("id_appuntamento") int id_appuntamento, @RequestBody AppointmentDTO appointmentDTO) {
     return appointmentFacade.updateAppointment(id_appuntamento, appointmentDTO);
     }
 

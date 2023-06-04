@@ -81,8 +81,8 @@ public class AppointmentController {
 
 //TESTING
     @PutMapping(path = "/updateAppointment")
-    public void updateAppointment(@RequestBody AppointmentDTO appointmentDTO) {
-    appointmentFacade.updateAppointment(appointmentDTO);
+    public Appointment updateAppointment(AppointmentDTO appointmentDTO) {
+    return appointmentFacade.updateAppointment(appointmentDTO);
     }
 
 

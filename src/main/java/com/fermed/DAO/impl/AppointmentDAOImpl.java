@@ -160,7 +160,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         return patientsList;
     }
 
-    @Override
+    /*  @Override
     public void updateAppointment(AppointmentDTO appointmentDTO) {
         String updateQuery = "UPDATE  appuntamento " +
                 "SET time_date = '" + appointmentDTO.getTime_date() + "', payment= '" + appointmentDTO.getPayment() + "' " +
@@ -172,6 +172,30 @@ public class AppointmentDAOImpl implements AppointmentDAO {
         } catch (SQLException e) {
             e.printStackTrace();
             e.getMessage();
+        }
+    }*/
+
+    @Override
+    public void updateAppointment(AppointmentDTO appointmentDTO) {
+        String updateQuery = "UPDATE appuntamento " +
+                "SET time_date = ?, payment = ? " +
+                "WHERE id_appuntamento = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.setString(1, appointmentDTO.getTime_date());
+            preparedStatement.setString(2, appointmentDTO.getPayment());
+            preparedStatement.setInt(3, appointmentDTO.getId_appuntamento());
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)");
+            } else {
+                System.out.println("No appointment found with the provided ID : " +appointmentDTO.getId_appuntamento());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the exception appropriately
         }
     }
 

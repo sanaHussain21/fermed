@@ -227,7 +227,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)");
+                System.out.println("APPOINTMENT UPDATED SUCCESSFULLY! :)" + id_appuntamento);
             } else {
                 System.out.println("No appointment found with the provided ID: " + id_appuntamento);
             }

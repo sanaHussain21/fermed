@@ -17,7 +17,7 @@ public interface AppointmentFacade {
     List<PatientDTO> getAllPatientsList();
 
 
-    void updateAppointment(AppointmentDTO appointmentDTO);
+    Appointment updateAppointment(AppointmentDTO appointmentDTO);
 
 
     Appointment getAppointmentById(AppointmentDTO appointmentDTO);

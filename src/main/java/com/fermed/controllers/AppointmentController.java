@@ -66,6 +66,7 @@ public class AppointmentController {
         return appointmentFacade.getAppointmentById(appointmentDTO);
     }
 
+
+    //delete appointment by id
+
    }
-
-

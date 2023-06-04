@@ -213,6 +213,8 @@ public class AppointmentDAOImpl implements AppointmentDAO {
     *
     * */
 
+
+    //THIS IS WORKING PERFECTLY
     @Override
     public Appointment updateAppointment(int id_appuntamento, Appointment appointment) {
         String updateQuery = "UPDATE appuntamento " +

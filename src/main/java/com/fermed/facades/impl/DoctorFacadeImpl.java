@@ -42,19 +42,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
 
     @Override
     public Doctor loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception {
-        /*
-        String email = doctorLoginDTO.getEmail();
-        String password = doctorLoginDTO.getPassword();
-
-        if (email != null && password != null) {
-            doctorService.loginDoctor(email, password);
-        }else {
-            throw  new Exception("Email and Password are invalid :)");
-        }
-
-         */
-
-        //testing
+          //testing
         DoctorData doctorData1 = new DoctorData();
         doctorData1.setEmail(doctorLoginDTO.getEmail());
         doctorData1.setPassword(doctorLoginDTO.getPassword());

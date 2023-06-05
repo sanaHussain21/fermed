@@ -37,40 +37,76 @@ public class DoctorDaoImpl implements DoctorDAO {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
-
-
-
     }
 
-    @Override
-    public Doctor loginDoctor(Doctor doctor1)throws SQLException {
+    /*
+ //my login code
+@Override
+    public void doctorData(DoctorDTO doctorDTO) throws Exception {
 
         Connection connection;
         connection =  DatabaseDAO.getConnection();
 
+        //ArrayList doctorData1 = new ArrayList();
 
-        try{
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, username, email, password FROM doctor WHERE email = '"+doctor1.getEmail()+"' AND password = '"+doctor1.getPassword()+"' ");
-            ResultSet resultSet = preparedStatement.executeQuery();
-           while(resultSet.next()){
-               if (resultSet.getString(5).equals(doctor1.getEmail()) && resultSet.getString(6).equals(doctor1.getPassword())){
-                   System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
-                   System.out.println("DOCTOR EMAIL: "+doctor1.getEmail());
-                   System.out.println("DOCTOR PASSWORD: "+doctor1.getPassword());
+        try {
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, surname, gender, username ,email FROM doctor WHERE email = '"+doctorDTO.getEmail()+"' ");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+                //for testing
+            System.out.println("Email is : " + doctorDTO.getEmail());
+            System.out.println(resultSet.getString(1) + ",   " + resultSet.getString(2)+ ",   " + resultSet.getString(3)+ ",   " + resultSet.getString(4)+ ",   "+ resultSet.getString(5)+ "   ");
 
-                    System.out.println(resultSet.getString(1) + ",   " + resultSet.getString(2)+ ",   " + resultSet.getString(3)+ ",   " + resultSet.getString(4)+ ",   "+ resultSet.getString(5)+ "   ");
-
-
-               }else {
-                   System.out.println("DOCTOR LOGIN FAILED!!!");
-               }
-           }
-        }catch (SQLException e){
-            e.getMessage();
         }
+
+    } catch (Exception ex) {
+           ex.printStackTrace();
+
+        }
+
+    }
+*/
+
+    @Override
+    public Doctor loginDoctor(Doctor doctor1) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = DatabaseDAO.getConnection();
+
+            String query = "SELECT name, surname, gender, username, email, password FROM doctor WHERE email = ? AND password = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, doctor1.getEmail());
+            preparedStatement.setString(2, doctor1.getPassword());
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
+                System.out.println("DOCTOR EMAIL: " + doctor1.getEmail());
+                System.out.println("DOCTOR PASSWORD: " + doctor1.getPassword());
+
+                System.out.println(
+                        resultSet.getString(1) + ",   " +
+                                resultSet.getString(2) + ",   " +
+                                resultSet.getString(3) + ",   " +
+                                resultSet.getString(4) + ",   " +
+                                resultSet.getString(5) + "   "
+                );
+            } else {
+                System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS EMAIL NOT FOUND!!!"+doctor1.getEmail());
+                System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS  PASSWORD NOT FOUND!!!"+doctor1.getPassword());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return doctor1;
     }
+
+
 
 
 

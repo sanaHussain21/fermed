@@ -33,7 +33,7 @@ public class DoctorController {
 
         //creating API  TO GET DOCTOR BY EMAIL AND PASSWORD
 
-        @PostMapping(path = "/doctorLogin", produces = MediaType.APPLICATION_JSON_VALUE)
+        @GetMapping(path = "/doctorLogin", produces = MediaType.APPLICATION_JSON_VALUE)
         public Doctor loginDoctor(@Valid @RequestBody DoctorLoginDTO doctorLoginDTO) throws Exception {
         return doctorFacade.loginDoctor(doctorLoginDTO);
         }

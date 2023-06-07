@@ -67,7 +67,10 @@ public class DoctorDaoImpl implements DoctorDAO {
     }
 */
 
-    @Override
+    /*
+    * this code is woring but it is returing null to the whole object
+    *
+    * @Override
     public Doctor loginDoctor(Doctor doctor1) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -94,6 +97,50 @@ public class DoctorDaoImpl implements DoctorDAO {
                                 resultSet.getString(3) + ",   " +
                                 resultSet.getString(4) + ",   " +
                                 resultSet.getString(5) + "   "
+                );
+            } else {
+                System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS EMAIL NOT FOUND!!!"+doctor1.getEmail());
+                System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS  PASSWORD NOT FOUND!!!"+doctor1.getPassword());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return doctor1;
+    }
+
+    *
+    *
+    *
+    * */
+
+    @Override
+    public Doctor loginDoctor(Doctor doctor1) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = DatabaseDAO.getConnection();
+
+            String query = "SELECT name, surname, gender, username, email, password FROM doctor WHERE email = ? AND password = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, doctor1.getEmail());
+            preparedStatement.setString(2, doctor1.getPassword());
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
+                System.out.println("DOCTOR EMAIL: " + doctor1.getEmail());
+                System.out.println("DOCTOR PASSWORD: " + doctor1.getPassword());
+
+                System.out.println(
+                                resultSet.getString("name") + ",   " +
+                                resultSet.getString("surname") + ",   " +
+                                resultSet.getString("gender") + ",   " +
+                                resultSet.getString("username") + ",   " 
+
                 );
             } else {
                 System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS EMAIL NOT FOUND!!!"+doctor1.getEmail());

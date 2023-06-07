@@ -32,11 +32,19 @@ public class DoctorController {
 
 
         //creating API  TO GET DOCTOR BY EMAIL AND PASSWORD
-
-        @GetMapping(path = "/doctorLogin", produces = MediaType.APPLICATION_JSON_VALUE)
+    /*my code:
+    *  @GetMapping(path = "/doctorLogin", produces = MediaType.APPLICATION_JSON_VALUE)
         public Doctor loginDoctor(@Valid @RequestBody DoctorLoginDTO doctorLoginDTO) throws Exception {
         return doctorFacade.loginDoctor(doctorLoginDTO);
         }
+    *
+    *
+    * */
+
+    @PostMapping(path = "/doctorLogin", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Doctor loginDoctor(@Valid @RequestBody DoctorLoginDTO doctorLoginDTO) throws Exception {
+        return doctorFacade.loginDoctor(doctorLoginDTO);
+    }
 
 
 

@@ -115,7 +115,7 @@ public class DoctorDaoImpl implements DoctorDAO {
     * */
 
     @Override
-    public Doctor loginDoctor(Doctor doctor1) throws SQLException {
+    public Doctor loginDoctor(Doctor doctor) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -125,30 +125,31 @@ public class DoctorDaoImpl implements DoctorDAO {
 
             String query = "SELECT name, surname, gender, username, email, password FROM doctor WHERE email = ? AND password = ?";
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, doctor1.getEmail());
-            preparedStatement.setString(2, doctor1.getPassword());
+            preparedStatement.setString(1, doctor.getEmail());
+            preparedStatement.setString(2, doctor.getPassword());
 
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
                 System.out.println("DOCTOR LOGIN SUCCESSFULLY!!");
-                System.out.println("DOCTOR EMAIL: " + doctor1.getEmail());
-                System.out.println("DOCTOR PASSWORD: " + doctor1.getPassword());
+                System.out.println("DOCTOR EMAIL: " + doctor.getEmail());
+                System.out.println("DOCTOR PASSWORD: " + doctor.getPassword());
 
-                doctor1.setName(resultSet.getString("name"));
-                doctor1.setSurname(resultSet.getString("surname"));
-                doctor1.setGender(resultSet.getString("gender"));
-                doctor1.setUsername(resultSet.getString("username"));
+                doctor.setName(resultSet.getString("name"));
+                doctor.setSurname(resultSet.getString("surname"));
+                doctor.setGender(resultSet.getString("gender"));
+                doctor.setUsername(resultSet.getString("username"));
             } else {
-                System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS EMAIL NOT FOUND!!!"+doctor1.getEmail());
-                System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS  PASSWORD NOT FOUND!!!"+doctor1.getPassword());
+                System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS EMAIL NOT FOUND!!!"+doctor.getEmail());
+                System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS  PASSWORD NOT FOUND!!!"+doctor.getPassword());
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return doctor1;
+        return doctor;
     }
+
 
 
 

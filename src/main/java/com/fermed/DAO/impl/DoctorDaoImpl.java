@@ -135,13 +135,10 @@ public class DoctorDaoImpl implements DoctorDAO {
                 System.out.println("DOCTOR EMAIL: " + doctor1.getEmail());
                 System.out.println("DOCTOR PASSWORD: " + doctor1.getPassword());
 
-                System.out.println(
-                                resultSet.getString("name") + ",   " +
-                                resultSet.getString("surname") + ",   " +
-                                resultSet.getString("gender") + ",   " +
-                                resultSet.getString("username") + ",   " 
-
-                );
+                doctor1.setName(resultSet.getString("name"));
+                doctor1.setSurname(resultSet.getString("surname"));
+                doctor1.setGender(resultSet.getString("gender"));
+                doctor1.setUsername(resultSet.getString("username"));
             } else {
                 System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS EMAIL NOT FOUND!!!"+doctor1.getEmail());
                 System.out.println("DOCTOR LOGIN FAILED, DOCTOR WITH THIS  PASSWORD NOT FOUND!!!"+doctor1.getPassword());

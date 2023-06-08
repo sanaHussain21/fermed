@@ -5,7 +5,9 @@ import com.fermed.DTO.DoctorLoginDTO;
 import com.fermed.facades.DoctorFacade;
 import com.fermed.model.Doctor;
 import lombok.Data;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -45,6 +47,9 @@ public class DoctorController {
     public Doctor loginDoctor(@Valid @RequestBody DoctorLoginDTO doctorLoginDTO) throws Exception {
         return doctorFacade.loginDoctor(doctorLoginDTO);
     }
+
+
+
 
 
 

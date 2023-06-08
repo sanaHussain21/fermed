@@ -114,6 +114,8 @@ public class DoctorDaoImpl implements DoctorDAO {
     *
     * */
 
+
+/**/
     @Override
     public Doctor loginDoctor(Doctor doctor) throws SQLException {
         Connection connection = null;

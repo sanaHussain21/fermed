@@ -48,6 +48,8 @@ public class DoctorServiceImpl implements DoctorService {
          doctorDAO.createDoctor(doctor);
     }
 
+
+
     @Override
     public Doctor loginDoctor(DoctorData doctorData1) throws Exception {
 
@@ -58,6 +60,27 @@ public class DoctorServiceImpl implements DoctorService {
             return doctorDAO.loginDoctor(doctor1);
 
     }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //for testing purpose
     @Override

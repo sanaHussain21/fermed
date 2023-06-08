@@ -40,7 +40,9 @@ public class DoctorFacadeImpl implements DoctorFacade {
         doctorService.createDoctor(doctorData);
     }
 
-    @Override
+
+
+   @Override
     public Doctor loginDoctor(DoctorLoginDTO doctorLoginDTO) throws Exception {
           //testing
         DoctorData doctorData1 = new DoctorData();
@@ -49,6 +51,23 @@ public class DoctorFacadeImpl implements DoctorFacade {
         return doctorService.loginDoctor(doctorData1);
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //for testing purpose
     @Override

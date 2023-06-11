@@ -26,4 +26,5 @@ public class AppointmentData {
     boolean isBeingNotified;
     boolean notifiedByEmail;
     boolean notifiedBySMS;
+    String status;
 }

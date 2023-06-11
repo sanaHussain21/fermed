@@ -31,6 +31,7 @@ public class AppointmentDTO {
     boolean notifiedByEmail;
     boolean notifiedBySMS;
 
+    String status;
     public String getTime_date() {
         return time_date;
     }

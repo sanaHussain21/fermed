@@ -20,6 +20,7 @@ public class Appointment {
     boolean isBeingNotified;
     boolean notifiedByEmail;
     boolean notifiedBySMS;
+    String status;
 
 
 }

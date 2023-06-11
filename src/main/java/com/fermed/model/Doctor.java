@@ -25,6 +25,7 @@ public class Doctor {
 
 
 
+
 @Override
     public String toString(){
         return "Doctor [id_doctor=" + id_doctor + ", name=" + name + ", surname=" + surname + ", gender=" + gender + ", id_type_of_doctor=" + id_type_of_doctor + ", insurance_id_insurance=" + insurance_id_insurance + ", email=" + email + ", passowrd=" + password + ", username=" + username +"]";

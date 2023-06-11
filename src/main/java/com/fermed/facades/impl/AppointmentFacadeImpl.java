@@ -50,6 +50,7 @@ public class AppointmentFacadeImpl implements AppointmentFacade {
         appointmentData.setBeingNotified(appointmentDTO.isBeingNotified());
         appointmentData.setNotifiedByEmail(appointmentDTO.isNotifiedByEmail());
         appointmentData.setNotifiedBySMS(appointmentDTO.isNotifiedBySMS());
+
         appointmentService.createAppointment(appointmentData);
     }
 

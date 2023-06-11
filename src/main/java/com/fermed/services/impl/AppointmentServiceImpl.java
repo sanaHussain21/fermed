@@ -34,6 +34,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointment.setBeingNotified(appointmentData.isBeingNotified());
         appointment.setNotifiedByEmail(appointmentData.isNotifiedByEmail());
         appointment.setNotifiedBySMS(appointmentData.isNotifiedBySMS());
+
         appointmentDAO.createAppointment(appointment);
     }
 

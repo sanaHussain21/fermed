@@ -294,10 +294,15 @@ return  appointment1;
     }
 }
 
+ try {
+         PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+         preparedStatement.executeUpdate();
+         System.out.println("APPOINTMENT CREATED SUCCESSFULLY! :)");
+         } catch (SQLException e) {
+         e.printStackTrace();
+         }
 
 
 
 
 
-
- 

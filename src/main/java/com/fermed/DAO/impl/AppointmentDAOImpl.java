@@ -298,7 +298,20 @@ return  appointment1;
 
 
 
-        
+
+        try {
+                PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery);
+
+                int rowsAffected = preparedStatement.executeUpdate();
+                if (rowsAffected > 0) {
+                System.out.println("APPOINTMENT DELETED SUCCESSFULLY! :)"+ id_appuntamento);
+                } else {
+                System.out.println("No appointment has been deleted with the provided ID : " +id_appuntamento);
+                }
+                } catch (SQLException e) {
+                e.printStackTrace();
+
+                }
 
 
 

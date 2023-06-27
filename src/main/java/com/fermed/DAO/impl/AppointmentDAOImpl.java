@@ -292,9 +292,7 @@ return  appointment1;
 
         }
     }
-} 
-
-
+}
 
 try {
         PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery);

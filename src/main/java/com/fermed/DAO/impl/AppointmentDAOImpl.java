@@ -287,9 +287,14 @@ return  appointment1;
             } else {
                 System.out.println("No appointment has been deleted with the provided ID : " +id_appuntamento);
             }
+
+            
         } catch (SQLException e) {
             e.printStackTrace();
 
         }
     }
 }
+
+
+
